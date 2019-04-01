@@ -29,6 +29,6 @@ public class GameOverImages
 		g.drawString("Game Over", DIMX, DIMY-DIMFONT2);
 		
 		g.setFont(FONT2);
-		g.drawString("Scores: " + GameScores.scores , DIMX+2*DIMFONT2, DIMY+DIMFONT2);																												//score
+		g.drawString("Scores: " + GameScores.scores , DIMX+2*DIMFONT2, DIMY+DIMFONT2);
 	}
 }

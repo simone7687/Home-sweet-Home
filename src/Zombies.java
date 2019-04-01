@@ -133,7 +133,7 @@ public class Zombies implements Runnable
 	{
 		for(int i=0; i<zombieSpawnNumber; i++)
 		{
-			if(l.get(i).life>0)
+			if(l.get(i).life > 0)
 			{
 				return false;
 			}
@@ -191,11 +191,11 @@ public class Zombies implements Runnable
 			//spawn
 			if(i >= zombieSpawnNumber)
 			{
-				if(endLevel())
+				if(endLevel())																																//IL LIVELLO FINISCE PRIMA CHE GLI TUTTI GLI ZOMBIE SONO MORTI
 				{
 					deleteNodes(zombieSpawnNumber, l);
 					System.out.println("Fine livello!");
-					i=0;
+					i = 0;
 					try {
 						Thread.sleep(spawnTime);
 					} catch (InterruptedException e) {

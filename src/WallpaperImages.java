@@ -28,32 +28,30 @@ public class WallpaperImages
 	private final Color HOUSE_COLOR = new Color(255, 220, 0);
 	private final GradientPaint SKY_COLOR = new GradientPaint (0, 0, Color.cyan, GameWindows.windowDimension.width, GameWindows.windowDimension.height, Color.blue);
 	// testo
-	private final Font FONT = new Font("Helvetica", Font.BOLD, 20);
+	private final Font FONT = new Font("Helvetica", Font.BOLD, 20);																														// modificare
 	
 	public void paint(Graphics g, boolean day)
 	{	
-		// grafica in 2d
-		Graphics2D g2d = (Graphics2D) g;
-		g.setFont(FONT);
 		// strada
 		g.setColor(Color.gray);
 		g.fillRect(0, 0, GameWindows.windowDimension.width, GameWindows.windowDimension.height);
 		g.setColor(Color.black);
 		g.drawRect(0, 0, GameWindows.windowDimension.width, GameWindows.windowDimension.height);
 		// cielo
+		Graphics2D g2d = (Graphics2D) g;
 		if(day)
 		{
 			g2d.setPaint(SKY_COLOR);
-			g2d.fillRect(0,0, GameWindows.windowDimension.width, DIM200);
+			g2d.fillRect(0, 0, GameWindows.windowDimension.width, DIM200);
 			g.setColor(Color.yellow);
-			g.fillOval(DIM50/2,DIM50/2, DIM50, DIM50);
+			g.fillOval(DIM50/2, DIM50/2, DIM50, DIM50);
 		}
 		else
 		{
 			g.setColor(Color.black);
-			g.fillRect(0,0, GameWindows.windowDimension.width, DIM200);
+			g.fillRect(0, 0, GameWindows.windowDimension.width, DIM200);
 			g.setColor(Color.white);
-			g.fillOval(DIM50/2,DIM50/2, DIM50, DIM50);
+			g.fillOval(DIM50/2, DIM50/2, DIM50, DIM50);
 		}
 		// casa
 		g.setColor(HOUSE_COLOR);
@@ -62,9 +60,9 @@ public class WallpaperImages
 		g.drawRect(0+DIM200, 0, GameWindows.windowDimension.width-DIM200*2, DIM200);
 		// porta
 		g.setColor(WOOD_COLOR);
-		g.fillRect(DIM200*3,DIM50, DIM50*2,DIM50*3);
+		g.fillRect(DIM200*3, DIM50, DIM50*2,DIM50*3);
 		g.setColor(Color.black);
-		g.drawRect(DIM200*3,DIM50, DIM50*2,DIM50*3);
+		g.drawRect(DIM200*3, DIM50, DIM50*2,DIM50*3);
 		if(Players.life < 1)
 		{
 			g.fillRect(DIM200*3, DIM50, DIM50*2, DIM50*3);
@@ -79,7 +77,7 @@ public class WallpaperImages
 		}
 		else if(Players.life > 90)
 		{
-			g.drawOval(DIM200*3+DIM50+DIM10*2,+DIM50+DIM50*3/2, DIM10*3/2, DIM10*3/2);
+			g.drawOval(DIM200*3+DIM50+DIM10*2, DIM50+DIM50*3/2, DIM10*3/2, DIM10*3/2);
 		}
 		if(Players.life > 100)
 		{
@@ -97,37 +95,38 @@ public class WallpaperImages
 		}
 		// finestra
 		g.setColor(WOOD_COLOR);
-		g.fillRect(DIM200*2,DIM50, DIM50*2-DIM10,DIM50*2-DIM10);
+		g.fillRect(DIM200*2, DIM50, DIM50*2-DIM10, DIM50*2-DIM10);
 		g.setColor(Color.black);
-		g.drawRect(DIM200*2,DIM50, DIM50*2-DIM10,DIM50*2-DIM10);
+		g.drawRect(DIM200*2, DIM50, DIM50*2-DIM10, DIM50*2-DIM10);
 		if(day)
 		{
 			g2d.setPaint(SKY_COLOR);
-			g2d.fillRect(DIM200*2+DIM10,DIM50+DIM10, DIM50*2-DIM10*3,DIM50*2-DIM10*3);
+			g2d.fillRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3);
 			g.setColor(Color.black);
-			g.drawRect(DIM200*2+DIM10,DIM50+DIM10, DIM50*2-DIM10*3,DIM50*2-DIM10*3);
+			g.drawRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3);
 		}
 		else
 		{
 			g.setColor(Color.black);
-			g.fillRect(DIM200*2+DIM10,DIM50+DIM10, DIM50*2-DIM10*3,DIM50*2-DIM10*3);
+			g.fillRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3);
 		}
-		// istruzioni
+		// testo
+		g.setFont(FONT);
 		if(day)
 		{
 			g.setColor(Color.white);
 			g.drawString("Ciao! non far entrare nessuno in casa", DIM50,DIM200+DIM50);
 			g.drawString("Di giorno e' tranquillo, ma di notte...", DIM50,DIM200+DIM50+40);
 			g.drawString("Muoviti con: W(su)  D(giu)  A(dx)  S(sx)", DIM50,DIM200+DIM50+80);
-			g.drawString("Utilizza il martello con: ENTER, per colpire gli zombi o riparare la porta", DIM50,DIM200+DIM50+120);
-			g.drawString("Se sei pronto clicca: SPACE", DIM200*2+DIM50,DIM200*3+DIM50);
+			g.drawString("Utilizza il martello con: ENTER, per colpire gli zombi o riparare la porta", DIM50, DIM200+DIM50+120);
+			g.drawString("Se sei pronto clicca: SPACE", DIM200*2+DIM50, DIM200*3+DIM50);
 		}
 		else
 		{
 			g.setColor(Color.green);
-			g.drawString("Porta: "+Players.life, DIM200*3,DIM50-DIM10);
-			g.drawString("Punteggio: "+GameScores.scores, DIM200+DIM50,DIM50-DIM10);
-			g.drawString("Livello: "+GameLevels.level, DIM200*4+DIM50*2,DIM50-DIM10);
+			g.drawString("Porta: " + Players.life, DIM200*3, DIM50-DIM10);																											// da togliere
+			g.drawString("Punteggio: " + GameScores.scores, DIM200+DIM50, DIM50-DIM10);																								// scrivere Scores
+			g.drawString("Livello: " + GameLevels.level, DIM200*4+DIM50*2, DIM50-DIM10);
 		}
 	}
 }

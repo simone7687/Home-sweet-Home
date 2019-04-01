@@ -38,7 +38,7 @@ public class Main
 		}
 		else
 		{
-			System.out.println("Chiusura!");
+			System.out.println("Chiusura!");																													//quando si ciude la finestra con la x stampare Chiusura!
 		}
 	}
 }

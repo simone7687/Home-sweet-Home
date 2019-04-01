@@ -12,11 +12,11 @@ public class Players extends PlayerImages
 {
 	static String name;
 	static int life = 100;
-	//corri
+	// corri
 	private int speed = (int) (30*GameWindows.dimension);
 	private Point coordinates = new Point((GameWindows.windowDimension.width/2), (int) (GameWindows.windowDimension.height/2));
 	boolean right, left, up, down, run;
-	//attacco
+	// attacco
 	private final int HIT_REPAINT_TIME_MAX = 50;
 	private int power = 10;
 	private boolean hit;
@@ -49,12 +49,12 @@ public class Players extends PlayerImages
 		else
 		{
 			this.hit = hit;
-			Zombies.damage(right, coordinates.x, coordinates.y, power);	//danno
+			Zombies.damage(right, coordinates.x, coordinates.y, power);	// danno
 			setHit(hit);
 			currentHit = true;
 		}
 		try {
-			Thread.sleep(HIT_REPAINT_TIME_MAX);	// per non far diventare il player un fantasma
+			Thread.sleep(HIT_REPAINT_TIME_MAX);	// per non far diventare il player un fantasma																	// rivedere: adesso e' inutile
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,7 +68,7 @@ public class Players extends PlayerImages
 	 */
 	void walk(boolean walk)
 	{
-		setRight(right);		//per gli hit
+		setRight(right);	// per gli hit
 		if(walk)
 		{
 			if(right && GameWindows.windowDimension.width>coordinates.x+speed)

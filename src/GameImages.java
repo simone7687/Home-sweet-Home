@@ -37,7 +37,7 @@ public class GameImages extends Panel implements Runnable
 		repaintThread.start();
 	}
 	
-	//http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1
+	// http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1
 	public void update(Graphics g)
 	{
 	       paint(g);
@@ -55,7 +55,7 @@ public class GameImages extends Panel implements Runnable
 		else
 		{
 			gameOver.paint(bf.getGraphics());
-										// aggiungere bottone per rigiocare
+																																														// aggiungere bottone per rigiocare
 		}
 		g.drawImage(bf,0,0,null);
 	}
@@ -69,7 +69,7 @@ public class GameImages extends Panel implements Runnable
 		boolean i = true;	// on/off
 		while(Players.life > 0)
 		{
-			// corri on/off
+			// corri on/off																																									// HA DEI LAG
 			player.walk(i);
 			zombie.walk(i);
 			if(i)
@@ -88,7 +88,6 @@ public class GameImages extends Panel implements Runnable
 				}
 			repaint();
 		}
-		
 		GameScores.printScore();
 		System.out.println("Game Over");
 	}

@@ -9,7 +9,7 @@
 public class GameLevels
 {
 	static int level = 1;
-	private static int levelSpawnMultiplier = 4;		// ogni levelSpawnMultiplier livelli si aggiunge un zombie in ogni spawn
+	private static int levelSpawnMultiplier = 4;	// ogni levelSpawnMultiplier livelli si aggiunge un zombie in ogni spawn
 	private static int zombieStartNumber = 6;
 	
 	GameLevels()
