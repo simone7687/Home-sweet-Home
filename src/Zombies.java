@@ -175,6 +175,12 @@ public class Zombies implements Runnable
 		boolean spawn = true;
 		while(spawn)	//non va bene for, problemi con la pausa
 		{
+			// da spostarli in una finzione termina gioco, che setta i valori predefiniti
+			if(Players.life <= 0)
+			{
+				Thread.interrupted();
+			}
+			
 			try {
 				Thread.sleep(spawnTime);
 			} catch (InterruptedException e) {
