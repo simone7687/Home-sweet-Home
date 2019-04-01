@@ -14,7 +14,7 @@ public class PlayerImages
 {
 	private int x, y;
 	private boolean right, run, hit;
-	//dimensioni costanti
+	// dimensioni costanti
 	private final double dimension = GameWindows.dimension;
 	private final int DIM5 = (int) (5*dimension);
 	private final int DIM10 = (int) (10*dimension);
@@ -66,7 +66,7 @@ public class PlayerImages
 	{	
 		if(right)
 		{
-			//gamba 2 piano
+			// gamba 2 piano
 			if(run)
 			{
 				g.setColor(Color.blue);
@@ -81,24 +81,24 @@ public class PlayerImages
 				g.setColor(Color.black);
 				g.drawOval(x,-DIM25*2+y, DIM25,DIM40);
 			}
-			//corpo
+			// corpo
 			g.setColor(Color.red);
 			g.fillOval(-DIM25+x,-DIM25*4+y, DIM25*2,DIM40+DIM35);
 			g.setColor(Color.black);
 			g.drawOval(-DIM25+x,-DIM25*4+y, DIM25*2,DIM40+DIM35);
 			if(run)	
 			{
-				//scarpa 2 piano
+				// scarpa 2 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(-DIM35+x,-DIM40-DIM5+y, DIM10,DIM25);
 				g.setColor(Color.black);
 				g.drawOval(-DIM35+x,-DIM40-DIM5+y, DIM10,DIM25);
-				//gamba 1 piano
+				// gamba 1 piano
 				g.setColor(Color.blue);
 				g.fillOval(-DIM10+x,-DIM40-DIM5+y, DIM40,DIM25);
 				g.setColor(Color.black);
 				g.drawOval(-DIM10+x,-DIM40-DIM5+y, DIM40,DIM25);
-				//scarpa 1� piano
+				// scarpa 1 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(DIM25+x,-DIM25*2+y, DIM10,DIM25);
 				g.setColor(Color.black);
@@ -106,23 +106,23 @@ public class PlayerImages
 			}
 			else
 			{
-				//scarpa 2� piano
+				// scarpa 2 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(DIM5+x,-DIM15+y, DIM25,DIM10);
 				g.setColor(Color.black);
 				g.drawOval(DIM5+x,-DIM15+y, DIM25,DIM10);
-				//gamba 1� piano
+				// gamba 1 piano
 				g.setColor(Color.blue);
 				g.fillOval(-DIM10+x,-DIM40-DIM5+y, DIM25,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(-DIM10+x,-DIM40-DIM5+y, DIM25,DIM40);
-				//scarpa 1� piano
+				// scarpa 1 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(-DIM5+x,-DIM10+y, DIM25,DIM10);
 				g.setColor(Color.black);
 				g.drawOval(-DIM5+x,-DIM10+y, DIM25,DIM10);
 			}
-			//testa
+			// testa
 			g.setColor(Color.pink);
 			g.fillOval(-DIM15+x,-DIM130+y, DIM40,DIM40);
 			g.setColor(Color.blue);
@@ -136,7 +136,7 @@ public class PlayerImages
 			g.fillArc(DIM10+x,-DIM130+DIM15+y, DIM10,DIM10, 180,180);	// occhio
 			if(hit)
 			{
-				//arma
+				// arma
 				g.setColor(Color.orange);
 				g.fillOval(DIM25+x,DIM5-DIM130+y, DIM10,DIM40+DIM25);
 				g.setColor(Color.black);
@@ -146,7 +146,7 @@ public class PlayerImages
 				g.setColor(Color.black);
 				g.fillRect(DIM15+x,DIM5-DIM130+y, DIM35,DIM10*2);	// ascia
 				g.drawOval(DIM25+x,-DIM35*2+y, DIM10,DIM10);
-				//braccio
+				// braccio
 				g.setColor(Color.blue);
 				g.fillOval(x,-DIM40*2-DIM5+y, DIM35,DIM15);
 				g.setColor(Color.black);
@@ -158,7 +158,7 @@ public class PlayerImages
 			}
 			else
 			{
-				//arma
+				// arma
 				g.setColor(Color.orange);	
 				g.fillOval(-DIM15+x,-DIM40-DIM15+y, DIM40+DIM25,DIM10);
 				g.setColor(Color.black);	
@@ -168,7 +168,7 @@ public class PlayerImages
 				g.setColor(Color.black);	
 				g.fillRect(DIM35+x,-DIM40-DIM25+y, DIM10*2,DIM15*2);	// ascia
 				g.drawOval(-DIM15+x,-DIM40-DIM15+y, DIM10,DIM10);
-				//braccio
+				// braccio
 				g.setColor(Color.blue);
 				g.fillOval(-DIM5+x,-DIM35*2-DIM10+y, DIM15,DIM25+DIM10);
 				g.setColor(Color.black);
@@ -181,7 +181,7 @@ public class PlayerImages
 		}
 		else
 		{
-			//gamba 2� piano
+			// gamba 2 piano
 			if(run)
 			{
 				g.setColor(Color.blue);
@@ -196,24 +196,24 @@ public class PlayerImages
 				g.setColor(Color.black);
 				g.drawOval(-DIM25+x,-DIM25*2+y, DIM25,DIM40);
 			}
-			//corpo
+			// corpo
 			g.setColor(Color.red);
 			g.fillOval(-DIM25+x,-DIM25*4+y, DIM25*2,DIM40+DIM35);
 			g.setColor(Color.black);
 			g.drawOval(-DIM25+x,-DIM25*4+y, DIM25*2,DIM40+DIM35);
 			if(run)
 			{
-				//scarpa 2� piano
+				// scarpa 2 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(-DIM35+x,-DIM40-DIM15+y, DIM10,DIM25);
 				g.setColor(Color.black);
 				g.drawOval(-DIM35+x,-DIM40-DIM15+y, DIM10,DIM25);
-				//gamba 1� piano
+				// gamba 1 piano
 				g.setColor(Color.blue);
 				g.fillOval(-DIM10+x,-DIM35-DIM10+y, DIM40,DIM25);
 				g.setColor(Color.black);
 				g.drawOval(-DIM10+x,-DIM35-DIM10+y, DIM40,DIM25);
-				//scarpa 1� piano
+				// scarpa 1 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(DIM25+x,-DIM40+y, DIM10,DIM25);
 				g.setColor(Color.black);
@@ -221,23 +221,23 @@ public class PlayerImages
 			}
 			else
 			{
-				//scarpa 2� piano
+				// scarpa 2 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(-DIM15*2+x,-DIM15+y, DIM25,DIM10);
 				g.setColor(Color.black);
 				g.drawOval(-DIM15*2+x,-DIM15+y, DIM25,DIM10);
-				//gamba 1� piano
+				// gamba 1 piano
 				g.setColor(Color.blue);
 				g.fillOval(-DIM15+x,-DIM35-DIM10+y, DIM25,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(-DIM15+x,-DIM35-DIM10+y, DIM25,DIM40);
-				//scarpa 1� piano
+				// scarpa 1 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(-DIM10*2+x,-DIM10+y, DIM25,DIM10);
 				g.setColor(Color.black);
 				g.drawOval(-DIM10*2+x,-DIM10+y, DIM25,DIM10);
 			}
-			//testa
+			// testa
 			g.setColor(Color.pink);
 			g.fillOval(-DIM25+x,-DIM130+y, DIM40,DIM40);
 			g.setColor(Color.blue);
@@ -251,7 +251,7 @@ public class PlayerImages
 			g.fillArc(-DIM15+x,-DIM130+DIM15+y, DIM10,DIM10, 180,180);		// occhio
 			if(hit)
 			{
-				//arma
+				// arma
 				g.setColor(Color.orange);	
 				g.fillOval(-DIM35+x,DIM5-DIM130+y, DIM10,DIM40+DIM25);
 				g.setColor(Color.black);	
@@ -261,7 +261,7 @@ public class PlayerImages
 				g.setColor(Color.black);	
 				g.fillRect(-DIM35-DIM10+x,DIM5-DIM130+y, DIM35,DIM10*2);	// ascia
 				g.drawOval(-DIM35+x,-DIM35*2+y, DIM10,DIM10);
-				//braccio
+				// braccio
 				g.setColor(Color.blue);
 				g.fillOval(-DIM35+x,DIM15*3+y-DIM130, DIM25+DIM10,DIM15);
 				g.setColor(Color.black);
@@ -273,7 +273,7 @@ public class PlayerImages
 			}
 			else
 			{
-				//arma
+				// arma
 				g.setColor(Color.orange);	
 				g.fillOval(-DIM25*2+x,-DIM40-DIM15+y, DIM40+DIM25,DIM10);
 				g.setColor(Color.black);	
@@ -283,7 +283,7 @@ public class PlayerImages
 				g.setColor(Color.black);	
 				g.fillRect(-DIM25*2+x,DIM40+DIM25+y-DIM130, DIM10*2,DIM15*2);	// ascia
 				g.drawOval(DIM5+x,-DIM40-DIM15+y, DIM10,DIM10);
-				//braccio
+				// braccio
 				g.setColor(Color.blue);
 				g.fillOval(-DIM10+x,-DIM40*2+y, DIM15,DIM25+DIM10);
 				g.setColor(Color.black);

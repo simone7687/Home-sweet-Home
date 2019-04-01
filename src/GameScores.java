@@ -20,7 +20,7 @@ public class GameScores
 	GameScores()
 	{
 		System.out.println("Creazione dello score...");
-		scores = 0;
+		scores=0;
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class GameScores
 	 */
 	static void addScoreLevel(int level)
 	{
-		scores+=scoreLevel*level;
+		scores += scoreLevel*level;
 	}
 	/**
 	 * Il metodo addScoreLevel ha la funzione di:
@@ -48,14 +48,14 @@ public class GameScores
 	{
 	    try {
 	    	String path = new File(".").getCanonicalPath().toString();
-			BufferedWriter f = new BufferedWriter(new FileWriter(path + "\\score.txt", true));
-			f.write(Players.name+": "+GameScores.scores);
+	    	BufferedWriter f = new BufferedWriter(new FileWriter(path + "\\score.txt", true));
+			f.write(Players.name + ": " + GameScores.scores);
 			f.write(System.getProperty("line.separator"));
 			f.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    System.out.println("Punteggio totalizzato: "+GameScores.scores);
+	    System.out.println("Punteggio totalizzato: " + GameScores.scores);
 	}
 }

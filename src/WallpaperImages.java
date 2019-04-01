@@ -19,83 +19,83 @@ public class WallpaperImages
 		System.out.println("Creazione sfondo...");
 	}
 	
-	//dimensioni costanti
+	// dimensioni costanti
 	private final int DIM10 = (int) (10*GameWindows.dimension);
 	private final int DIM50 = (int) (50*GameWindows.dimension);
-	static final int DIM200 = (int) (200*GameWindows.dimension);	//utilizato anche in player
-	//colori 
+	static final int DIM200 = (int) (200*GameWindows.dimension);	// utilizato anche in player
+	// colori 
 	private final Color WOOD_COLOR = new Color(250, 131, 0);
 	private final Color HOUSE_COLOR = new Color(255, 220, 0);
-	private final GradientPaint SKY_COLOR = new GradientPaint (0, 0, Color.cyan, GameWindows.windowDimension.width,GameWindows.windowDimension.height, Color.blue);
-	//testo
+	private final GradientPaint SKY_COLOR = new GradientPaint (0, 0, Color.cyan, GameWindows.windowDimension.width, GameWindows.windowDimension.height, Color.blue);
+	// testo
 	private final Font FONT = new Font("Helvetica", Font.BOLD, 20);
 	
 	public void paint(Graphics g, boolean day)
 	{	
-		//grafica in 2d
+		// grafica in 2d
 		Graphics2D g2d = (Graphics2D) g;
 		g.setFont(FONT);
-		//strada
+		// strada
 		g.setColor(Color.gray);
-		g.fillRect(0,0, GameWindows.windowDimension.width,GameWindows.windowDimension.height);
+		g.fillRect(0, 0, GameWindows.windowDimension.width, GameWindows.windowDimension.height);
 		g.setColor(Color.black);
-		g.drawRect(0,0, GameWindows.windowDimension.width,GameWindows.windowDimension.height);
-		//cielo
+		g.drawRect(0, 0, GameWindows.windowDimension.width, GameWindows.windowDimension.height);
+		// cielo
 		if(day)
 		{
 			g2d.setPaint(SKY_COLOR);
-			g2d.fillRect(0,0, GameWindows.windowDimension.width,DIM200);
+			g2d.fillRect(0,0, GameWindows.windowDimension.width, DIM200);
 			g.setColor(Color.yellow);
 			g.fillOval(DIM50/2,DIM50/2, DIM50, DIM50);
 		}
 		else
 		{
 			g.setColor(Color.black);
-			g.fillRect(0,0, GameWindows.windowDimension.width,DIM200);
+			g.fillRect(0,0, GameWindows.windowDimension.width, DIM200);
 			g.setColor(Color.white);
 			g.fillOval(DIM50/2,DIM50/2, DIM50, DIM50);
 		}
-		//casa
+		// casa
 		g.setColor(HOUSE_COLOR);
-		g.fillRect(0+DIM200,0, GameWindows.windowDimension.width-DIM200*2,DIM200);
+		g.fillRect(0+DIM200, 0, GameWindows.windowDimension.width-DIM200*2, DIM200);
 		g.setColor(Color.black);
-		g.drawRect(0+DIM200,0, GameWindows.windowDimension.width-DIM200*2,DIM200);
-		//porta
+		g.drawRect(0+DIM200, 0, GameWindows.windowDimension.width-DIM200*2, DIM200);
+		// porta
 		g.setColor(WOOD_COLOR);
 		g.fillRect(DIM200*3,DIM50, DIM50*2,DIM50*3);
 		g.setColor(Color.black);
 		g.drawRect(DIM200*3,DIM50, DIM50*2,DIM50*3);
-		if(Players.life<1)
+		if(Players.life < 1)
 		{
 			g.fillRect(DIM200*3, DIM50, DIM50*2, DIM50*3);
 		}
-		else if(Players.life<30)
+		else if(Players.life < 30)
 		{
 			g.fillRect(DIM200*3, DIM50, DIM50*2, DIM50*2);
 		}
-		else if(Players.life<70)
+		else if(Players.life < 70)
 		{
 			g.fillRect(DIM200*3, DIM50, DIM50*2, DIM50);
 		}
-		else if(Players.life>90)
+		else if(Players.life > 90)
 		{
 			g.drawOval(DIM200*3+DIM50+DIM10*2,+DIM50+DIM50*3/2, DIM10*3/2, DIM10*3/2);
 		}
-		if(Players.life>100)
+		if(Players.life > 100)
 		{
 			g.setColor(WOOD_COLOR);
 			g.fillRect(DIM200*3-DIM50/2, DIM50*3/2, DIM200-DIM50, DIM50/2);
 			g.setColor(Color.black);
 			g.drawRect(DIM200*3-DIM50/2, DIM50*3/2, DIM200-DIM50, DIM50/2);
 		}
-		if(Players.life>149)
+		if(Players.life > 149)
 		{
 			g.setColor(WOOD_COLOR);
 			g.fillRect(DIM200*3-DIM50/2, DIM50*3, DIM200-DIM50, DIM50/2);
 			g.setColor(Color.black);
 			g.drawRect(DIM200*3-DIM50/2, DIM50*3, DIM200-DIM50, DIM50/2);
 		}
-		//finestra
+		// finestra
 		g.setColor(WOOD_COLOR);
 		g.fillRect(DIM200*2,DIM50, DIM50*2-DIM10,DIM50*2-DIM10);
 		g.setColor(Color.black);
@@ -112,7 +112,7 @@ public class WallpaperImages
 			g.setColor(Color.black);
 			g.fillRect(DIM200*2+DIM10,DIM50+DIM10, DIM50*2-DIM10*3,DIM50*2-DIM10*3);
 		}
-		//istruzioni
+		// istruzioni
 		if(day)
 		{
 			g.setColor(Color.white);

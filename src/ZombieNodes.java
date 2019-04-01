@@ -3,7 +3,7 @@ import java.util.Random;
 
 /**
  * 
- * La classe ZombieNodes è un nodo che contiene:
+ * La classe ZombieNodes e' un nodo che contiene:
  * la posizione e i valori per la gestione grafica di uno Zombie.
  * @author 20024652
  * @version 1.0
@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class ZombieNodes extends ZombieImages
 {
-	int life= 100;
+	int life = 100;
 	Point coordinates = new Point();
 	ZombieNodes next;
 	boolean right, left, up, down, run;

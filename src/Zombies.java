@@ -16,15 +16,16 @@ public class Zombies implements Runnable
 	private final int SPEED = (int) (15*GameWindows.dimension);
 	static Thread thread;
 	private static LinkedList<ZombieNodes> l;
-	//spawn
+	// spawn
 	static int zombieSpawnNumber;
 	private static int zombieCurrentNumber;
 	static int n_zombie_spawn_multiplier = 1;
-	static int spawnTime= 10000;
+	static int spawnTime = 10000;
 	
 	Zombies()
 	{
 		System.out.println("Creazione zombie...");
+		
 		l=new LinkedList<ZombieNodes>();
 		thread = new Thread(this);
 	}
@@ -37,7 +38,7 @@ public class Zombies implements Runnable
 	 */
 	private void addNodes(int nodeAddNumber, LinkedList<ZombieNodes> l)
 	{
-		for(int i=0;i<nodeAddNumber;i++)
+		for(int i=0; i<nodeAddNumber; i++)
 		{
 			l.add(new ZombieNodes());
 		}
@@ -49,37 +50,37 @@ public class Zombies implements Runnable
 	 */
 	void walk(boolean walk)
 	{
-		for(int i=0;i<zombieCurrentNumber;i++)
+		for(int i=0; i<zombieCurrentNumber; i++)
 		{
 			if(walk)
 			{
 				l.get(i).run=true;
-				if(l.get(i).coordinates.y>220*GameWindows.dimension||l.get(i).coordinates.x<570*GameWindows.dimension||l.get(i).coordinates.x>730*GameWindows.dimension) 				//da rivedere
+				if(l.get(i).coordinates.y > 220*GameWindows.dimension || l.get(i).coordinates.x < 570*GameWindows.dimension || l.get(i).coordinates.x > 730*GameWindows.dimension) 				//da rivedere
 				{
-					if(l.get(i).coordinates.x<570*GameWindows.dimension)
+					if(l.get(i).coordinates.x < 570*GameWindows.dimension)
 					{
-						l.get(i).right=true;
-						l.get(i).coordinates.x+=SPEED;
+						l.get(i).right = true;
+						l.get(i).coordinates.x += SPEED;
 					}
-					if(l.get(i).coordinates.x>730*GameWindows.dimension) 
+					if(l.get(i).coordinates.x > 730*GameWindows.dimension) 
 					{
-						l.get(i).left=true;
-						l.get(i).coordinates.x-=SPEED;
+						l.get(i).left = true;
+						l.get(i).coordinates.x -= SPEED;
 					}
-					if(l.get(i).coordinates.y>220*GameWindows.dimension)
+					if(l.get(i).coordinates.y > 220*GameWindows.dimension)
 					{
-						l.get(i).down=true;
-						l.get(i).coordinates.y-=SPEED;
+						l.get(i).down = true;
+						l.get(i).coordinates.y -= SPEED;
 					}
 				}
-				else if(l.get(i).life>0)
+				else if(l.get(i).life > 0)
 				{
-					Players.life-=POWER;
+					Players.life -= POWER;
 				}
 			}
 			else
 			{
-				l.get(i).run=false;
+				l.get(i).run = false;
 			}
 			l.get(i).set();
 		}
@@ -92,53 +93,51 @@ public class Zombies implements Runnable
 	 * @param y
 	 * @param power
 	 */
-	static void damage(boolean right,int x, int y, int power)
+	static void damage(boolean right, int x, int y, int power)
 	{
 		Random rand = new Random();
-		int a=0;
-		for(int i=0;i<zombieCurrentNumber;i++)	// livelli
+		int a = 0;
+		for(int i=0; i<zombieCurrentNumber; i++)	// livelli
 		{
-			if(l.get(i).coordinates.y>y-100*GameWindows.dimension && l.get(i).coordinates.y<y+60*GameWindows.dimension)
+			if(l.get(i).coordinates.y > y-100*GameWindows.dimension && l.get(i).coordinates.y < y+60*GameWindows.dimension)
 			{
-				if(right && l.get(i).coordinates.x>x && l.get(i).coordinates.x<x+(45+30)*GameWindows.dimension)
+				if(right && l.get(i).coordinates.x > x && l.get(i).coordinates.x < x+(45+30)*GameWindows.dimension)
 				{
-					l.get(i).life-=power;
-					l.get(i).coordinates.x+=(rand.nextInt(60)+20)*GameWindows.dimension;
+					l.get(i).life -= power;
+					l.get(i).coordinates.x += (rand.nextInt(60)+20)*GameWindows.dimension;
 					l.get(i).set();
 					GameScores.addScoreHit();
 					a++;
 				}
-				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x>x-(45+30)*GameWindows.dimension)
+				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x > x-(45+30)*GameWindows.dimension)
 				{
-					l.get(i).life-=power;
-					l.get(i).coordinates.x-=(rand.nextInt(40)+40)*GameWindows.dimension;
+					l.get(i).life -= power;
+					l.get(i).coordinates.x -= (rand.nextInt(40)+40)*GameWindows.dimension;
 					l.get(i).set();
 					GameScores.addScoreHit();
 					a++;
 				}
 			}
 		}
-		if(a==0&&Players.life<150&&Players.life>0&&y<300*GameWindows.dimension&&x>570*GameWindows.dimension&&x<730*GameWindows.dimension)
+		if(a==0 && Players.life < 150 && Players.life > 0 && y < 300*GameWindows.dimension && x > 570*GameWindows.dimension && x < 730*GameWindows.dimension)
 		{
-			Players.life+=power/5;
+			Players.life += power/5;
 		}
 	}
 	/**
 	 * Il metodo endLevel ha la funzione di:
-	 * verificare se il livello è finito.
+	 * verificare se il livello ï¿½ finito.
 	 * @return
 	 */
-	private boolean endLevel()
+	private boolean endLevel()										//errore
 	{
-		for(int i=0;i<zombieSpawnNumber;i++)
+		for(int i=0; i<zombieSpawnNumber; i++)
 		{
 			if(l.get(i).life>0)
 			{
-				System.out.println("false...");
 				return false;
 			}
 		}
-		System.out.println("true...");
 		return true;
 	}
 	/**
@@ -150,7 +149,7 @@ public class Zombies implements Runnable
 	private void deleteNodes(int nodeNumber, LinkedList<ZombieNodes> l)
 	{
 		{
-			for(int i=nodeNumber;i==0;i--)
+			for(int i=nodeNumber; i==0; i--)
 			{
 				l.remove(i);
 			}
@@ -159,9 +158,9 @@ public class Zombies implements Runnable
 	
 	public void paint(Graphics g)
 	{
-		for(int i=0;i<zombieCurrentNumber;i++)
+		for(int i=0; i<zombieCurrentNumber; i++)
 		{
-			if(l.get(i).life>0)
+			if(l.get(i).life > 0)
 			{
 				l.get(i).paint(g);	// per puntare alla lista n i
 			}
@@ -172,7 +171,7 @@ public class Zombies implements Runnable
 	{
 		System.out.println("Avvio thread per lo spawn zombie...");
 		//zombieCurrentNumber=l.size();
-		int i=0;
+		int i = 0;
 		boolean spawn = true;
 		while(spawn)	//non va bene for, problemi con la pausa
 		{
@@ -184,7 +183,7 @@ public class Zombies implements Runnable
 			}
 			zombieCurrentNumber = l.size();
 			//spawn
-			if(i>=zombieSpawnNumber)
+			if(i >= zombieSpawnNumber)
 			{
 				if(endLevel())
 				{
@@ -203,7 +202,7 @@ public class Zombies implements Runnable
 			else
 			{
 				addNodes(n_zombie_spawn_multiplier, l);
-				i+=1*n_zombie_spawn_multiplier;
+				i += 1*n_zombie_spawn_multiplier;
 			}
 		}
 	}

@@ -8,21 +8,23 @@
  */
 public class GameLevels
 {
-	static int level=1;
-	private static int levelSpawnMultiplier = 4;		//ogni N livelli si aggiunge un zombie in ogni spawn
-	private static int zombieStartNumber=6;
+	static int level = 1;
+	private static int levelSpawnMultiplier = 4;		// ogni levelSpawnMultiplier livelli si aggiunge un zombie in ogni spawn
+	private static int zombieStartNumber = 6;
 	
 	GameLevels()
 	{
-		System.out.println("Livelli "+level);
-		Zombies.zombieSpawnNumber=zombieStartNumber;
+		System.out.println("Livelli " + level);
+		
+		Zombies.zombieSpawnNumber = zombieStartNumber;
 		Zombies.thread.start();
 	}
 	GameLevels(int livel)
 	{
-		System.out.println("Livelli "+this.level);
-		Zombies.zombieSpawnNumber=zombieStartNumber;
-		for(int i=2; i<=livel;i++)
+		System.out.println("Livelli " + GameLevels.level);
+		
+		Zombies.zombieSpawnNumber = zombieStartNumber;
+		for(int i = 2; i<=livel; i++)
 		{
 			setNewLevel();
 		}
@@ -38,21 +40,23 @@ public class GameLevels
 	public static void setNewLevel()
 	{
 		GameScores.addScoreLevel(level);
+		
 		level++;
-		System.out.println("Livelli "+level);
-		Zombies.zombieSpawnNumber+=(int) (zombieStartNumber*1/3);
-		if(level%levelSpawnMultiplier==0)
+		System.out.println("Livelli " + level);
+		
+		Zombies.zombieSpawnNumber += (int) (zombieStartNumber*1/3);
+		if(level%levelSpawnMultiplier == 0)
 		{
 			Zombies.n_zombie_spawn_multiplier++;
-			Zombies.zombieSpawnNumber-=Zombies.zombieSpawnNumber%Zombies.n_zombie_spawn_multiplier*Zombies.n_zombie_spawn_multiplier;
+			Zombies.zombieSpawnNumber -= Zombies.zombieSpawnNumber%Zombies.n_zombie_spawn_multiplier*Zombies.n_zombie_spawn_multiplier;
 		}
-		if(Zombies.spawnTime-200*level+300>1000)
+		if(Zombies.spawnTime-200*level+300 > 1000)
 		{
-			Zombies.spawnTime+=-200*level+300;
+			Zombies.spawnTime += -200*level+300;
 		}
 		else
 		{
-			Zombies.spawnTime=Zombies.spawnTime*2/3+1000;
+			Zombies.spawnTime = Zombies.spawnTime*2/3+1000;
 		}
 	}
 }

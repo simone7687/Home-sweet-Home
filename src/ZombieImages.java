@@ -58,17 +58,17 @@ public class ZombieImages
 		{
 			if(run)
 			{
-				//gamba 2° piano
+				//gamba 2 piano
 				g.setColor(Color.green);
 				g.fillOval(-DIM10+x,-DIM40+y, DIM10*2,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(-DIM10+x,-DIM40+y, DIM10*2,DIM40);
-				//scarpa 2° piano
+				//scarpa 2 piano
 				g.setColor(Color.DARK_GRAY);
 				g.fillOval(-DIM5+x,-DIM5+y, DIM10*2,DIM10);
 				g.setColor(Color.black);
 				g.drawOval(-DIM5+x,-DIM5+y, DIM10*2,DIM10);
-				//braccio 2° piano
+				//braccio 2 piano
 				g.setColor(Color.green);
 				g.fillOval(x,-DIM40*2+y, DIM25+DIM10,DIM15);
 				g.setColor(Color.black);
@@ -76,12 +76,12 @@ public class ZombieImages
 			}
 			else
 			{
-				//gamba 2° piano
+				//gamba 2 piano
 				g.setColor(Color.green);
 				g.fillOval(DIM5+x,-DIM40+y, DIM10*2,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(DIM5+x,-DIM40+y, DIM10*2,DIM40);
-				//braccio 2° piano
+				//braccio 2 piano
 				g.setColor(Color.green);
 				g.fillOval(DIM5+x,-DIM40*2+y, DIM25+DIM10,DIM15);
 				g.setColor(Color.black);
@@ -94,17 +94,17 @@ public class ZombieImages
 			g.drawOval(-DIM10*2+x,-DIM35*2-DIM10*2+y, DIM40,DIM35*2+DIM5);
 			if(run)
 			{
-				//gamba 1° piano
+				//gamba 1 piano
 				g.setColor(Color.green);
 				g.fillOval(x,-DIM35+y, DIM10*2,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(x,-DIM35+y, DIM10*2,DIM40);
-				//braccio 1° piano
+				//braccio 1 piano
 				g.setColor(Color.green);
 				g.fillOval(DIM5+x,-DIM25*3+y, DIM25+DIM10,DIM15);
 				g.setColor(Color.black);
 				g.drawOval(DIM5+x,-DIM25*3+y, DIM25+DIM10,DIM15);
-				//scarpa 1° piano
+				//scarpa 1 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(DIM5+x,y, DIM10*2,DIM10);
 				g.setColor(Color.black);
@@ -112,22 +112,22 @@ public class ZombieImages
 			}
 			else
 			{
-				//scarpa 1° piano
+				//scarpa 1 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(DIM10+x,-DIM5+y, DIM10*2,DIM10);
 				g.setColor(Color.black);
 				g.drawOval(DIM10+x,-DIM5+y, DIM10*2,DIM10);
-				//gamba 1° piano
+				//gamba 1 piano
 				g.setColor(Color.green);
 				g.fillOval(-DIM10+x,-DIM35+y, DIM10*2,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(-DIM10+x,-DIM35+y, DIM10*2,DIM40);
-				//scarpa 1° piano
+				//scarpa 1 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(-DIM5+x,y, DIM10*2,DIM10);
 				g.setColor(Color.black);
 				g.drawOval(-DIM5+x,y, DIM10*2,DIM10);
-				//braccio 1° piano
+				//braccio 1 piano
 				g.setColor(Color.green);
 				g.fillOval(x,-DIM25*3+y, DIM25+DIM10,DIM15);
 				g.setColor(Color.black);
@@ -155,17 +155,17 @@ public class ZombieImages
 		{
 			if(run)
 			{
-				//gamba 2° piano
+				//gamba 2 piano
 				g.setColor(Color.green);
 				g.fillOval(-DIM10+x,-DIM40+y, DIM10*2,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(-DIM10+x,-DIM40+y, DIM10*2,DIM40);
-				//scarpa 2° piano
+				//scarpa 2 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(-DIM15+x,-DIM5+y, DIM10*2,DIM10);
 				g.setColor(Color.black);
 				g.drawOval(-DIM15+x,-DIM5+y, DIM10*2,DIM10);
-				//braccio  2° piano
+				//braccio  2 piano
 				g.setColor(Color.green);
 				g.fillOval(-DIM35+x,-DIM40*2+y, DIM25+DIM10,DIM15);
 				g.setColor(Color.black);
@@ -173,12 +173,12 @@ public class ZombieImages
 			}
 			else
 			{
-				//gamba 2° piano
+				//gamba 2 piano
 				g.setColor(Color.green);
 				g.fillOval(-DIM25+x,-DIM40+y, DIM10*2,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(-DIM25+x,-DIM40+y, DIM10*2,DIM40);
-				//braccio  2° piano
+				//braccio  2 piano
 				g.setColor(Color.green);
 				g.fillOval(-DIM40+x,-DIM40*2+y, DIM25+DIM10,DIM15);
 				g.setColor(Color.black);
@@ -191,17 +191,17 @@ public class ZombieImages
 			g.drawOval(-DIM10*2+x,-DIM35*2-DIM10*2+y, DIM40,DIM35*2+DIM5);
 			if(run)
 			{
-				//gamba 1° piano
+				//gamba 1 piano
 				g.setColor(Color.green);
 				g.fillOval(-DIM10*2+x,-DIM35+y, DIM10*2,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(-DIM10*2+x,-DIM35+y, DIM10*2,DIM40);
-				//braccio  1° piano
+				//braccio  1 piano
 				g.setColor(Color.green);
 				g.fillOval(-DIM40+x,-DIM35*2+y, DIM25+DIM10,DIM15);
 				g.setColor(Color.black);
 				g.drawOval(-DIM40+x,-DIM35*2+y, DIM25+DIM10,DIM15);
-				//scarpa 1° piano
+				//scarpa 1 piano
 				g.setColor(Color.darkGray);
 				g.fillOval(-DIM25+x,y, DIM10*2,DIM10);
 				g.setColor(Color.black);
@@ -209,17 +209,17 @@ public class ZombieImages
 			}
 			else
 			{
-				//scarpa 2° piano
+				//scarpa 2 piano
 				g.setColor(Color.DARK_GRAY);
 				g.fillOval(-DIM15*2+x,-DIM5+y, DIM10*2,DIM10);
 				g.setColor(Color.black);
 				g.drawOval(-DIM15*2+x,-DIM5+y, DIM10*2,DIM10);
-				//gamba 1° piano
+				//gamba 1 piano
 				g.setColor(Color.green);
 				g.fillOval(-DIM10+x,-DIM35+y, DIM10*2,DIM40);
 				g.setColor(Color.black);
 				g.drawOval(-DIM10+x,-DIM35+y, DIM10*2,DIM40);
-				//scarpa 1° piano
+				//scarpa 1 piano
 				g.setColor(Color.DARK_GRAY);
 				g.fillOval(-DIM15+x,y, DIM10*2,DIM10);
 				g.setColor(Color.black);

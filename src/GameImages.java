@@ -15,13 +15,14 @@ public class GameImages extends Panel implements Runnable
 	static boolean day = true;
 	private WallpaperImages wallpaper;
 	private GameOverImages gameOver;
-	Players player;	// creata e introdotta nel main
+	public Players player;	// creata e introdotta nel main
 	private Zombies zombie;
 	private Thread repaintThread;
 	
 	GameImages()
 	{
-		//System.out.println("Creazione immagini...");
+		System.out.println("Creazione immagini...");
+		
 		wallpaper = new WallpaperImages();
 		zombie = new Zombies();
 		gameOver = new GameOverImages();
@@ -32,7 +33,7 @@ public class GameImages extends Panel implements Runnable
 	
 	public void paint(Graphics g)
 	{
-		if(Players.life>0)
+		if(Players.life > 0)
 		{
 			super.paint(g);
 			wallpaper.paint(g,day);
@@ -42,25 +43,29 @@ public class GameImages extends Panel implements Runnable
 		else
 		{
 			gameOver.paint(g);
+										// aggiungere bottone per rigiocare
 		}
 	}
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
+		
 		System.out.println("Avvio thread per il repaint...");
-		boolean i=true;	//on/off
-		while(Players.life>0)
+		
+		boolean i = true;	// on/off
+		while(Players.life > 0)
 		{
-			//corri on/off
+			// corri on/off
 			player.walk(i);
 			zombie.walk(i);
 			if(i)
 			{
-				i=false;
+				i = false;
 			}
 			else
 			{
-				i=true;
+				i = true;
 			}
 			try {
 					Thread.sleep(REPAINT_TIME);
@@ -70,8 +75,8 @@ public class GameImages extends Panel implements Runnable
 				}
 			repaint();
 		}
+		
 		GameScores.printScore();
-		//System.out.println("Game Over");
-		repaint();
+		System.out.println("Game Over");
 	}
 }

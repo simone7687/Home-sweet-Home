@@ -12,10 +12,10 @@ import javax.swing.JOptionPane;
  */
 public class GameStart
 {
-	private final Dimension FULLHD = new Dimension(1920,1080);
-	private final Dimension HD = new Dimension(1280,720);
-	private final Dimension SD = new Dimension(960,540);
-	private final Object[] POSSIBLEVALUES = {"SD","HD","FullHD"};
+	private final Dimension FULLHD = new Dimension(1920, 1080);
+	private final Dimension HD = new Dimension(1280, 720);
+	private final Dimension SD = new Dimension(960, 540);
+	private final Object[] POSSIBLEVALUES = {"SD", "HD", "FullHD"};
 	
 	GameStart()
 	{
@@ -49,6 +49,7 @@ public class GameStart
 		}
 		return null;
 	}
+	
 	/**
 	 * Il metodo getPlayerName ha la funzione di:
 	 * far scrivere il nome del Player al giocatore.
@@ -57,10 +58,10 @@ public class GameStart
 	String getPlayerName()
 	{
 		System.out.println("Come ti chiami?");
-		String name = JOptionPane.showInputDialog ("Come ti chiami?", "Player");	// preassembleto
+		String name = JOptionPane.showInputDialog ("Come ti chiami?", "Player");	// preassemblato
 		if(name != null && name != "Player")
 		{
-			System.out.println("Ciao "+name+".");
+			System.out.println("Ciao " + name + ".");
 			return name;
 		}
 		else
