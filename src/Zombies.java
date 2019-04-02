@@ -101,7 +101,7 @@ public class Zombies implements Runnable
 		{
 			if(l.get(i).coordinates.y > y-100*GameWindows.dimension && l.get(i).coordinates.y < y+60*GameWindows.dimension)
 			{
-				if(right && l.get(i).coordinates.x > x && l.get(i).coordinates.x < x+(45+30)*GameWindows.dimension)
+				if(right && l.get(i).coordinates.x > x && l.get(i).coordinates.x < x+(45+30)*GameWindows.dimension && l.get(i).life > 0)
 				{
 					l.get(i).life -= power;
 					l.get(i).coordinates.x += (rand.nextInt(60)+20)*GameWindows.dimension;
@@ -109,7 +109,7 @@ public class Zombies implements Runnable
 					GameScores.addScoreHit();
 					a++;
 				}
-				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x > x-(45+30)*GameWindows.dimension)
+				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x > x-(45+30)*GameWindows.dimension && l.get(i).life > 0)
 				{
 					l.get(i).life -= power;
 					l.get(i).coordinates.x -= (rand.nextInt(40)+40)*GameWindows.dimension;
