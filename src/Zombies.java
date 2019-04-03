@@ -50,7 +50,7 @@ public class Zombies implements Runnable
 	 */
 	void walk(boolean walk)
 	{
-		for(int i=0; i<zombieCurrentNumber; i++)
+		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)
 		{
 			if(walk)
 			{
@@ -97,7 +97,7 @@ public class Zombies implements Runnable
 	{
 		Random rand = new Random();
 		int a = 0;
-		for(int i=0; i<zombieCurrentNumber; i++)	// livelli
+		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)	// livelli
 		{
 			if(l.get(i).coordinates.y > y-100*GameWindows.dimension && l.get(i).coordinates.y < y+60*GameWindows.dimension)
 			{
@@ -129,7 +129,7 @@ public class Zombies implements Runnable
 	 * verificare se il livello � finito.
 	 * @return
 	 */
-	private boolean endLevel()										//errore
+	private boolean endLevel()
 	{
 		for(int i=0; i<zombieSpawnNumber; i++)
 		{
@@ -143,22 +143,21 @@ public class Zombies implements Runnable
 	/**
 	 * Il metodo deleteNodes ha la funzione di:
 	 * eliminare tutti i nodi di una lista
-	 * @param nodeNumber
 	 * @param l
 	 */
-	private void deleteNodes(int nodeNumber, LinkedList<ZombieNodes> l)
+	private void deleteNodes(LinkedList<ZombieNodes> l)
 	{
 		{
-			for(int i=nodeNumber; i==0; i--)
+			for(int nodeNumber=l.size()-1; nodeNumber>=0; nodeNumber--)
 			{
-				l.remove(i);
+				l.remove(nodeNumber);
 			}
 		}
 	}
 	
 	public void paint(Graphics g)
 	{
-		for(int i=0; i<zombieCurrentNumber; i++)
+		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)
 		{
 			if(l.get(i).life > 0)
 			{
@@ -191,9 +190,9 @@ public class Zombies implements Runnable
 			//spawn
 			if(i >= zombieSpawnNumber)
 			{
-				if(endLevel())																																//IL LIVELLO FINISCE PRIMA CHE GLI TUTTI GLI ZOMBIE SONO MORTI
+				if(endLevel())
 				{
-					deleteNodes(zombieSpawnNumber, l);
+					deleteNodes(l);
 					System.out.println("Fine livello!");
 					i = 0;
 					try {
