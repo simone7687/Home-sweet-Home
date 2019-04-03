@@ -11,7 +11,8 @@ import java.util.Random;
  */
 public class ZombieNodes extends ZombieImages
 {
-	int life = 100;
+	private final int LIFESTART = 100;
+	int life = LIFESTART;
 	Point coordinates = new Point();
 	ZombieNodes next;
 	boolean run;
@@ -32,5 +33,6 @@ public class ZombieNodes extends ZombieImages
 	{
 		setCoordinates(coordinates);
 		setRun(run);
+		setLifePercentage(life*(100/LIFESTART));
 	}
 }
