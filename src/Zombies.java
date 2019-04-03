@@ -55,21 +55,18 @@ public class Zombies implements Runnable
 			if(walk)
 			{
 				l.get(i).run=true;
-				if(l.get(i).coordinates.y > 220*GameWindows.dimension || l.get(i).coordinates.x < 570*GameWindows.dimension || l.get(i).coordinates.x > 730*GameWindows.dimension) 				//da rivedere
+				if(l.get(i).coordinates.y > 220*GameWindows.dimension || l.get(i).coordinates.x < 570*GameWindows.dimension || l.get(i).coordinates.x > 730*GameWindows.dimension)
 				{
 					if(l.get(i).coordinates.x < 570*GameWindows.dimension)
 					{
-						l.get(i).right = true;
 						l.get(i).coordinates.x += SPEED;
 					}
 					if(l.get(i).coordinates.x > 730*GameWindows.dimension) 
 					{
-						l.get(i).left = true;
 						l.get(i).coordinates.x -= SPEED;
 					}
 					if(l.get(i).coordinates.y > 220*GameWindows.dimension)
 					{
-						l.get(i).down = true;
 						l.get(i).coordinates.y -= SPEED;
 					}
 				}

@@ -14,7 +14,7 @@ public class ZombieNodes extends ZombieImages
 	int life = 100;
 	Point coordinates = new Point();
 	ZombieNodes next;
-	boolean right, left, up, down, run;
+	boolean run;
 	
 	ZombieNodes()
 	{
@@ -32,6 +32,5 @@ public class ZombieNodes extends ZombieImages
 	{
 		setCoordinates(coordinates);
 		setRun(run);
-		setRight(right);
 	}
 }

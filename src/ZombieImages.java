@@ -13,7 +13,7 @@ import java.awt.Point;
 public class ZombieImages 																																	// aggiungere barra con la vita
 {
 	private int x, y;
-	private boolean right, run;
+	private boolean run;
 	// dimensioni costanti
 	private final int DIM5 = (int) (5*GameWindows.dimension);
 	private final int DIM10 = (int) (10*GameWindows.dimension);
@@ -47,14 +47,10 @@ public class ZombieImages 																																	// aggiungere barra c
 	 * settare la variabile right con la variabile passata per parametro.
 	 * @param right
 	 */
-	protected void setRight(boolean right)
-	{
-		this.right = right;
-	}
 	
 	public void paint(Graphics g)
 	{	
-		if(right)
+		if(x < GameWindows.windowDimension.getWidth()/2)
 		{
 			if(run)
 			{
