@@ -42,11 +42,6 @@ public class ZombieImages 																																	// aggiungere barra c
 	{
 		this.run = run;
 	}
-	/**
-	 * Ha la funzione di:
-	 * settare la variabile right con la variabile passata per parametro.
-	 * @param right
-	 */
 	
 	public void paint(Graphics g)
 	{	
