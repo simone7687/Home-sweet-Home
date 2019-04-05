@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
  */
 public class GameImages extends Panel implements Runnable
 {
-	private final int REPAINT_TIME = 200;
+	private final int REPAINT_WALK = 200;
 	static boolean day = true;
 	
 	private BufferedImage  bf;
@@ -21,7 +21,7 @@ public class GameImages extends Panel implements Runnable
 	private GameOverImages gameOver;
 	public Players player;	// creata e introdotta nel main
 	private Zombies zombie;
-	private Thread repaintThread;
+	private Thread walkThread;
 	
 	GameImages()
 	{
@@ -33,8 +33,8 @@ public class GameImages extends Panel implements Runnable
 		zombie = new Zombies();
 		gameOver = new GameOverImages();
 		
-		repaintThread = new Thread(this);
-		repaintThread.start();
+		walkThread = new Thread(this);
+		walkThread.start();
 	}
 	
 	// http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1
@@ -64,24 +64,33 @@ public class GameImages extends Panel implements Runnable
 	public void run() {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Avvio thread per il repaint...");
+		System.out.println("Avvio thread per il repaint e la camminata...");
 		
-		boolean i = true;	// on/off
+		boolean walk = true;	// on/off
+		boolean repaint = true;	// on/off 	// per i lag
 		while(Players.life > 0)
 		{
-			// corri on/off																																									// HA DEI LAG
-			player.walk(i);
-			zombie.walk(i);
-			if(i)
+			if(repaint)
 			{
-				i = false;
+				player.walk(walk);
+				zombie.walk(walk);
+				if(walk)
+				{
+					walk = false;
+				}
+				else
+				{
+					walk = true;
+				}
+				
+				repaint = false;
 			}
 			else
 			{
-				i = true;
+				repaint = true;
 			}
 			try {
-					Thread.sleep(REPAINT_TIME);
+					Thread.sleep(REPAINT_WALK/2);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
