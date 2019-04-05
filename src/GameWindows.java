@@ -13,7 +13,7 @@ import javax.swing.JFrame;
  */
 public class GameWindows extends JFrame implements KeyListener
 {
-	private final String TITLE = "Survive for a night";
+	private final String TITLE = "Home sweet Home";
 	private final int START_LEVEL = 1;
 	static Dimension windowDimension = new Dimension();
 	static double dimension;	// per adattare i vari disegni alla dimensione dello schermo
@@ -23,7 +23,7 @@ public class GameWindows extends JFrame implements KeyListener
 	{
 		System.out.println("Creazione della finestra...");
 		
-		setName(TITLE);										// titolo
+		setTitle(TITLE);									// titolo
 		setSize(windowDimension);							// dimensione
 		setResizable(false);								// ridimensionabile
 		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);	// rende attiva la chiusura
