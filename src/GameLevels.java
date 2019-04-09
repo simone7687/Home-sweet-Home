@@ -9,7 +9,7 @@
 public class GameLevels
 {
 	static int level = 1;
-	private static int levelSpawnMultiplier = 4;	// ogni levelSpawnMultiplier livelli si aggiunge un zombie in ogni spawn
+	private static int levelSpawnMultiplier = 6;	// ogni levelSpawnMultiplier livelli si aggiunge un zombie in ogni spawn
 	private static int zombieStartNumber = 6;
 	
 	GameLevels()
@@ -43,20 +43,30 @@ public class GameLevels
 		
 		level++;
 		System.out.println("Livelli " + level);
-		
-		Zombies.zombieSpawnNumber += (int) (zombieStartNumber*1/3);
+		// aumenta zombie
+		Zombies.zombieSpawnNumber += (int) (zombieStartNumber*1/4);
+		// aumenta zombie ad agni spawn
 		if(level%levelSpawnMultiplier == 0)
 		{
 			Zombies.n_zombie_spawn_multiplier++;
-			Zombies.zombieSpawnNumber -= Zombies.zombieSpawnNumber%Zombies.n_zombie_spawn_multiplier*Zombies.n_zombie_spawn_multiplier;
-		}
-		if(Zombies.spawnTime-200*level+300 > 1000)
-		{
-			Zombies.spawnTime += -200*level+300;
+			if(Zombies.spawnTime < 10000 || GameImages.timeRepaintWalk < 200)
+			{
+				Zombies.spawnTime += (1000*Zombies.n_zombie_spawn_multiplier);
+				GameImages.timeRepaintWalk += (10*Zombies.n_zombie_spawn_multiplier);
+			}
 		}
 		else
 		{
-			Zombies.spawnTime = Zombies.spawnTime*2/3+1000;
+			// diminuisce tempo ad ogni spawn
+			if(Zombies.spawnTime > 7000)
+			{
+				Zombies.spawnTime -= 1000;
+			}
+			// aumenta velocità del gioco
+			if(GameImages.timeRepaintWalk > 100)
+			{
+				GameImages.timeRepaintWalk -= 10;
+			}
 		}
 	}
 }

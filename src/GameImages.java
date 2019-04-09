@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
  */
 public class GameImages extends Panel implements Runnable
 {
-	private final int REPAINT_WALK = 200;
+	static int timeRepaintWalk = 200;
 	static boolean day = true;
 	
 	private BufferedImage  bf;
@@ -90,7 +90,7 @@ public class GameImages extends Panel implements Runnable
 				repaint = true;
 			}
 			try {
-					Thread.sleep(REPAINT_WALK/2);
+					Thread.sleep(timeRepaintWalk/2);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
