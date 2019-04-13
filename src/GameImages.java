@@ -39,7 +39,7 @@ public class GameImages extends Panel implements Runnable, KeyListener
 		walkThread = new Thread(this);
 		walkThread.start();
 		
-		addKeyListener(this);		// abilita tasti
+		addKeyListener(this);		// abilita tasti nell'immagine
 	}
 	
 	// http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1

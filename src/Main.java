@@ -29,6 +29,7 @@ public class Main
 			GameImages image = new GameImages();
 			player.gameImages = image;
 			image.player = player;
+			windows.addKeyListener(image);		// abilita tasti nella finestra
 			
 			// fine
 			windows.add(image);
