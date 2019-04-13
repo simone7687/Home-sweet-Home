@@ -21,7 +21,6 @@ public class Main
 			
 			// player
 			Players player = new Players(start.getPlayerName());
-			windows.player = player;
 			
 			// punti
 			new GameScores();

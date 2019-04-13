@@ -1,5 +1,7 @@
 import java.awt.Graphics;
 import java.awt.Panel;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 /**
@@ -10,10 +12,11 @@ import java.awt.image.BufferedImage;
  * @version 1.0
  *
  */
-public class GameImages extends Panel implements Runnable
+public class GameImages extends Panel implements Runnable, KeyListener
 {
 	static int timeRepaintWalk = 200;
 	static boolean day = true;
+	private final int START_LEVEL = 1;
 	
 	private BufferedImage  bf;
 	
@@ -35,6 +38,8 @@ public class GameImages extends Panel implements Runnable
 		
 		walkThread = new Thread(this);
 		walkThread.start();
+		
+		addKeyListener(this);		// abilita tasti
 	}
 	
 	// http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1
@@ -100,4 +105,29 @@ public class GameImages extends Panel implements Runnable
 		GameScores.printScore();
 		System.out.println("Game Over");
 	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// muovi
+		if(e.getKeyCode() == KeyEvent.VK_D) player.right = true;
+		if(e.getKeyCode() == KeyEvent.VK_A) player.left = true;
+		if(e.getKeyCode() == KeyEvent.VK_W) player.up = true;
+		if(e.getKeyCode() == KeyEvent.VK_S) player.down = true;
+		// intro
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) if(GameImages.day) {new GameLevels(START_LEVEL); GameImages.day = false;}
+		// picchia
+		if(e.getKeyCode() == KeyEvent.VK_ENTER) if(player.currentHit) {player.hit(true);}
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// muovi
+		if(e.getKeyCode() == KeyEvent.VK_D) player.right = false;
+		if(e.getKeyCode() == KeyEvent.VK_A) player.left = false;
+		if(e.getKeyCode() == KeyEvent.VK_W) player.up = false;
+		if(e.getKeyCode() == KeyEvent.VK_S) player.down = false;
+		// picchia
+		if(e.getKeyCode() == KeyEvent.VK_ENTER)	if(!player.currentHit) {player.hit(false);}
+	}
+	@Override
+	public void keyTyped(KeyEvent e) {}
 }
