@@ -122,20 +122,20 @@ public class WallpaperImages
 		}
 		// finestra
 		g.setColor(WOOD_COLOR);
-		g.fillRect(DIM200*2, DIM50, DIM50*2-DIM10, DIM50*2-DIM10);
+		g.fillRoundRect(DIM200*2, DIM50, DIM50*2-DIM10, DIM50*2-DIM10, 10, 10);
 		g.setColor(Color.black);
-		g.drawRect(DIM200*2, DIM50, DIM50*2-DIM10, DIM50*2-DIM10);
+		g.drawRoundRect(DIM200*2, DIM50, DIM50*2-DIM10, DIM50*2-DIM10, 10, 10);
 		if(day)
 		{
 			g2d.setPaint(SKY_COLOR);
-			g2d.fillRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3);
+			g2d.fillRoundRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3, 5, 5);
 			g.setColor(Color.black);
-			g.drawRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3);
+			g.drawRoundRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3, 5, 5);
 		}
 		else
 		{
 			g.setColor(Color.black);
-			g.fillRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3);
+			g.fillRoundRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3, 5, 5);
 		}
 		// testo
 		if(day)
