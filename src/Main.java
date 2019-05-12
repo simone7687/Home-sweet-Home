@@ -30,7 +30,7 @@ public class Main
 			player.gameImages = image;
 			image.player = player;
 			windows.addKeyListener(image);		// abilita tasti nella finestra
-			
+			windows.addMouseListener(image);	// abilita mouse nella finestra
 			// fine
 			windows.add(image);
 			windows.setVisible(true);	// mostra il frame

@@ -10,8 +10,9 @@ import java.awt.Point;
  */
 public class Players extends PlayerImages
 {
+	static final int START_LIFE = 100;
+	static int life = START_LIFE;
 	static String name;
-	static int life = 100;
 	// corri
 	private int speed = (int) (30*GameWindows.dimension);
 	private Point coordinates = new Point((GameWindows.windowDimension.width/2), (int) (GameWindows.windowDimension.height/2));

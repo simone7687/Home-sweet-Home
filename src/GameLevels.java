@@ -69,4 +69,19 @@ public class GameLevels
 			}
 		}
 	}
+	public static void setLevel(int level)
+	{
+		GameScores.scores = 0;
+		Zombies.n_zombie_spawn_multiplier = 1;
+		Zombies.spawnTime = 10000;
+		GameImages.timeRepaintWalk = 200;
+		
+		System.out.println("Livello " + GameLevels.level);
+		
+		Zombies.zombieSpawnNumber = zombieStartNumber;
+		for(int i = 2; i<=level; i++)
+		{
+			setNewLevel();
+		}
+	}
 }

@@ -168,15 +168,8 @@ public class Zombies implements Runnable
 		System.out.println("Avvio thread per lo spawn zombie...");
 		//zombieCurrentNumber=l.size();
 		int i = 0;
-		boolean spawn = true;
-		while(spawn)	//non va bene for, problemi con la pausa
+		while(Players.life > 0)	//non va bene for, problemi con la pausa
 		{
-			// da spostarli in una finzione termina gioco, che setta i valori predefiniti
-			if(Players.life <= 0)
-			{
-				Thread.interrupted();
-			}
-			
 			try {
 				Thread.sleep(spawnTime);
 			} catch (InterruptedException e) {
@@ -185,11 +178,11 @@ public class Zombies implements Runnable
 			}
 			zombieCurrentNumber = l.size();
 			//spawn
-			if(i >= zombieSpawnNumber)
+			if(i >= zombieSpawnNumber && Players.life > 0)
 			{
 				if(endLevel())
 				{
-					deleteNodes(l);
+					l.removeAll(l);
 					System.out.println("Fine livello!");
 					i = 0;
 					try {
@@ -205,6 +198,19 @@ public class Zombies implements Runnable
 			{
 				addNodes(n_zombie_spawn_multiplier, l);
 				i += 1*n_zombie_spawn_multiplier;
+			}
+			//fine
+			if(Players.life < 0)
+			{
+				//GameScores.printScore();
+				
+				GamePauses.pause();
+				
+				System.out.println("Restart");
+				l.removeAll(l);
+				i = 0;
+				GameLevels.setLevel(1);
+				Players.life = Players.START_LIFE;
 			}
 		}
 	}

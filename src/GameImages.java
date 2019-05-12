@@ -2,6 +2,8 @@ import java.awt.Graphics;
 import java.awt.Panel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
 /**
@@ -12,7 +14,7 @@ import java.awt.image.BufferedImage;
  * @version 1.0
  *
  */
-public class GameImages extends Panel implements Runnable, KeyListener
+public class GameImages extends Panel implements Runnable, KeyListener, MouseListener
 {
 	static int timeRepaintWalk = 200;
 	static boolean day = true;
@@ -25,6 +27,7 @@ public class GameImages extends Panel implements Runnable, KeyListener
 	public Players player;	// creata e introdotta nel main
 	private Zombies zombie;
 	private Thread walkThread;
+	private GamePauses pause;
 	
 	GameImages()
 	{
@@ -35,11 +38,13 @@ public class GameImages extends Panel implements Runnable, KeyListener
 		wallpaper = new WallpaperImages();
 		zombie = new Zombies();
 		gameOver = new GameOverImages();
+		pause = new GamePauses();
 		
 		walkThread = new Thread(this);
 		walkThread.start();
 		
 		addKeyListener(this);		// abilita tasti nell'immagine
+		addMouseListener(this);		// abilita mouse nell'immagine
 	}
 	
 	// http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1
@@ -63,6 +68,7 @@ public class GameImages extends Panel implements Runnable, KeyListener
 																																														// aggiungere bottone per rigiocare
 		}
 		g.drawImage(bf,0,0,null);
+		pause.paint(bf.getGraphics());
 	}
 	
 	@Override
@@ -73,9 +79,9 @@ public class GameImages extends Panel implements Runnable, KeyListener
 		
 		boolean walk = true;	// on/off
 		boolean repaint = true;	// on/off 	// per i lag
-		while(Players.life > 0)
+		while(true)
 		{
-			if(repaint)
+			if(repaint && !PauseBottonImages.pause)
 			{
 				player.walk(walk);
 				zombie.walk(walk);
@@ -102,8 +108,6 @@ public class GameImages extends Panel implements Runnable, KeyListener
 				}
 			repaint();
 		}
-		GameScores.printScore();
-		System.out.println("Game Over");
 	}
 
 	@Override
@@ -130,4 +134,25 @@ public class GameImages extends Panel implements Runnable, KeyListener
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {}
+
+	@Override
+	public void mouseClicked(MouseEvent e) 
+	{
+		if(Players.life > 0)
+		{
+			pause.clickPause(e);
+		}
+		else
+		{
+			pause.clickRestart(e);
+		}
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+	@Override
+	public void mouseExited(MouseEvent e) {}
+	@Override
+	public void mousePressed(MouseEvent e) {}
+	@Override
+	public void mouseReleased(MouseEvent e) {}
 }
