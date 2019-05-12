@@ -168,7 +168,7 @@ public class Zombies implements Runnable
 		System.out.println("Avvio thread per lo spawn zombie...");
 		//zombieCurrentNumber=l.size();
 		int i = 0;
-		while(Players.life > 0)	//non va bene for, problemi con la pausa
+		while(true)	//non va bene for, problemi con la pausa
 		{
 			try {
 				Thread.sleep(spawnTime);
