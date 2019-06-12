@@ -13,11 +13,6 @@ public class Main
 			
 			// finestra
 			GameWindows windows = new GameWindows(windowDimension);
-			try {
-				Thread.sleep(100);	// per sicurezza (per aspettare GameImage)
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
 			
 			// player
 			Players player = new Players(start.getPlayerName());
