@@ -28,12 +28,12 @@ public class Main
 			windows.addMouseListener(image);	// abilita mouse nella finestra
 			// fine
 			windows.add(image);
-			windows.setVisible(true);	// mostra il frame
+			windows.setVisible(true);			// mostra il frame
 			System.out.println("Completato!");
 		}
 		else
 		{
-			System.out.println("Chiusura!");																													//quando si ciude la finestra con la x stampare Chiusura!
+			System.out.println("Chiusura!");																													//quando si chiude la finestra con la x stampare Chiusura!
 		}
 	}
 }

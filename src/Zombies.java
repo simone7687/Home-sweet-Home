@@ -137,20 +137,6 @@ public class Zombies implements Runnable
 		}
 		return true;
 	}
-	/**
-	 * Il metodo deleteNodes ha la funzione di:
-	 * eliminare tutti i nodi di una lista
-	 * @param l
-	 */
-	private void deleteNodes(LinkedList<ZombieNodes> l)
-	{
-		{
-			for(int nodeNumber=l.size()-1; nodeNumber>=0; nodeNumber--)
-			{
-				l.remove(nodeNumber);
-			}
-		}
-	}
 	
 	public void paint(Graphics g)
 	{

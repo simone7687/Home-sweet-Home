@@ -130,7 +130,7 @@ public class PlayerImages
 			g.setColor(Color.black);
 			g.drawOval(-DIM15+x, -DIM130+y, DIM40, DIM40);
 			g.setColor(Color.blue);
-			g.fillOval(DIM15+x, -DIM130+DIM10+y, DIM25, DIM10);			// aletta cappello
+			g.fillOval(DIM15+x, -DIM130+DIM10+y, DIM25, DIM10);				// aletta cappello
 			g.setColor(Color.black);
 			g.fillArc(DIM5+x, -DIM130+DIM15+y, DIM15*2, DIM15*2, 180, 30);	// bocca
 			g.fillArc(DIM10+x, -DIM130+DIM15+y, DIM10, DIM10, 180, 180);	// occhio
@@ -144,7 +144,7 @@ public class PlayerImages
 				g.setColor(Color.orange);
 				g.fillOval(DIM25+x, -DIM35*2+y, DIM10, DIM10);
 				g.setColor(Color.black);
-				g.fillRect(DIM15+x, DIM5-DIM130+y, DIM35, DIM10*2);	// ascia
+				g.fillRect(DIM15+x, DIM5-DIM130+y, DIM35, DIM10*2);			// ascia
 				g.drawOval(DIM25+x, -DIM35*2+y, DIM10, DIM10);
 				// braccio
 				g.setColor(Color.blue);
@@ -166,7 +166,7 @@ public class PlayerImages
 				g.setColor(Color.orange);	
 				g.fillOval(-DIM15+x, -DIM40-DIM15+y, DIM10, DIM10);
 				g.setColor(Color.black);	
-				g.fillRect(DIM35+x, -DIM40-DIM25+y, DIM10*2, DIM15*2);	// ascia
+				g.fillRect(DIM35+x, -DIM40-DIM25+y, DIM10*2, DIM15*2);		// ascia
 				g.drawOval(-DIM15+x, -DIM40-DIM15+y, DIM10, DIM10);
 				// braccio
 				g.setColor(Color.blue);
@@ -241,11 +241,11 @@ public class PlayerImages
 			g.setColor(Color.pink);
 			g.fillOval(-DIM25+x, -DIM130+y, DIM40, DIM40);
 			g.setColor(Color.blue);
-			g.fillArc(-DIM25+x, -DIM130+y, DIM40, DIM40, 0,180);	// cappello
+			g.fillArc(-DIM25+x, -DIM130+y, DIM40, DIM40, 0,180);				// cappello
 			g.setColor(Color.black);
 			g.drawOval(-DIM25+x, -DIM130+y, DIM40, DIM40);
 			g.setColor(Color.blue);
-			g.fillOval(-DIM35+x, DIM10-DIM130+y, DIM25, DIM10);				// aletta cappello
+			g.fillOval(-DIM35+x, DIM10-DIM130+y, DIM25, DIM10);					// aletta cappello
 			g.setColor(Color.black);
 			g.fillArc(-DIM35+x, -DIM130+DIM15+y, DIM15*2, DIM15*2, -30, 30);	// bocca
 			g.fillArc(-DIM15+x, -DIM130+DIM15+y, DIM10, DIM10, 180, 180);		// occhio
@@ -259,7 +259,7 @@ public class PlayerImages
 				g.setColor(Color.orange);	
 				g.fillOval(-DIM35+x, -DIM35*2+y, DIM10, DIM10);
 				g.setColor(Color.black);	
-				g.fillRect(-DIM35-DIM10+x, DIM5-DIM130+y, DIM35, DIM10*2);	// ascia
+				g.fillRect(-DIM35-DIM10+x, DIM5-DIM130+y, DIM35, DIM10*2);		// ascia
 				g.drawOval(-DIM35+x, -DIM35*2+y, DIM10, DIM10);
 				// braccio
 				g.setColor(Color.blue);
