@@ -66,8 +66,8 @@ public class GameImages extends Panel implements Runnable, KeyListener, MouseLis
 		{
 			gameOver.paint(bf.getGraphics());
 		}
+		pause.paint(bf.getGraphics());
 		g.drawImage(bf,0,0,null);
-		pause.paint(bf.getGraphics());																					// il bottone non sempre viene visualizzato
 	}
 	
 	@Override
