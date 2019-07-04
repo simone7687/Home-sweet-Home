@@ -1,7 +1,5 @@
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Panel;
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -30,13 +28,12 @@ public class GameImages extends Panel implements Runnable, KeyListener, MouseLis
 	private Zombies zombie;
 	private Thread walkThread;
 	private GamePauses pause;
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	GameImages()
 	{
 		System.out.println("Creazione immagini...");
 		
-		bf = new BufferedImage(screenSize.width, screenSize.height, BufferedImage.TYPE_INT_RGB);
+		bf = new BufferedImage(GameWindows.windowDimension.width, GameWindows.windowDimension.height, BufferedImage.TYPE_INT_RGB);
 		
 		wallpaper = new WallpaperImages();
 		zombie = new Zombies();
@@ -48,8 +45,6 @@ public class GameImages extends Panel implements Runnable, KeyListener, MouseLis
 		
 		addKeyListener(this);		// abilita tasti nell'immagine
 		addMouseListener(this);		// abilita mouse nell'immagine
-		
-		
 	}
 	
 	// http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1
@@ -72,7 +67,7 @@ public class GameImages extends Panel implements Runnable, KeyListener, MouseLis
 			gameOver.paint(bf.getGraphics());
 		}
 		pause.paint(bf.getGraphics());
-		g.drawImage(bf,0,0, screenSize.width, screenSize.height,null);
+		g.drawImage(bf,0,0,null);
 	}
 	
 	@Override
