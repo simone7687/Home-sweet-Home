@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.JOptionPane;
 
@@ -15,7 +16,8 @@ public class GameStart
 	private final Dimension FULLHD = new Dimension(1920, 1080);
 	private final Dimension HD = new Dimension(1280, 720);
 	private final Dimension SD = new Dimension(960, 540);
-	private final Object[] POSSIBLEVALUES = {"SD", "HD", "FullHD"};
+	private final Object[] POSSIBLEVALUES = {"SD", "HD", "FullHD", "FILL"};
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	GameStart()
 	{
@@ -37,14 +39,17 @@ public class GameStart
 			{
 				return FULLHD;
 			}
-			if(sel_input == POSSIBLEVALUES[1]) 
+			else if(sel_input == POSSIBLEVALUES[1]) 
 			{
 				return HD;
 			}
-			if(sel_input == POSSIBLEVALUES[0]) 
+			else if(sel_input == POSSIBLEVALUES[0]) 
 			{
 				return SD;
 			}
+			else if(sel_input == POSSIBLEVALUES[3]) 
+				return new Dimension(screenSize.width, screenSize.height);
+			
 			System.out.println("Dimensione selezionata: " + sel_input + ".");
 		}
 		return null;

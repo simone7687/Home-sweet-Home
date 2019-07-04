@@ -24,7 +24,7 @@ public class GameWindows extends JFrame
 		setResizable(false);								// ridimensionabile
 		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);	// rende attiva la chiusura
 		
-		dimension = windowDimension.getHeight()/720;
+		dimension = 1.5;
 		GameWindows.windowDimension = windowDimension;
 	}
 }
