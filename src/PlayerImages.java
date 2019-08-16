@@ -15,7 +15,7 @@ public class PlayerImages
 	private int x, y;
 	private boolean right, run, hit;
 	// dimensioni costanti
-	private final double dimension = GameWindows.dimension;
+	private final double dimension = GameWindow.dimension;
 	private final int DIM5 = (int) (5*dimension);
 	private final int DIM10 = (int) (10*dimension);
 	private final int DIM15 = (int) (15*dimension);

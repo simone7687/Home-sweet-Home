@@ -17,28 +17,28 @@ import java.awt.image.BufferedImage;
 public class GameImages extends Panel implements Runnable, KeyListener, MouseListener
 {
 	static int timeRepaintWalk = 200;
-	static boolean day = true;
+	static boolean dayLight = true;
 	private final int START_LEVEL = 1;
 	
 	private BufferedImage  bf;
 	
-	private WallpaperImages wallpaper;
+	private BackgroundImages wallpaper;
 	private GameOverImages gameOver;
-	public Players player;	// creata e introdotta nel main
+	public PlayerController player;	// creata e introdotta nel main
 	private Zombies zombie;
 	private Thread walkThread;
-	private GamePauses pause;
+	private GamePause pause;
 	
 	GameImages()
 	{
 		System.out.println("Creazione immagini...");
 		
-		bf = new BufferedImage(GameWindows.windowDimension.width, GameWindows.windowDimension.height, BufferedImage.TYPE_INT_RGB);
+		bf = new BufferedImage(GameWindow.windowDimension.width, GameWindow.windowDimension.height, BufferedImage.TYPE_INT_RGB);
 		
-		wallpaper = new WallpaperImages();
+		wallpaper = new BackgroundImages();
 		zombie = new Zombies();
 		gameOver = new GameOverImages();
-		pause = new GamePauses();
+		pause = new GamePause();
 		
 		walkThread = new Thread(this);
 		walkThread.start();
@@ -55,10 +55,10 @@ public class GameImages extends Panel implements Runnable, KeyListener, MouseLis
 	
 	public void paint(Graphics g)
 	{
-		if(Players.life > 0)
+		if(PlayerController.life > 0)
 		{
 			super.paint(bf.getGraphics());
-			wallpaper.paint(bf.getGraphics(),day);
+			wallpaper.paint(bf.getGraphics(),dayLight);
 			zombie.paint(bf.getGraphics());
 			player.paint(bf.getGraphics());
 		}
@@ -71,9 +71,8 @@ public class GameImages extends Panel implements Runnable, KeyListener, MouseLis
 	}
 	
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
+	public void run() 
+	{
 		System.out.println("Avvio thread per il repaint e la camminata...");
 		
 		boolean walk = true;	// on/off
@@ -99,25 +98,28 @@ public class GameImages extends Panel implements Runnable, KeyListener, MouseLis
 			{
 				repaint = true;
 			}
-			try {
-					Thread.sleep(timeRepaintWalk/2);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			try 
+			{
+				Thread.sleep(timeRepaintWalk/2);
+			} 
+			catch (InterruptedException e) 
+			{
+				e.printStackTrace();
+			}
 			repaint();
 		}
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
+	public void keyPressed(KeyEvent e) 
+	{
 		// muovi
 		if(e.getKeyCode() == KeyEvent.VK_D) player.right = true;
 		if(e.getKeyCode() == KeyEvent.VK_A) player.left = true;
 		if(e.getKeyCode() == KeyEvent.VK_W) player.up = true;
 		if(e.getKeyCode() == KeyEvent.VK_S) player.down = true;
 		// intro
-		if(e.getKeyCode() == KeyEvent.VK_SPACE) if(GameImages.day) {new GameLevels(START_LEVEL); GameImages.day = false;}
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) if(GameImages.dayLight) {new GameLevels(START_LEVEL); GameImages.dayLight = false;}
 		// picchia
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) if(player.currentHit) {player.hit(true);}
 	}
@@ -137,7 +139,7 @@ public class GameImages extends Panel implements Runnable, KeyListener, MouseLis
 	@Override
 	public void mouseClicked(MouseEvent e) 
 	{
-		if(Players.life > 0)
+		if(PlayerController.life > 0)
 		{
 			pause.clickPause(e);
 		}

@@ -9,7 +9,7 @@
 public class GameLevels
 {
 	static int level = 1;
-	private static int levelSpawnMultiplier = 6;	// ogni levelSpawnMultiplier livelli si aggiunge un zombie in ogni spawn
+	private static int levelSpawnMultiplier = 6;	// ogni levelSpawnMultiplier aggiunge un zombie in ogni spawn
 	private static int zombieStartNumber = 6;
 	
 	GameLevels()
@@ -39,7 +39,7 @@ public class GameLevels
 	 */
 	public static void setNewLevel()
 	{
-		GameScores.addScoreLevel(level);
+		GameScore.addScoreLevel(level);
 		
 		level++;
 		System.out.println("Livelli " + level);
@@ -71,7 +71,7 @@ public class GameLevels
 	}
 	public static void setLevel(int level)
 	{
-		GameScores.scores = 0;
+		GameScore.score = 0;
 		Zombies.n_zombie_spawn_multiplier = 1;
 		Zombies.spawnTime = 10000;
 		GameImages.timeRepaintWalk = 200;

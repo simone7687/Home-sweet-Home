@@ -13,7 +13,7 @@ import java.util.Random;
 public class Zombies implements Runnable
 {
 	private final int POWER = 5;
-	private final int SPEED = (int) (15*GameWindows.dimension);
+	private final int SPEED = (int) (15*GameWindow.dimension);
 	static Thread thread;
 	private static LinkedList<ZombieNodes> l;
 	// spawn
@@ -55,24 +55,24 @@ public class Zombies implements Runnable
 			if(walk)
 			{
 				l.get(i).run=true;
-				if(l.get(i).coordinates.y > 220*GameWindows.dimension || l.get(i).coordinates.x < 570*GameWindows.dimension || l.get(i).coordinates.x > 730*GameWindows.dimension)
+				if(l.get(i).coordinates.y > 220*GameWindow.dimension || l.get(i).coordinates.x < 570*GameWindow.dimension || l.get(i).coordinates.x > 730*GameWindow.dimension)
 				{
-					if(l.get(i).coordinates.x < 570*GameWindows.dimension)
+					if(l.get(i).coordinates.x < 570*GameWindow.dimension)
 					{
 						l.get(i).coordinates.x += SPEED;
 					}
-					if(l.get(i).coordinates.x > 730*GameWindows.dimension) 
+					if(l.get(i).coordinates.x > 730*GameWindow.dimension) 
 					{
 						l.get(i).coordinates.x -= SPEED;
 					}
-					if(l.get(i).coordinates.y > 220*GameWindows.dimension)
+					if(l.get(i).coordinates.y > 220*GameWindow.dimension)
 					{
 						l.get(i).coordinates.y -= SPEED;
 					}
 				}
 				else if(l.get(i).life > 0)
 				{
-					Players.life -= POWER;
+					PlayerController.life -= POWER;
 				}
 			}
 			else
@@ -96,34 +96,34 @@ public class Zombies implements Runnable
 		int a = 0;
 		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)	// livelli
 		{
-			if(l.get(i).coordinates.y > y-100*GameWindows.dimension && l.get(i).coordinates.y < y+60*GameWindows.dimension)
+			if(l.get(i).coordinates.y > y-100*GameWindow.dimension && l.get(i).coordinates.y < y+60*GameWindow.dimension)
 			{
-				if(right && l.get(i).coordinates.x > x && l.get(i).coordinates.x < x+(45+30)*GameWindows.dimension && l.get(i).life > 0)
+				if(right && l.get(i).coordinates.x > x && l.get(i).coordinates.x < x+(45+30)*GameWindow.dimension && l.get(i).life > 0)
 				{
 					l.get(i).life -= power;
-					l.get(i).coordinates.x += (rand.nextInt(60)+20)*GameWindows.dimension;
+					l.get(i).coordinates.x += (rand.nextInt(60)+20)*GameWindow.dimension;
 					l.get(i).set();
-					GameScores.addScoreHit();
+					GameScore.addScoreHit();
 					a++;
 				}
-				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x > x-(45+30)*GameWindows.dimension && l.get(i).life > 0)
+				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x > x-(45+30)*GameWindow.dimension && l.get(i).life > 0)
 				{
 					l.get(i).life -= power;
-					l.get(i).coordinates.x -= (rand.nextInt(40)+40)*GameWindows.dimension;
+					l.get(i).coordinates.x -= (rand.nextInt(40)+40)*GameWindow.dimension;
 					l.get(i).set();
-					GameScores.addScoreHit();
+					GameScore.addScoreHit();
 					a++;
 				}
 			}
 		}
-		if(a==0 && Players.life < 150 && Players.life > 0 && y < 300*GameWindows.dimension && x > 570*GameWindows.dimension && x < 730*GameWindows.dimension)
+		if(a==0 && PlayerController.life < 150 && PlayerController.life > 0 && y < 300*GameWindow.dimension && x > 570*GameWindow.dimension && x < 730*GameWindow.dimension)
 		{
-			Players.life += power/5;
+			PlayerController.life += power/5;
 		}
 	}
 	/**
 	 * Il metodo endLevel ha la funzione di:
-	 * verificare se il livello ï¿½ finito.
+	 * verificare se il livello è finito.
 	 * @return
 	 */
 	private boolean endLevel()
@@ -159,12 +159,11 @@ public class Zombies implements Runnable
 			try {
 				Thread.sleep(spawnTime);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			zombieCurrentNumber = l.size();
 			//spawn
-			if(i >= zombieSpawnNumber && Players.life > 0)
+			if(i >= zombieSpawnNumber && PlayerController.life > 0)
 			{
 				if(endLevel())
 				{
@@ -174,7 +173,6 @@ public class Zombies implements Runnable
 					try {
 						Thread.sleep(spawnTime);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					GameLevels.setNewLevel();
@@ -186,17 +184,17 @@ public class Zombies implements Runnable
 				i += 1*n_zombie_spawn_multiplier;
 			}
 			//fine
-			if(Players.life < 0)
+			if(PlayerController.life < 0)
 			{
 				//GameScores.printScore();
 				
-				GamePauses.pause();
+				GamePause.pause();
 				
 				System.out.println("Restart");
 				l.removeAll(l);
 				i = 0;
 				GameLevels.setLevel(1);
-				Players.life = Players.START_LIFE;
+				PlayerController.life = PlayerController.START_LIFE;
 			}
 		}
 	}

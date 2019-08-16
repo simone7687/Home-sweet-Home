@@ -6,21 +6,21 @@ import java.awt.Polygon;
 
 public class PauseBottonImages 
 {
-	protected Dimension bottonPauseSize = new Dimension((int) (50*GameWindows.dimension), (int) (25*GameWindows.dimension));
-	protected Point bottonPauseCoordinates = new Point((int) (10*GameWindows.dimension), (int) (10*GameWindows.dimension));
-	protected Dimension bottonRestartSize = new Dimension((int) (200*GameWindows.dimension), (int) (150*GameWindows.dimension));
-	protected Point bottonRestartCoordinates = new Point((int) (GameWindows.windowDimension.width-bottonRestartSize.width)/2, (int) (450*GameWindows.dimension));
+	protected Dimension bottonPauseSize = new Dimension((int) (50*GameWindow.dimension), (int) (25*GameWindow.dimension));
+	protected Point bottonPauseCoordinates = new Point((int) (10*GameWindow.dimension), (int) (10*GameWindow.dimension));
+	protected Dimension bottonRestartSize = new Dimension((int) (200*GameWindow.dimension), (int) (150*GameWindow.dimension));
+	protected Point bottonRestartCoordinates = new Point((int) (GameWindow.windowDimension.width-bottonRestartSize.width)/2, (int) (450*GameWindow.dimension));
 	static boolean pause = false;
-	private int DIM15 = (int) (15*GameWindows.dimension);
-	private int DIM5 = (int) (5*GameWindows.dimension);
-	private int DIM2 = (int) (2*GameWindows.dimension);
+	private int DIM15 = (int) (15*GameWindow.dimension);
+	private int DIM5 = (int) (5*GameWindow.dimension);
+	private int DIM2 = (int) (2*GameWindow.dimension);
 	private Polygon p1 = new Polygon();
 	private Polygon p2 = new Polygon();
 	
 	public void paint(Graphics g)
 	{	
 		// pausa
-		if(Players.life > 0)
+		if(PlayerController.life > 0)
 		{
 			p1.addPoint(bottonPauseCoordinates.x+(bottonPauseSize.width/2)-DIM2-DIM5, bottonPauseCoordinates.y+DIM5);
 			p1.addPoint(bottonPauseCoordinates.x+(bottonPauseSize.width/2)-DIM2-DIM5, bottonPauseCoordinates.y-DIM5+bottonPauseSize.height);

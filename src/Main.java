@@ -5,20 +5,20 @@ public class Main
 	public static void main(String[] args)
 	{
 		// pre-game
-		GameStart start = new GameStart();
+		GameSettings start = new GameSettings();
 		Dimension windowDimension = start.getWindowDimension();
 		if(windowDimension != null)
 		{
 			System.out.println("Avvio gioco...");
 			
 			// finestra
-			GameWindows windows = new GameWindows(windowDimension);
+			GameWindow windows = new GameWindow(windowDimension);
 			
 			// player
-			Players player = new Players(start.getPlayerName());
+			PlayerController player = new PlayerController(start.getPlayerName());
 			
 			// punti
-			new GameScores();
+			new GameScore();
 			
 			// immagine
 			GameImages image = new GameImages();
@@ -33,7 +33,7 @@ public class Main
 		}
 		else
 		{
-			System.out.println("Chiusura!");																													//quando si chiude la finestra con la x stampare Chiusura!
+			System.out.println("Chiusura!");  //quando si chiude la finestra con la x stampa Chiusura!
 		}
 	}
 }

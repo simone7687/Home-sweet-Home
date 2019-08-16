@@ -13,10 +13,10 @@ import java.awt.Graphics;
 public class GameOverImages 
 {
 	// dimensioni costanti
-	private final int DIMFONT1 = (int) (100*GameWindows.dimension);
-	private final int DIMFONT2 = (int) (20*GameWindows.dimension);
-	private final int DIMX = (int) (350*GameWindows.dimension);
-	private final int DIMY = (int) (350*GameWindows.dimension);
+	private final int DIMFONT1 = (int) (100*GameWindow.dimension);
+	private final int DIMFONT2 = (int) (20*GameWindow.dimension);
+	private final int DIMX = (int) (350*GameWindow.dimension);
+	private final int DIMY = (int) (350*GameWindow.dimension);
 	public void paint(Graphics g)
 	{	
 		Font FONT1 = new Font("Helvetica", Font.BOLD, (int) (DIMFONT1));
@@ -24,11 +24,11 @@ public class GameOverImages
 		
 		g.setFont(FONT1);
 		g.setColor(Color.black);
-		g.fillRect(0,0, GameWindows.windowDimension.width,GameWindows.windowDimension.height);
+		g.fillRect(0,0, GameWindow.windowDimension.width,GameWindow.windowDimension.height);
 		g.setColor(Color.red);
 		g.drawString("Game Over", DIMX, DIMY-DIMFONT2);
 		
 		g.setFont(FONT2);
-		g.drawString("Scores: " + GameScores.scores , DIMX+2*DIMFONT2, DIMY+DIMFONT2);
+		g.drawString("Scores: " + GameScore.score , DIMX+2*DIMFONT2, DIMY+DIMFONT2);
 	}
 }

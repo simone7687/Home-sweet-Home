@@ -20,8 +20,8 @@ public class ZombieNodes extends ZombieImages
 	ZombieNodes()
 	{
 		Random rand = new Random();
-		coordinates.y = GameWindows.windowDimension.height-100;
-		coordinates.x = rand.nextInt(GameWindows.windowDimension.width);
+		coordinates.y = GameWindow.windowDimension.height-100;
+		coordinates.x = rand.nextInt(GameWindow.windowDimension.width);
 		set();
 	}
 	
