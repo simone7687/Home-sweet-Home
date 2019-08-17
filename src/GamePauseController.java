@@ -1,8 +1,8 @@
 import java.awt.event.MouseEvent;
 
-public class GamePause extends PauseBottonImages
+public class GamePauseController extends GamePauseView
 {
-	GamePause()
+	GamePauseController()
 	{
 		System.out.println("");
 	}
@@ -14,15 +14,11 @@ public class GamePause extends PauseBottonImages
 				e.getY() <= bottonPauseCoordinates.y+bottonPauseSize.height)
 		{
 			if(pause)
-			{
 				resume();
-				pause = false;
-			}
 			else
-			{
 				pause();
-				pause = true;
-			}
+			
+			pause = !pause;
 		}
 	}
 	void clickRestart(MouseEvent e)
@@ -38,11 +34,11 @@ public class GamePause extends PauseBottonImages
 	@SuppressWarnings("deprecation")
 	static void pause()
 	{
-		Zombies.thread.suspend();
+		ZombiesController.thread.suspend();
 	}
 	@SuppressWarnings("deprecation")
 	void resume()
 	{
-		Zombies.thread.resume();
+		ZombiesController.thread.resume();
 	}
 }

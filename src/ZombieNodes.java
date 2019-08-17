@@ -9,7 +9,7 @@ import java.util.Random;
  * @version 1.0
  *
  */
-public class ZombieNodes extends ZombieImages
+public class ZombieNodes extends ZombieView
 {
 	private final int LIFESTART = 100;
 	int life = LIFESTART;

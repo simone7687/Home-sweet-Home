@@ -16,19 +16,19 @@ public class GameLevels
 	{
 		System.out.println("Livelli " + level);
 		
-		Zombies.zombieSpawnNumber = zombieStartNumber;
-		Zombies.thread.start();
+		ZombiesController.zombieSpawnNumber = zombieStartNumber;
+		ZombiesController.thread.start();
 	}
 	GameLevels(int livel)
 	{
 		System.out.println("Livelli " + GameLevels.level);
 		
-		Zombies.zombieSpawnNumber = zombieStartNumber;
+		ZombiesController.zombieSpawnNumber = zombieStartNumber;
 		for(int i = 2; i<=livel; i++)
 		{
 			setNewLevel();
 		}
-		Zombies.thread.start();
+		ZombiesController.thread.start();
 	}
 	
 	/**
@@ -44,41 +44,41 @@ public class GameLevels
 		level++;
 		System.out.println("Livelli " + level);
 		// aumenta zombie
-		Zombies.zombieSpawnNumber += (int) (zombieStartNumber*1/4);
+		ZombiesController.zombieSpawnNumber += (int) (zombieStartNumber*1/4);
 		// aumenta zombie ad agni spawn
 		if(level%levelSpawnMultiplier == 0)
 		{
-			Zombies.n_zombie_spawn_multiplier++;
-			if(Zombies.spawnTime < 10000 || GameImages.timeRepaintWalk < 200)
+			ZombiesController.n_zombie_spawn_multiplier++;
+			if(ZombiesController.spawnTime < 10000 || GameView.timeRepaintWalk < 200)
 			{
-				Zombies.spawnTime += (1000*Zombies.n_zombie_spawn_multiplier);
-				GameImages.timeRepaintWalk += (10*Zombies.n_zombie_spawn_multiplier);
+				ZombiesController.spawnTime += (1000*ZombiesController.n_zombie_spawn_multiplier);
+				GameView.timeRepaintWalk += (10*ZombiesController.n_zombie_spawn_multiplier);
 			}
 		}
 		else
 		{
 			// diminuisce tempo ad ogni spawn
-			if(Zombies.spawnTime > 7000)
+			if(ZombiesController.spawnTime > 7000)
 			{
-				Zombies.spawnTime -= 1000;
+				ZombiesController.spawnTime -= 1000;
 			}
 			// aumenta velocità del gioco
-			if(GameImages.timeRepaintWalk > 100)
+			if(GameView.timeRepaintWalk > 100)
 			{
-				GameImages.timeRepaintWalk -= 10;
+				GameView.timeRepaintWalk -= 10;
 			}
 		}
 	}
 	public static void setLevel(int level)
 	{
 		GameScore.score = 0;
-		Zombies.n_zombie_spawn_multiplier = 1;
-		Zombies.spawnTime = 10000;
-		GameImages.timeRepaintWalk = 200;
+		ZombiesController.n_zombie_spawn_multiplier = 1;
+		ZombiesController.spawnTime = 10000;
+		GameView.timeRepaintWalk = 200;
 		
 		System.out.println("Livello " + GameLevels.level);
 		
-		Zombies.zombieSpawnNumber = zombieStartNumber;
+		ZombiesController.zombieSpawnNumber = zombieStartNumber;
 		for(int i = 2; i<=level; i++)
 		{
 			setNewLevel();

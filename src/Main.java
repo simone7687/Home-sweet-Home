@@ -21,7 +21,7 @@ public class Main
 			new GameScore();
 			
 			// immagine
-			GameImages image = new GameImages();
+			GameView image = new GameView();
 			player.gameImages = image;
 			image.player = player;
 			windows.addKeyListener(image);		// abilita tasti nella finestra

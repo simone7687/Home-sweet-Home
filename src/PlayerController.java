@@ -8,7 +8,7 @@ import java.awt.Point;
  * @version 1.0
  *
  */
-public class PlayerController extends PlayerImages
+public class PlayerController extends PlayerView
 {
 	static final int START_LIFE = 100;
 	static int life = START_LIFE;
@@ -22,7 +22,7 @@ public class PlayerController extends PlayerImages
 	private int power = 10;
 	private boolean hit;
 	boolean currentHit = true;
-	GameImages gameImages;
+	GameView gameImages;
 	
 	PlayerController(String name)
 	{
@@ -50,7 +50,7 @@ public class PlayerController extends PlayerImages
 		else
 		{
 			this.hit = hit;
-			Zombies.damage(right, coordinates.x, coordinates.y, power);	// danno
+			ZombiesController.damage(right, coordinates.x, coordinates.y, power);	// danno
 			setHit(hit);
 			currentHit = true;
 		}
@@ -84,7 +84,7 @@ public class PlayerController extends PlayerImages
 				coordinates.x -= speed;
 				//setRight(right);
 			}
-			if(up && BackgroundImages.DIM200 < coordinates.y-speed)
+			if(up && BackgroundView.DIM200 < coordinates.y-speed)
 			{
 				run = true;
 				coordinates.y -= speed;

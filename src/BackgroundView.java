@@ -12,19 +12,19 @@ import java.awt.Graphics2D;
  * @version 1.0
  *
  */
-public class BackgroundImages
+public class BackgroundView
 {
-	BackgroundImages()
+	BackgroundView()
 	{
 		System.out.println("Creazione sfondo...");
 	}
 	
 	// dimensioni costanti
-	private final int DIM10 = (int) (10*GameWindow.dimension);
-	private final int DIM50 = (int) (50*GameWindow.dimension);
-	static final int DIM200 = (int) (200*GameWindow.dimension);	// utilizato anche in player
-	private final int DIMFONT1 = (int) (25*GameWindow.dimension);
-	private final int DIMFONT2 = (int) (20*GameWindow.dimension);
+	private final int DIM10 = (int) (10 * GameWindow.dimension);
+	private final int DIM50 = (int) (50 * GameWindow.dimension);
+	static final int DIM200 = (int) (200 * GameWindow.dimension);	// utilizato anche in player
+	private final int DIMFONT1 = (int) (25 * GameWindow.dimension);
+	private final int DIMFONT2 = (int) (20 * GameWindow.dimension);
 	// colori 
 	private final Color WOOD_COLOR = new Color(250, 131, 0);
 	private final Color HOUSE_COLOR = new Color(255, 220, 0);
@@ -50,17 +50,17 @@ public class BackgroundImages
 			g.fillOval(DIM50/2, DIM50/2, DIM50, DIM50);
 			
 			g2d.setPaint(SKY_COLOR);
-			g2d.fillRoundRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3, 5, 5);
+			g2d.fillRoundRect(DIM200 * 2 + DIM10, DIM50 + DIM10, DIM50 * 2-DIM10 * 3, DIM50 * 2 - DIM10 * 3, 5, 5);
 			g.setColor(Color.black);
-			g.drawRoundRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3, 5, 5);
+			g.drawRoundRect(DIM200 * 2 + DIM10, DIM50 + DIM10, DIM50 * 2 - DIM10 * 3, DIM50 * 2 - DIM10 * 3, 5, 5);
 			
 			g.setFont(FONT1);
 			g.setColor(Color.black);
-			g.drawString("Ciao! non far entrare nessuno in casa", DIM50,DIM200+DIM50);
-			g.drawString("Di giorno e' tranquillo, ma di notte...", DIM50,DIM200+DIM50+40);
-			g.drawString("Muoviti con: W(su)  D(giu)  A(dx)  S(sx)", DIM50,DIM200+DIM50+80);
-			g.drawString("Utilizza il martello con: ENTER, per colpire gli zombi o riparare la porta", DIM50, DIM200+DIM50+120);
-			g.drawString("Se sei pronto premere: SPACE", DIM200*2+DIM50, DIM200*3+DIM50);
+			g.drawString("Ciao! non far entrare nessuno in casa", DIM50, DIM200 + DIM50);
+			g.drawString("Di giorno e' tranquillo, ma di notte...", DIM50, DIM200 + DIM50 + 40);
+			g.drawString("Muoviti con: W(su)  D(giu)  A(dx)  S(sx)", DIM50, DIM200 + DIM50 + 80);
+			g.drawString("Utilizza il martello con: ENTER, per colpire gli zombi o riparare la porta", DIM50, DIM200 + DIM50 + 120);
+			g.drawString("Se sei pronto premere: SPACE", DIM200 * 2 + DIM50, DIM200 * 3 + DIM50);
 		}
 		else
 		{
@@ -70,13 +70,13 @@ public class BackgroundImages
 			g.fillOval(DIM50/2, DIM50/2, DIM50, DIM50);
 			
 			g.setColor(Color.black);
-			g.fillRoundRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3, 5, 5);
+			g.fillRoundRect(DIM200 * 2 + DIM10, DIM50 + DIM10, DIM50 * 2-DIM10 * 3, DIM50 * 2 - DIM10 * 3, 5, 5);
 			
 			g.setFont(FONT2);
 			g.setColor(Color.blue);
 			//g.drawString("Porta: " + Players.life, DIM200*3, DIM50-DIM10);
-			g.drawString("Scores: " + GameScore.score, DIM200+DIM50-DIM10*2, DIM200-DIM10*2);
-			g.drawString("Livello: " + GameLevels.level, DIM200*4+DIM50*3, DIM200-DIM10*2);
+			g.drawString("Score: " + GameScore.score, DIM200 + DIM50 - DIM10 * 2, DIM200 - DIM10 * 2);
+			g.drawString("Livello: " + GameLevels.level, DIM200 * 4 + DIM50 * 3, DIM200 - DIM10 * 2);
 		}
 		
 		// casa
