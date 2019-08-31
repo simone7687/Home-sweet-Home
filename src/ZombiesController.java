@@ -175,7 +175,7 @@ public class ZombiesController implements Runnable
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					GameLevels.setNewLevel();
+					GameLevel.setNewLevel();
 				}
 			}
 			else
@@ -193,7 +193,7 @@ public class ZombiesController implements Runnable
 				System.out.println("Restart");
 				l.removeAll(l);
 				i = 0;
-				GameLevels.setLevel(1);
+				GameLevel.setLevel(1);
 				PlayerController.life = PlayerController.START_LIFE;
 			}
 		}

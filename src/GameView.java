@@ -115,7 +115,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		if(e.getKeyCode() == KeyEvent.VK_W) player.up = true;
 		if(e.getKeyCode() == KeyEvent.VK_S) player.down = true;
 		// intro
-		if(e.getKeyCode() == KeyEvent.VK_SPACE) if(GameView.dayLight) {new GameLevels(START_LEVEL); GameView.dayLight = false;}
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) if(GameView.dayLight) {new GameLevel(START_LEVEL); GameView.dayLight = false;}
 		// picchia
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) if(player.currentHit) {player.hit(true);}
 	}

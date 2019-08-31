@@ -76,7 +76,7 @@ public class BackgroundView
 			g.setColor(Color.blue);
 			//g.drawString("Porta: " + Players.life, DIM200*3, DIM50-DIM10);
 			g.drawString("Score: " + GameScore.score, DIM200 + DIM50 - DIM10 * 2, DIM200 - DIM10 * 2);
-			g.drawString("Livello: " + GameLevels.level, DIM200 * 4 + DIM50 * 3, DIM200 - DIM10 * 2);
+			g.drawString("Livello: " + GameLevel.level, DIM200 * 4 + DIM50 * 3, DIM200 - DIM10 * 2);
 		}
 		
 		// casa
