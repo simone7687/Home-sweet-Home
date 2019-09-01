@@ -52,11 +52,6 @@ public class BackgroundView
 			g.setColor(Color.yellow);
 			g.fillOval(DIM50/2, DIM50/2, DIM50, DIM50);
 			
-			g2d.setPaint(SKY_COLOR);
-			g2d.fillRoundRect(DIM200 * 2 + DIM10, DIM50 + DIM10, DIM50 * 2-DIM10 * 3, DIM50 * 2 - DIM10 * 3, 5, 5);
-			g.setColor(Color.black);
-			g.drawRoundRect(DIM200 * 2 + DIM10, DIM50 + DIM10, DIM50 * 2 - DIM10 * 3, DIM50 * 2 - DIM10 * 3, 5, 5);
-			
 			g.setFont(FONT1);
 			g.setColor(Color.black);
 			g.drawString("Ciao! Non far entrare nessuno in casa", DIM50, DIM200 + DIM50);
@@ -77,11 +72,6 @@ public class BackgroundView
 			g.setColor(Color.black);
 			g.fillRoundRect(DIM200 * 2 + DIM10, DIM50 + DIM10, DIM50 * 2-DIM10 * 3, DIM50 * 2 - DIM10 * 3, 5, 5);
 			
-			g.setFont(FONT2);
-			g.setColor(Color.blue);
-			//g.drawString("Porta: " + Players.life, DIM200*3, DIM50-DIM10);
-			g.drawString("Score: " + GameScore.score, DIM200 + DIM50 - DIM10 * 2, DIM200 - DIM10 * 2);
-			g.drawString("Livello: " + GameLevel.level, DIM200 * 4 + DIM50 * 3, DIM200 - DIM10 * 2);
 		}
 		
 		// casa
@@ -143,5 +133,22 @@ public class BackgroundView
 		g.fillRoundRect(DIM200*2, DIM50, DIM50*2-DIM10, DIM50*2-DIM10, 10, 10);
 		g.setColor(Color.black);
 		g.drawRoundRect(DIM200*2, DIM50, DIM50*2-DIM10, DIM50*2-DIM10, 10, 10);
+		if(dayLight)
+		{
+			g2d.setPaint(SKY_COLOR);
+			g2d.fillRoundRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3, 5, 5);
+			g.setColor(Color.black);
+			g.drawRoundRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3, 5, 5);
+		}
+		else
+		{
+			g.setColor(Color.black);
+			g.fillRoundRect(DIM200*2+DIM10, DIM50+DIM10, DIM50*2-DIM10*3, DIM50*2-DIM10*3, 5, 5);
+			g.setFont(FONT2);
+			g.setColor(Color.blue);
+			//g.drawString("Porta: " + Players.life, DIM200*3, DIM50-DIM10);
+			g.drawString("Score: " + GameScore.score, DIM200 + DIM50 - DIM10 * 2, DIM200 - DIM10 * 2);
+			g.drawString("Livello: " + GameLevel.level, DIM200 * 4 + DIM50 * 3, DIM200 - DIM10 * 2);
+		}
 	}
 }
