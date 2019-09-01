@@ -13,7 +13,7 @@ import java.util.Random;
 public class ZombiesController implements Runnable
 {
 	private final int POWER = 5;
-	private final int SPEED = (int) (15*GameWindow.dimension);
+	private final int SPEED = (int) (15*GameWindow.scalingFactor);
 	static Thread thread;
 	private static LinkedList<ZombieNodes> l;
 	// spawn
@@ -55,17 +55,17 @@ public class ZombiesController implements Runnable
 			if(walk)
 			{
 				l.get(i).run=true;
-				if(l.get(i).coordinates.y > 220*GameWindow.dimension || l.get(i).coordinates.x < 570*GameWindow.dimension || l.get(i).coordinates.x > 730*GameWindow.dimension)
+				if(l.get(i).coordinates.y > 220*GameWindow.scalingFactor || l.get(i).coordinates.x < 570*GameWindow.scalingFactor || l.get(i).coordinates.x > 730*GameWindow.scalingFactor)
 				{
-					if(l.get(i).coordinates.x < 570*GameWindow.dimension)
+					if(l.get(i).coordinates.x < 570*GameWindow.scalingFactor)
 					{
 						l.get(i).coordinates.x += SPEED;
 					}
-					if(l.get(i).coordinates.x > 730*GameWindow.dimension) 
+					if(l.get(i).coordinates.x > 730*GameWindow.scalingFactor) 
 					{
 						l.get(i).coordinates.x -= SPEED;
 					}
-					if(l.get(i).coordinates.y > 220*GameWindow.dimension)
+					if(l.get(i).coordinates.y > 220*GameWindow.scalingFactor)
 					{
 						l.get(i).coordinates.y -= SPEED;
 					}
@@ -96,27 +96,27 @@ public class ZombiesController implements Runnable
 		int a = 0;
 		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)	// livelli
 		{
-			if(l.get(i).coordinates.y > y-100*GameWindow.dimension && l.get(i).coordinates.y < y+60*GameWindow.dimension)
+			if(l.get(i).coordinates.y > y-100*GameWindow.scalingFactor && l.get(i).coordinates.y < y+60*GameWindow.scalingFactor)
 			{
-				if(right && l.get(i).coordinates.x > x && l.get(i).coordinates.x < x+(45+30)*GameWindow.dimension && l.get(i).life > 0)
+				if(right && l.get(i).coordinates.x > x && l.get(i).coordinates.x < x+(45+30)*GameWindow.scalingFactor && l.get(i).life > 0)
 				{
 					l.get(i).life -= power;
-					l.get(i).coordinates.x += (rand.nextInt(60)+20)*GameWindow.dimension;
+					l.get(i).coordinates.x += (rand.nextInt(60)+20)*GameWindow.scalingFactor;
 					l.get(i).set();
 					GameScore.addScoreHit();
 					a++;
 				}
-				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x > x-(45+30)*GameWindow.dimension && l.get(i).life > 0)
+				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x > x-(45+30)*GameWindow.scalingFactor && l.get(i).life > 0)
 				{
 					l.get(i).life -= power;
-					l.get(i).coordinates.x -= (rand.nextInt(40)+40)*GameWindow.dimension;
+					l.get(i).coordinates.x -= (rand.nextInt(40)+40)*GameWindow.scalingFactor;
 					l.get(i).set();
 					GameScore.addScoreHit();
 					a++;
 				}
 			}
 		}
-		if(a==0 && PlayerController.life < 150 && PlayerController.life > 0 && y < 300*GameWindow.dimension && x > 570*GameWindow.dimension && x < 730*GameWindow.dimension)
+		if(a==0 && PlayerController.life < 150 && PlayerController.life > 0 && y < 300*GameWindow.scalingFactor && x > 570*GameWindow.scalingFactor && x < 730*GameWindow.scalingFactor)
 		{
 			PlayerController.life += power/5;
 		}

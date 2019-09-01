@@ -13,18 +13,18 @@ public class GameWindow extends JFrame
 {
 	private final String TITLE = "Home Sweet Home";
 	static Dimension windowDimension = new Dimension();
-	static double dimension;	// per adattare i vari disegni alla dimensione dello schermo
+	static double scalingFactor;	// per adattare i vari disegni alla dimensione dello schermo
 	
-	GameWindow(Dimension windowDimension)
+	GameWindow(Dimension windowDimension, double scalingFactor)
 	{
 		System.out.println("Creazione della finestra...");
 		
 		setTitle(TITLE);									// titolo
 		setSize(windowDimension);							// dimensione
-		setResizable(false);								// ridimensionabile
-		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);	// rende attiva la chiusura
+		setResizable(false);								// non ridimensionabile
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		// rende attiva la chiusura
 		
-		dimension = 1.5;
-		GameWindow.windowDimension = windowDimension;
+		this.scalingFactor = scalingFactor;
+		this.windowDimension = windowDimension;
 	}
 }

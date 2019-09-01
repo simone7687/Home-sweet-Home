@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -20,11 +21,11 @@ public class BackgroundView
 	}
 	
 	// dimensioni costanti
-	private final int DIM10 = (int) (10 * GameWindow.dimension);
-	private final int DIM50 = (int) (50 * GameWindow.dimension);
-	static final int DIM200 = (int) (200 * GameWindow.dimension);	// utilizato anche in player
-	private final int DIMFONT1 = (int) (25 * GameWindow.dimension);
-	private final int DIMFONT2 = (int) (20 * GameWindow.dimension);
+	private final int DIM10 = (int) (10 * GameWindow.scalingFactor);
+	private final int DIM50 = (int) (50 * GameWindow.scalingFactor);
+	static final int DIM200 = (int) (200 * GameWindow.scalingFactor);	// utilizzato anche in player
+	private final int DIMFONT1 = (int) (25 * GameWindow.scalingFactor);
+	private final int DIMFONT2 = (int) (20 * GameWindow.scalingFactor);
 	// colori 
 	private final Color WOOD_COLOR = new Color(250, 131, 0);
 	private final Color HOUSE_COLOR = new Color(255, 220, 0);
@@ -35,6 +36,8 @@ public class BackgroundView
 	
 	public void paint(Graphics g, boolean dayLight)
 	{	
+		FontMetrics fm = g.getFontMetrics();
+		
 		// strada
 		g.setColor(Color.gray);
 		g.fillRect(0, 0, GameWindow.windowDimension.width, GameWindow.windowDimension.height);
@@ -56,11 +59,13 @@ public class BackgroundView
 			
 			g.setFont(FONT1);
 			g.setColor(Color.black);
-			g.drawString("Ciao! non far entrare nessuno in casa", DIM50, DIM200 + DIM50);
+			g.drawString("Ciao! Non far entrare nessuno in casa", DIM50, DIM200 + DIM50);
 			g.drawString("Di giorno e' tranquillo, ma di notte...", DIM50, DIM200 + DIM50 + 40);
-			g.drawString("Muoviti con: W(su)  D(giu)  A(dx)  S(sx)", DIM50, DIM200 + DIM50 + 80);
-			g.drawString("Utilizza il martello con: ENTER, per colpire gli zombi o riparare la porta", DIM50, DIM200 + DIM50 + 120);
-			g.drawString("Se sei pronto premere: SPACE", DIM200 * 2 + DIM50, DIM200 * 3 + DIM50);
+			g.drawString("Muoviti con: W(su')  D(giu')  A(dx)  S(sx)", DIM50, DIM200 + DIM50 + 80);
+			g.drawString("Utilizza il martello con: ENTER, per colpire gli zombie o riparare la porta", DIM50, DIM200 + DIM50 + 120);
+			
+			String s = "Se sei pronto premi: SPACE";
+			g.drawString(s, GameWindow.windowDimension.width /2 - fm.stringWidth(s)/2, DIM200 * 3 + DIM50);
 		}
 		else
 		{

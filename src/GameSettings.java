@@ -15,8 +15,8 @@ public class GameSettings
 {
 	private final Dimension FULLHD = new Dimension(1920, 1080);
 	private final Dimension HD = new Dimension(1280, 720);
-	private final Dimension SD = new Dimension(960, 540);
-	private final Object[] POSSIBLEVALUES = {"960x540", "1280x720", "1920x1080", "FILL SCREEN"};
+	//private final Dimension SD = new Dimension(960, 540);
+	private final Object[] POSSIBLEVALUES = {/*"960x540",*/ "1280x720", "1920x1080", "FILL SCREEN"};
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	GameSettings()
@@ -25,32 +25,26 @@ public class GameSettings
 	}
 	
 	/**
-	 * Il metodo getGameGraphics ha la funzione di:
+	 * Il metodo getWindowDimension ha la funzione di:
 	 * far selezionare la dimensione della finestra al giocatore.
 	 * @return Dimensione della finestra
 	 */
 	Dimension getWindowDimension()
 	{
 		System.out.println("Selezionare la dimensione della finestra...");
-		Object sel_input = JOptionPane.showInputDialog(null,"Scegliere la dimensione della finestra","Grafica",JOptionPane.INFORMATION_MESSAGE,null,POSSIBLEVALUES,POSSIBLEVALUES[0]);	// preassemblato
+		String sel_input = (String) JOptionPane.showInputDialog(null,"Scegliere la dimensione della finestra","Grafica",JOptionPane.INFORMATION_MESSAGE,null,POSSIBLEVALUES,POSSIBLEVALUES[0]);	// preassemblato
 		if(sel_input != null)
 		{
-			if(sel_input == POSSIBLEVALUES[2])
-			{
-				return FULLHD;
-			}
-			else if(sel_input == POSSIBLEVALUES[1]) 
-			{
-				return HD;
-			}
-			else if(sel_input == POSSIBLEVALUES[0]) 
-			{
-				return SD;
-			}
-			else if(sel_input == POSSIBLEVALUES[3]) 
-				return new Dimension(screenSize.width, screenSize.height);
-			
 			System.out.println("Dimensione selezionata: " + sel_input + ".");
+
+			/*if (sel_input.equals(POSSIBLEVALUES[0]))
+				return SD;*/
+			if (sel_input.equals(POSSIBLEVALUES[0]))
+				return HD;
+			else if (sel_input.equals(POSSIBLEVALUES[1]))
+				return FULLHD;
+			else if (sel_input.equals(POSSIBLEVALUES[2]))
+				return new Dimension(screenSize.width, screenSize.height);
 		}
 		return null;
 	}
@@ -63,8 +57,15 @@ public class GameSettings
 	String getPlayerName()
 	{
 		System.out.println("Come ti chiami?");
-		String name = JOptionPane.showInputDialog ("Come ti chiami?", "Player");	// preassemblato
-		if(name != null && name != "Player")
+		String name = JOptionPane.showInputDialog ("Come ti chiami?", "Player");
+		if (name == null)
+		{
+			//premuto annulla
+			System.out.println("Scelta non effettuata. Chiusura.");
+			Runtime.getRuntime().exit(0);
+			return null;
+		}
+		else if(name != null && name != "Player")
 		{
 			System.out.println("Ciao " + name + ".");
 			return name;

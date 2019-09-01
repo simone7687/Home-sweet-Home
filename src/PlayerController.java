@@ -14,8 +14,8 @@ public class PlayerController extends PlayerView
 	static int life = START_LIFE;
 	static String name;
 	// corri
-	private int speed = (int) (30*GameWindow.dimension);
-	private Point coordinates = new Point((GameWindow.windowDimension.width/2), (int) (GameWindow.windowDimension.height/2));
+	private int speed = (int) (30 * GameWindow.scalingFactor);
+	private Point coordinates = new Point((GameWindow.windowDimension.width / 2), (int) (GameWindow.windowDimension.height / 2));
 	boolean right, left, up, down, run;
 	// attacco
 	private final int HIT_REPAINT_TIME_MAX = 50;

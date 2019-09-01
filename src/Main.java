@@ -11,8 +11,15 @@ public class Main
 		{
 			System.out.println("Avvio gioco...");
 			
+			double factor;
+			if (windowDimension.height == 720)
+				factor = 1.0;
+			else if (windowDimension.height == 1080)
+				factor = 1.3;
+			else factor = 1.5;
+			
 			// finestra
-			GameWindow windows = new GameWindow(windowDimension);
+			GameWindow windows = new GameWindow(windowDimension, factor);
 			
 			// player
 			PlayerController player = new PlayerController(start.getPlayerName());
@@ -20,20 +27,22 @@ public class Main
 			// punti
 			new GameScore();
 			
-			// immagine
-			GameView image = new GameView();
-			player.gameImages = image;
-			image.player = player;
-			windows.addKeyListener(image);		// abilita tasti nella finestra
-			windows.addMouseListener(image);	// abilita mouse nella finestra
-			// fine
-			windows.add(image);
-			windows.setVisible(true);			// mostra il frame
-			System.out.println("Completato!");
+			GameView view = new GameView();
+			player.gameImages = view;
+			view.player = player;
+			
+			//Abilita mouse e tastiera
+			windows.addKeyListener(view);
+			windows.addMouseListener(view);
+			windows.add(view);
+			windows.setVisible(true);
+			System.out.println("Avvio completato!");
 		}
 		else
 		{
-			System.out.println("Chiusura!");  //quando si chiude la finestra con la x stampa Chiusura!
+			//E' stato premuto annulla
+			System.out.println("Chiusura!");
+			Runtime.getRuntime().exit(0);
 		}
 	}
 }

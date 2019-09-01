@@ -20,7 +20,7 @@ public class GameScore
 	GameScore()
 	{
 		System.out.println("Creazione dello score...");
-		score=0;
+		score = 0;
 	}
 	
 	/**

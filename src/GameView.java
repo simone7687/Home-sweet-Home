@@ -20,7 +20,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 	static boolean dayLight = true;
 	private final int START_LEVEL = 1;
 	
-	private BufferedImage  graphics;
+	private BufferedImage graphics;
 	
 	private BackgroundView wallpaper;
 	private GameOverView gameOver;
@@ -50,7 +50,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 	// http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1
 	public void update(Graphics g)
 	{
-	       paint(g);
+		paint(g);
 	}
 	
 	public void paint(Graphics g)
@@ -58,14 +58,13 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		if(PlayerController.life > 0)
 		{
 			super.paint(graphics.getGraphics());
-			wallpaper.paint(graphics.getGraphics(),dayLight);
+			wallpaper.paint(graphics.getGraphics(), dayLight);
 			zombie.paint(graphics.getGraphics());
 			player.paint(graphics.getGraphics());
 		}
 		else
-		{
 			gameOver.paint(graphics.getGraphics());
-		}
+		
 		pause.paint(graphics.getGraphics());
 		g.drawImage(graphics,0,0,null);
 	}
@@ -91,9 +90,8 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 				repaint = false;
 			}
 			else
-			{
 				repaint = true;
-			}
+			
 			try 
 			{
 				Thread.sleep(timeRepaintWalk/2);
@@ -102,6 +100,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 			{
 				e.printStackTrace();
 			}
+			
 			repaint();
 		}
 	}
@@ -115,19 +114,36 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		if(e.getKeyCode() == KeyEvent.VK_W) player.up = true;
 		if(e.getKeyCode() == KeyEvent.VK_S) player.down = true;
 		// intro
-		if(e.getKeyCode() == KeyEvent.VK_SPACE) if(GameView.dayLight) {new GameLevel(START_LEVEL); GameView.dayLight = false;}
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) 
+		{
+			if(GameView.dayLight) 
+			{
+				new GameLevel(START_LEVEL); 
+				GameView.dayLight = false;
+			}
+		}
 		// picchia
-		if(e.getKeyCode() == KeyEvent.VK_ENTER) if(player.currentHit) {player.hit(true);}
+		
+		if(e.getKeyCode() == KeyEvent.VK_ENTER) 
+			if(player.currentHit) 
+				player.hit(true);
 	}
 	@Override
-	public void keyReleased(KeyEvent e) {
+	public void keyReleased(KeyEvent e) 
+	{
 		// muovi
-		if(e.getKeyCode() == KeyEvent.VK_D) player.right = false;
-		if(e.getKeyCode() == KeyEvent.VK_A) player.left = false;
-		if(e.getKeyCode() == KeyEvent.VK_W) player.up = false;
-		if(e.getKeyCode() == KeyEvent.VK_S) player.down = false;
+		if(e.getKeyCode() == KeyEvent.VK_D) 
+			player.right = false;
+		if(e.getKeyCode() == KeyEvent.VK_A) 
+			player.left = false;
+		if(e.getKeyCode() == KeyEvent.VK_W) 
+			player.up = false;
+		if(e.getKeyCode() == KeyEvent.VK_S) 
+			player.down = false;
 		// picchia
-		if(e.getKeyCode() == KeyEvent.VK_ENTER)	if(!player.currentHit) {player.hit(false);}
+		if(e.getKeyCode() == KeyEvent.VK_ENTER)	
+			if(!player.currentHit) 
+				player.hit(false);
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {}
@@ -136,13 +152,9 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 	public void mouseClicked(MouseEvent e) 
 	{
 		if(PlayerController.life > 0)
-		{
 			pause.clickPause(e);
-		}
 		else
-		{
 			pause.clickRestart(e);
-		}
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {}

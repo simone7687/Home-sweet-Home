@@ -13,10 +13,10 @@ import java.awt.Graphics;
 public class GameOverView 
 {
 	// dimensioni costanti
-	private final int DIMFONT1 = (int) (100*GameWindow.dimension);
-	private final int DIMFONT2 = (int) (20*GameWindow.dimension);
-	private final int DIMX = (int) (350*GameWindow.dimension);
-	private final int DIMY = (int) (350*GameWindow.dimension);
+	private final int DIMFONT1 = (int) (100*GameWindow.scalingFactor);
+	private final int DIMFONT2 = (int) (20*GameWindow.scalingFactor);
+	private final int DIMX = (int) (350*GameWindow.scalingFactor);
+	private final int DIMY = (int) (350*GameWindow.scalingFactor);
 	public void paint(Graphics g)
 	{	
 		Font FONT1 = new Font("Helvetica", Font.BOLD, (int) (DIMFONT1));

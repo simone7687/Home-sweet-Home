@@ -6,14 +6,14 @@ import java.awt.Polygon;
 
 public class GamePauseView 
 {
-	protected Dimension bottonPauseSize = new Dimension((int) (50*GameWindow.dimension), (int) (25*GameWindow.dimension));
-	protected Point bottonPauseCoordinates = new Point((int) (10*GameWindow.dimension), (int) (10*GameWindow.dimension));
-	protected Dimension bottonRestartSize = new Dimension((int) (200*GameWindow.dimension), (int) (150*GameWindow.dimension));
-	protected Point bottonRestartCoordinates = new Point((int) (GameWindow.windowDimension.width-bottonRestartSize.width)/2, (int) (450*GameWindow.dimension));
+	protected Dimension bottonPauseSize = new Dimension((int) (50*GameWindow.scalingFactor), (int) (25*GameWindow.scalingFactor));
+	protected Point bottonPauseCoordinates = new Point((int) (10*GameWindow.scalingFactor), (int) (10*GameWindow.scalingFactor));
+	protected Dimension bottonRestartSize = new Dimension((int) (200*GameWindow.scalingFactor), (int) (150*GameWindow.scalingFactor));
+	protected Point bottonRestartCoordinates = new Point((int) (GameWindow.windowDimension.width-bottonRestartSize.width)/2, (int) (450*GameWindow.scalingFactor));
 	static boolean pause = false;
-	private int DIM15 = (int) (15*GameWindow.dimension);
-	private int DIM5 = (int) (5*GameWindow.dimension);
-	private int DIM2 = (int) (2*GameWindow.dimension);
+	private int DIM15 = (int) (15*GameWindow.scalingFactor);
+	private int DIM5 = (int) (5*GameWindow.scalingFactor);
+	private int DIM2 = (int) (2*GameWindow.scalingFactor);
 	private Polygon p1 = new Polygon();
 	private Polygon p2 = new Polygon();
 	

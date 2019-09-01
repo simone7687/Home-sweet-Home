@@ -16,13 +16,13 @@ public class ZombieView
 	private int lifePercentage;
 	private boolean run;
 	// dimensioni costanti
-	private final int DIM5 = (int) (5*GameWindow.dimension);
-	private final int DIM10 = (int) (10*GameWindow.dimension);
-	private final int DIM15 = (int) (15*GameWindow.dimension);
-	private final int DIM25 = (int) (25*GameWindow.dimension);
-	private final int DIM35 = (int) (35*GameWindow.dimension);
-	private final int DIM40 = (int) (40*GameWindow.dimension);
-	private final int DIM120 = (int) (120*GameWindow.dimension);
+	private final int DIM5 = (int) (5*GameWindow.scalingFactor);
+	private final int DIM10 = (int) (10*GameWindow.scalingFactor);
+	private final int DIM15 = (int) (15*GameWindow.scalingFactor);
+	private final int DIM25 = (int) (25*GameWindow.scalingFactor);
+	private final int DIM35 = (int) (35*GameWindow.scalingFactor);
+	private final int DIM40 = (int) (40*GameWindow.scalingFactor);
+	private final int DIM120 = (int) (120*GameWindow.scalingFactor);
 	private int DIM1LIFE;
 	
 	/**
@@ -56,7 +56,7 @@ public class ZombieView
 	
 	public void paint(Graphics g)
 	{	
-		DIM1LIFE = (int) (lifePercentage*GameWindow.dimension/2);
+		DIM1LIFE = (int) (lifePercentage*GameWindow.scalingFactor/2);
 		
 		if(x < GameWindow.windowDimension.getWidth()/2)
 		{
