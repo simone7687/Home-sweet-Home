@@ -8,6 +8,8 @@ import java.awt.Point;
  * @version 1.0
  *
  */
+
+//TODO: MODEL
 public class PlayerController extends PlayerView
 {
 	static final int START_LIFE = 100;
