@@ -109,10 +109,10 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 	public void keyPressed(KeyEvent e) 
 	{
 		// muovi
-		if(e.getKeyCode() == KeyEvent.VK_D) player.right = true;
-		if(e.getKeyCode() == KeyEvent.VK_A) player.left = true;
-		if(e.getKeyCode() == KeyEvent.VK_W) player.up = true;
-		if(e.getKeyCode() == KeyEvent.VK_S) player.down = true;
+		if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) player.right = true;
+		if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) player.left = true;
+		if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) player.up = true;
+		if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) player.down = true;
 		// intro
 		if(e.getKeyCode() == KeyEvent.VK_SPACE) 
 		{
@@ -124,7 +124,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		}
 		// picchia
 		
-		if(e.getKeyCode() == KeyEvent.VK_ENTER) 
+		if(e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) 
 			if(player.currentHit) 
 				player.hit(true);
 	}
@@ -132,16 +132,16 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 	public void keyReleased(KeyEvent e) 
 	{
 		// muovi
-		if(e.getKeyCode() == KeyEvent.VK_D) 
+		if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) 
 			player.right = false;
-		if(e.getKeyCode() == KeyEvent.VK_A) 
+		if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) 
 			player.left = false;
-		if(e.getKeyCode() == KeyEvent.VK_W) 
+		if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) 
 			player.up = false;
-		if(e.getKeyCode() == KeyEvent.VK_S) 
+		if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) 
 			player.down = false;
 		// picchia
-		if(e.getKeyCode() == KeyEvent.VK_ENTER)	
+		if(e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE)	
 			if(!player.currentHit) 
 				player.hit(false);
 	}

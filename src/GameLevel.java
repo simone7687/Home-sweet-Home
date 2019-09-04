@@ -14,7 +14,7 @@ public class GameLevel
 	
 	GameLevel()
 	{
-		System.out.println("Livelli " + level);
+		System.out.println("Livello " + level);
 		
 		ZombiesController.zombieSpawnNumber = zombieStartNumber;
 		ZombiesController.thread.start();
@@ -22,7 +22,7 @@ public class GameLevel
 	
 	GameLevel(int level)
 	{
-		System.out.println("Livelli " + GameLevel.level);
+		System.out.println("Livello " + GameLevel.level);
 		
 		ZombiesController.zombieSpawnNumber = zombieStartNumber;
 		for(int i = 2; i<=level; i++)
@@ -43,7 +43,7 @@ public class GameLevel
 		GameScore.addScoreLevel(level);
 		
 		level++;
-		System.out.println("Livelli " + level);
+		System.out.println("Livello " + level);
 		// aumenta zombie
 		ZombiesController.zombieSpawnNumber += (int) (zombieStartNumber*1/4);
 		// aumenta zombie ad agni spawn
