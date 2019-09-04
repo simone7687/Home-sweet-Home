@@ -14,6 +14,8 @@ import java.awt.image.BufferedImage;
  * @version 1.0
  *
  */
+
+//TODO: Provare a dividere
 public class GameView extends Panel implements Runnable, KeyListener, MouseListener
 {
 	static int timeRepaintWalk = 200;

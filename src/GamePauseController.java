@@ -2,11 +2,6 @@ import java.awt.event.MouseEvent;
 
 public class GamePauseController extends GamePauseView
 {
-	GamePauseController()
-	{
-		System.out.println("");
-	}
-	
 	void clickPause(MouseEvent e)
 	{
 		if(e.getX() >= bottonPauseCoordinates.x && e.getY() >= bottonPauseCoordinates.y && 

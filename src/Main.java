@@ -25,7 +25,7 @@ public class Main
 			PlayerController player = new PlayerController(start.getPlayerName());
 			
 			// punti	
-			GameScore score = new GameScore();
+			GameScoreModel score = new GameScoreModel();
 			
 			GameView view = new GameView();
 			player.gameImages = view;

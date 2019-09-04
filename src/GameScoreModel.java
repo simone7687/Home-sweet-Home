@@ -11,13 +11,13 @@ import java.io.IOException;
  * @version 1.0
  *
  */
-public class GameScore
+public class GameScoreModel
 {
 	static int score;
 	static int scoreLevel = 100;
 	static int scoreHit = 10;
 	
-	GameScore()
+	GameScoreModel()
 	{
 		System.out.println("Creazione dello score...");
 		score = 0;
@@ -52,7 +52,7 @@ public class GameScore
 	    {
 	    	String path = new File(".").getCanonicalPath().toString();
 	    	BufferedWriter f = new BufferedWriter(new FileWriter(path + "\\score.txt", true));
-			f.write(PlayerController.name + ": " + GameScore.score);
+			f.write(PlayerController.name + ": " + GameScoreModel.score);
 			f.write(System.getProperty("line.separator"));
 			f.close();
 		} 
@@ -60,6 +60,6 @@ public class GameScore
 	    {
 			e.printStackTrace();
 		}
-	    System.out.println("Punteggio totalizzato: " + GameScore.score);
+	    System.out.println("Punteggio totalizzato: " + GameScoreModel.score);
 	}
 }

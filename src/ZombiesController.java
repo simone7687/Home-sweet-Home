@@ -15,7 +15,7 @@ public class ZombiesController implements Runnable
 	private final int POWER = 5;
 	private final int SPEED = (int) (15*GameWindow.scalingFactor);
 	static Thread thread;
-	private static LinkedList<ZombieNodes> l;
+	private static LinkedList<ZombieNodeModel> l;
 	// spawn
 	static int zombieSpawnNumber;
 	private static int zombieCurrentNumber;
@@ -26,7 +26,7 @@ public class ZombiesController implements Runnable
 	{
 		System.out.println("Creazione zombie...");
 		
-		l=new LinkedList<ZombieNodes>();
+		l=new LinkedList<ZombieNodeModel>();
 		thread = new Thread(this);
 	}
 	
@@ -36,11 +36,11 @@ public class ZombiesController implements Runnable
 	 * @param nodeAddNumber
 	 * @param l
 	 */
-	private void addNodes(int nodeAddNumber, LinkedList<ZombieNodes> l)
+	private void addNodes(int nodeAddNumber, LinkedList<ZombieNodeModel> l)
 	{
 		for(int i=0; i<nodeAddNumber; i++)
 		{
-			l.add(new ZombieNodes());
+			l.add(new ZombieNodeModel());
 		}
 	}
 	/**
@@ -103,7 +103,7 @@ public class ZombiesController implements Runnable
 					l.get(i).life -= power;
 					l.get(i).coordinates.x += (rand.nextInt(60)+20)*GameWindow.scalingFactor;
 					l.get(i).set();
-					GameScore.addScoreHit();
+					GameScoreModel.addScoreHit();
 					a++;
 				}
 				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x > x-(45+30)*GameWindow.scalingFactor && l.get(i).life > 0)
@@ -111,7 +111,7 @@ public class ZombiesController implements Runnable
 					l.get(i).life -= power;
 					l.get(i).coordinates.x -= (rand.nextInt(40)+40)*GameWindow.scalingFactor;
 					l.get(i).set();
-					GameScore.addScoreHit();
+					GameScoreModel.addScoreHit();
 					a++;
 				}
 			}

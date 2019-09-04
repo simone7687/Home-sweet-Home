@@ -40,7 +40,7 @@ public class GameLevel
 	 */
 	public static void setNewLevel()
 	{
-		GameScore.addScoreLevel(level);
+		GameScoreModel.addScoreLevel(level);
 		
 		level++;
 		System.out.println("Livello " + level);
@@ -73,7 +73,7 @@ public class GameLevel
 	
 	public static void setLevel(int level)
 	{
-		GameScore.score = 0;
+		GameScoreModel.score = 0;
 		ZombiesController.n_zombie_spawn_multiplier = 1;
 		ZombiesController.spawnTime = 10000;
 		GameView.timeRepaintWalk = 200;
