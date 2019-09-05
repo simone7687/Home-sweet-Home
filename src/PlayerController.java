@@ -1,5 +1,3 @@
-import java.awt.Point;
-
 /**
  * 
  * La classe Players ha la funzione di:
@@ -9,31 +7,20 @@ import java.awt.Point;
  *
  */
 
-//TODO: MODEL
 public class PlayerController extends PlayerView
 {
-	static final int START_LIFE = 100;
-	static int life = START_LIFE;
-	static String name;
-	// corri
-	private int speed = (int) (30 * GameWindow.scalingFactor);
-	private Point coordinates = new Point((GameWindow.windowDimension.width / 2), (int) (GameWindow.windowDimension.height / 2));
-	boolean right, left, up, down, run;
-	// attacco
-	private final int HIT_REPAINT_TIME_MAX = 50;
-	private int power = 10;
-	private boolean hit;
-	boolean currentHit = true;
+	static int life;
 	GameView gameImages;
+	private PlayerModel model = new PlayerModel();
+	boolean currentHit = true;
+	private final int HIT_REPAINT_TIME_MAX = 50;
 	
 	PlayerController(String name)
 	{
 		System.out.println("Creazione personaggio...");
-		PlayerController.name = name;
-		setCoordinates(coordinates);
-		setRun(run);
-		setRight(right);
-		setHit(hit);
+		life = PlayerModel.START_LIFE;
+		PlayerModel.name = name;
+		setCoordinates(model.getCoordinates());
 	}
 	
 	/**
@@ -45,14 +32,12 @@ public class PlayerController extends PlayerView
 	{
 		if(hit)
 		{
-			this.hit = hit;
 			setHit(hit);
 			currentHit = false;
 		}
 		else
 		{
-			this.hit = hit;
-			ZombiesController.damage(right, coordinates.x, coordinates.y, power);	// danno
+			ZombiesController.damage(getRight(), model.getCoordinates().x, model.getCoordinates().y, model.getPower());	// danno
 			setHit(hit);
 			currentHit = true;
 		}
@@ -71,38 +56,58 @@ public class PlayerController extends PlayerView
 	 */
 	void walk(boolean walk)
 	{
-		setRight(right);	// per gli hit
+		setRight(getRight());	// per gli hit
 		if(walk)
 		{
-			if(right && GameWindow.windowDimension.width>coordinates.x+speed)
+			if(getRight() && GameWindow.windowDimension.width>model.getCoordinates().x+model.getSpeed())
 			{
-				run = true;
-				coordinates.x += speed;
+				setRun(true);
+				model.setCoordinatesDx();
 				//setRight(right);
 			}
-			else if(left && 0 < coordinates.x-speed)
+			else if(model.getLeft() && 0 < model.getCoordinates().x-model.getSpeed())
 			{
-				run = true;
-				coordinates.x -= speed;
+				setRun(true);
+				model.setCoordinatesSx();
 				//setRight(right);
 			}
-			if(up && BackgroundView.DIM200 < coordinates.y-speed)
+			if(model.getUp() && BackgroundView.DIM200 < model.getCoordinates().y-model.getSpeed())
 			{
-				run = true;
-				coordinates.y -= speed;
+				setRun(true);
+				model.setCoordinatesDown();
 			}
-			else if(down && GameWindow.windowDimension.height > coordinates.y+speed)
+			else if(model.getDown() && GameWindow.windowDimension.height > model.getCoordinates().y+model.getSpeed())
 			{
-				run = true;
-				coordinates.y += speed;
+				setRun(true);
+				model.setCoordinatesUp();
 			}
-			setCoordinates(coordinates);
-			setRun(run);
+			setCoordinates(model.getCoordinates());
+			setRun(getRun());
 		}
 		else
 		{
-			run = false;
-			setRun(run);
+			setRun(false);
+			setRun(getRun());
 		}
+	}
+
+	static void setLifeInitial()
+	{
+		PlayerController.life = PlayerModel.START_LIFE;
+	}
+
+	void setLeft(boolean left)
+	{
+	   	model.setLeft(left);
+	}
+
+	void setUp(boolean up)
+	{
+		model.setUp(up);
+	}
+
+	void setDown(boolean down)
+	{
+		model.setDown(down);
 	}
 }

@@ -111,41 +111,25 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 	public void keyPressed(KeyEvent e) 
 	{
 		// muovi
-		if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) player.right = true;
-		if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) player.left = true;
-		if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) player.up = true;
-		if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) player.down = true;
+		if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) player.setRight(true);
+		if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) player.setLeft(true);
+		if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) player.setUp(true);
+		if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) player.setDown(true);
 		// intro
-		if(e.getKeyCode() == KeyEvent.VK_SPACE) 
-		{
-			if(GameView.dayLight) 
-			{
-				new GameLevel(START_LEVEL); 
-				GameView.dayLight = false;
-			}
-		}
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) {if(GameView.dayLight) {new GameLevel(START_LEVEL); GameView.dayLight = false;}}
 		// picchia
-		
-		if(e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) 
-			if(player.currentHit) 
-				player.hit(true);
+		if(e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) if(player.currentHit) {player.hit(true);}
 	}
 	@Override
 	public void keyReleased(KeyEvent e) 
 	{
 		// muovi
-		if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) 
-			player.right = false;
-		if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) 
-			player.left = false;
-		if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) 
-			player.up = false;
-		if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) 
-			player.down = false;
+		if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) player.setRight(false);
+		if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) player.setLeft(false);
+		if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) player.setUp(false);
+		if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) player.setDown(false);
 		// picchia
-		if(e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE)	
-			if(!player.currentHit) 
-				player.hit(false);
+		if(e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE)	if(!player.currentHit) {player.hit(false);}
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {}
