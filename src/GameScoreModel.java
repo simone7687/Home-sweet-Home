@@ -13,15 +13,9 @@ import java.io.IOException;
  */
 public class GameScoreModel
 {
-	static int score;
+	static int score = 0;
 	static int scoreLevel = 100;
 	static int scoreHit = 10;
-	
-	GameScoreModel()
-	{
-		System.out.println("Creazione dello score...");
-		score = 0;
-	}
 	
 	/**
 	 * Il metodo addScoreLevel ha la funzione di:
