@@ -62,6 +62,27 @@ public class PlayerView
 		this.hit = hit;
 	}
 	
+	protected Point getCoordinates() 
+	{
+		Point coordinates = new Point(this.x, this.y);
+		return coordinates;
+	}
+	
+	protected boolean getRun()
+	{
+		return run;
+	}
+	
+	protected boolean getRight()
+	{
+		return right;
+	}
+	
+	protected boolean getHit()
+	{
+		return hit;
+	}
+	
 	public void paint(Graphics g)
 	{	
 		if(right)

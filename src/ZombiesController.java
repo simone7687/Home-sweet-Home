@@ -194,7 +194,7 @@ public class ZombiesController implements Runnable
 				l.removeAll(l);
 				i = 0;
 				GameLevel.setLevel(1);
-				PlayerController.life = PlayerController.START_LIFE;
+				PlayerController.setLifeInitial();
 			}
 		}
 	}
