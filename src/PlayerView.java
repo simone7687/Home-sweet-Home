@@ -62,22 +62,42 @@ public class PlayerView
 		this.hit = hit;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile coordinates.
+	 * @return coordinates
+	 */
 	protected Point getCoordinates() 
 	{
 		Point coordinates = new Point(this.x, this.y);
 		return coordinates;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile run.
+	 * @return run
+	 */
 	protected boolean getRun()
 	{
 		return run;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile right.
+	 * @return right
+	 */
 	protected boolean getRight()
 	{
 		return right;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile hit.
+	 * @return hit
+	 */
 	protected boolean getHit()
 	{
 		return hit;

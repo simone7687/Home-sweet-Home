@@ -29,11 +29,21 @@ public class ZombieNodeModel extends ZombieView
 		run = runvalue;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile coordinates.
+	 * @return coordinates
+	 */
 	public Point getCoordinates()
 	{
 		return coordinates;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile life.
+	 * @return life
+	 */
 	public int getLife()
 	{
 		return life;

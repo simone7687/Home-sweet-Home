@@ -77,31 +77,61 @@ public class PlayerModel
         coordinates.y -= speed;
 	}
 
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile coordinates.
+	 * @return coordinates
+	 */
     Point getCoordinates()
 	{
 	    return coordinates;
     }
 
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile speed.
+	 * @return speed
+	 */
     int getSpeed()
 	{
 	    return speed;
     }
 
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile down.
+	 * @return down
+	 */
     boolean getDown()
     {
         return down;
     }
 
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile left.
+	 * @return left
+	 */
     boolean getLeft()
     {
         return left;
     }
 
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile up.
+	 * @return up
+	 */
     boolean getUp()
     {
         return up;
     }
 
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile power.
+	 * @return power
+	 */
     int getPower()
     {
         return power;

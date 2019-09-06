@@ -27,6 +27,11 @@ public class GameScoreModel
 		score += scoreLevel*level;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile score.
+	 * @return score
+	 */
 	public static int getScore()
 	{
 		return score;

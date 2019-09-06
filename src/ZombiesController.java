@@ -118,6 +118,7 @@ public class ZombiesController implements Runnable
 	/**
 	 * Il metodo endLevel ha la funzione di:
 	 * verificare se il livello e' terminato.
+	 * Restituisce true se il livello e' terminato.
 	 * @return
 	 */
 	private boolean endLevel()
