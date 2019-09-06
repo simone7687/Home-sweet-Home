@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * 
  * La classe Zombies ha la funzione di:
- * controllare il movimento degli Zombie.
+ * controllare gli Zombie.
  * @author 20024652
  * @version 1.0
  *
