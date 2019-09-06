@@ -24,5 +24,4 @@ public class ZombieNodeModelTest
 		zombie.decreaseLife(5);
 		assertEquals(95, zombie.getLife());	
 	}
-
 }

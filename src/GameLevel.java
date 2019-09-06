@@ -1,6 +1,6 @@
 /**
  * 
- * La classe GameLevel ha la funzione di:
+ * La classe GameLevels ha la funzione di:
  * gestire il passaggio del gioco ad un nuovo livello.
  * @author 20024652
  * @version 1.0
@@ -71,11 +71,6 @@ public class GameLevel
 		}
 	}
 	
-	/**
-	 * Ha la funzione di:
-	 * impostare il livello in base alla variabile passata per parametro.
-	 * @param down
-	 */
 	public static void setLevel(int level)
 	{
 		GameLevel.level = 1;
