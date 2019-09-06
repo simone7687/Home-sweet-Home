@@ -50,34 +50,28 @@ public class ZombiesController implements Runnable
 	 */
 	void walk(boolean walk)
 	{
-		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)
+		for(int i=0; i < zombieCurrentNumber && l.size()!=0; i++)
 		{
 			if(walk)
 			{
-				l.get(i).run=true;
-				if(l.get(i).coordinates.y > 220*GameWindow.scalingFactor || l.get(i).coordinates.x < 570*GameWindow.scalingFactor || l.get(i).coordinates.x > 730*GameWindow.scalingFactor)
+				l.get(i).run(true);
+				if(l.get(i).getCoordinates().y > 220*GameWindow.scalingFactor || l.get(i).getCoordinates().x < 570*GameWindow.scalingFactor || l.get(i).getCoordinates().x > 730*GameWindow.scalingFactor)
 				{
-					if(l.get(i).coordinates.x < 570*GameWindow.scalingFactor)
-					{
-						l.get(i).coordinates.x += SPEED;
-					}
-					if(l.get(i).coordinates.x > 730*GameWindow.scalingFactor) 
-					{
-						l.get(i).coordinates.x -= SPEED;
-					}
-					if(l.get(i).coordinates.y > 220*GameWindow.scalingFactor)
-					{
-						l.get(i).coordinates.y -= SPEED;
-					}
+					if(l.get(i).getCoordinates().x < 570*GameWindow.scalingFactor)
+						l.get(i).getCoordinates().x += SPEED;
+					if(l.get(i).getCoordinates().x > 730*GameWindow.scalingFactor) 
+						l.get(i).getCoordinates().x -= SPEED;
+					if(l.get(i).getCoordinates().y > 220*GameWindow.scalingFactor)
+						l.get(i).getCoordinates().y -= SPEED;
 				}
-				else if(l.get(i).life > 0)
+				else if(l.get(i).getLife() > 0)
 				{
 					PlayerController.life -= POWER;
 				}
 			}
 			else
 			{
-				l.get(i).run = false;
+				l.get(i).run(false);
 			}
 			l.get(i).set();
 		}
@@ -96,20 +90,20 @@ public class ZombiesController implements Runnable
 		int a = 0;
 		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)	// livelli
 		{
-			if(l.get(i).coordinates.y > y-100*GameWindow.scalingFactor && l.get(i).coordinates.y < y+60*GameWindow.scalingFactor)
+			if(l.get(i).getCoordinates().y > y-100*GameWindow.scalingFactor && l.get(i).getCoordinates().y < y+60*GameWindow.scalingFactor)
 			{
-				if(right && l.get(i).coordinates.x > x && l.get(i).coordinates.x < x+(45+30)*GameWindow.scalingFactor && l.get(i).life > 0)
+				if(right && l.get(i).getCoordinates().x > x && l.get(i).getCoordinates().x < x+(45+30)*GameWindow.scalingFactor && l.get(i).getLife() > 0)
 				{
-					l.get(i).life -= power;
-					l.get(i).coordinates.x += (rand.nextInt(60)+20)*GameWindow.scalingFactor;
+					l.get(i).decreaseLife(power);
+					l.get(i).getCoordinates().x += (rand.nextInt(60)+20)*GameWindow.scalingFactor;
 					l.get(i).set();
 					GameScoreModel.addScoreHit();
 					a++;
 				}
-				else	if(!right && l.get(i).coordinates.x<x && l.get(i).coordinates.x > x-(45+30)*GameWindow.scalingFactor && l.get(i).life > 0)
+				else if(!right && l.get(i).getCoordinates().x< x && l.get(i).getCoordinates().x > x-(45+30)*GameWindow.scalingFactor && l.get(i).getLife() > 0)
 				{
-					l.get(i).life -= power;
-					l.get(i).coordinates.x -= (rand.nextInt(40)+40)*GameWindow.scalingFactor;
+					l.get(i).decreaseLife(power);
+					l.get(i).getCoordinates().x -= (rand.nextInt(40)+40)*GameWindow.scalingFactor;
 					l.get(i).set();
 					GameScoreModel.addScoreHit();
 					a++;
@@ -130,7 +124,7 @@ public class ZombiesController implements Runnable
 	{
 		for(int i=0; i<zombieSpawnNumber; i++)
 		{
-			if(l.get(i).life > 0)
+			if(l.get(i).getLife() > 0)
 			{
 				return false;
 			}
@@ -142,7 +136,7 @@ public class ZombiesController implements Runnable
 	{
 		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)
 		{
-			if(l.get(i).life > 0)
+			if(l.get(i).getLife() > 0)
 			{
 				l.get(i).paint(g);	// per puntare alla lista n i
 			}

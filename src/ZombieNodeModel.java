@@ -12,10 +12,9 @@ import java.util.Random;
 public class ZombieNodeModel extends ZombieView
 {
 	private final int LIFESTART = 100;
-	int life = LIFESTART;
-	Point coordinates = new Point();
-	ZombieNodeModel next;
-	boolean run;
+	private int life = LIFESTART;
+	private Point coordinates = new Point();
+	private boolean run;
 	
 	ZombieNodeModel()
 	{
@@ -23,6 +22,27 @@ public class ZombieNodeModel extends ZombieView
 		coordinates.y = GameWindow.windowDimension.height-100;
 		coordinates.x = rand.nextInt(GameWindow.windowDimension.width);
 		set();
+	}
+	
+	public void run(boolean runvalue)
+	{
+		run = runvalue;
+	}
+	
+	public Point getCoordinates()
+	{
+		return coordinates;
+	}
+	
+	public int getLife()
+	{
+		return life;
+	}
+	
+	public int decreaseLife(int damage)
+	{
+		life -= damage;	
+		return life;
 	}
 	
 	/**

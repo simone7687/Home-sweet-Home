@@ -13,25 +13,35 @@ import java.io.IOException;
  */
 public class GameScoreModel
 {
-	static int score = 0;
-	static int scoreLevel = 100;
-	static int scoreHit = 10;
+	private static int score = 0;
+	private static int scoreLevel = 100;
+	private static int scoreHit = 10;
 	
 	/**
 	 * Il metodo addScoreLevel ha la funzione di:
 	 * aggiungere punti in base al livello.
 	 * @param level
 	 */
-	static void addScoreLevel(int level)
+	public static void addScoreLevel(int level)
 	{
 		score += scoreLevel*level;
+	}
+	
+	public static int getScore()
+	{
+		return score;
+	}
+	
+	public static void setScore(int nscore)
+	{
+		score = nscore;
 	}
 	
 	/**
 	 * Il metodo addScoreLevel ha la funzione di:
 	 * aggiungere punti dei colpi inflitti.
 	 */
-	static void addScoreHit()
+	public static void addScoreHit()
 	{
 		score += scoreHit;
 	}
@@ -40,7 +50,7 @@ public class GameScoreModel
 	 * Il metodo printScore ha la funzione di:
 	 * aggiungere il punteggio al file.
 	 */
-	static void printScore()
+	public static void printScore()
 	{
 	    try 
 	    {
