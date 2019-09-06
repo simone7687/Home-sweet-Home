@@ -5,7 +5,7 @@ import org.junit.Test;
 public class GameScoreModelTest {
 
 	@Test
-	public void addScoreLevelTest() 
+	public void ScoreTests() 
 	{
 		assertEquals(0, GameScoreModel.getScore());
 		
