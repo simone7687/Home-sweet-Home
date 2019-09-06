@@ -16,7 +16,7 @@ public class ZombieNodeModel extends ZombieView
 	private Point coordinates = new Point();
 	private boolean run;
 	
-	ZombieNodeModel()
+	public ZombieNodeModel()
 	{
 		Random rand = new Random();
 		coordinates.y = GameWindow.windowDimension.height-100;
@@ -49,7 +49,7 @@ public class ZombieNodeModel extends ZombieView
 	 * Il metodo set ha la funzione di:
 	 * aggiornare le variabili dell'estensione di questo nodo.
 	 */
-	void set()
+	public void set()
 	{
 		setCoordinates(coordinates);
 		setRun(run);
