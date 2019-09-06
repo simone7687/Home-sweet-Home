@@ -73,6 +73,7 @@ public class GameLevel
 	
 	public static void setLevel(int level)
 	{
+		GameLevel.level = 1;
 		GameScoreModel.score = 0;
 		ZombiesController.n_zombie_spawn_multiplier = 1;
 		ZombiesController.spawnTime = 10000;
