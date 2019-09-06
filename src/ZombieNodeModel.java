@@ -16,11 +16,11 @@ public class ZombieNodeModel extends ZombieView
 	private Point coordinates = new Point();
 	private boolean run;
 	
-	public ZombieNodeModel()
+	public ZombieNodeModel(int windowWidth)
 	{
 		Random rand = new Random();
 		coordinates.y = GameWindow.windowDimension.height-100;
-		coordinates.x = rand.nextInt(GameWindow.windowDimension.width);
+		coordinates.x = rand.nextInt(windowWidth);
 		set();
 	}
 	

@@ -40,7 +40,7 @@ public class ZombiesController implements Runnable
 	{
 		for(int i=0; i<nodeAddNumber; i++)
 		{
-			l.add(new ZombieNodeModel());
+			l.add(new ZombieNodeModel(GameWindow.windowDimension.width));
 		}
 	}
 	/**
