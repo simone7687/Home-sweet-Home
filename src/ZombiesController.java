@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * 
  * La classe Zombies ha la funzione di:
- * gestire la grafica degli Zombie.
+ * controllare gli Zombie.
  * @author 20024652
  * @version 1.0
  *
@@ -45,7 +45,7 @@ public class ZombiesController implements Runnable
 	}
 	/**
 	 * Il metodo walk ha la funzione di:
-	 * gestire l'animazione e lo spostamento della corsa degli Zombie.
+	 * controllare l'animazione della corsa degli Zombie.
 	 * @param walk
 	 */
 	void walk(boolean walk)
@@ -78,7 +78,7 @@ public class ZombiesController implements Runnable
 	}
 	/**
 	 * Il metodo damage ha la funzione di:
-	 * gestire l'animazione e il danno subiti dagli Zombie.
+	 * controllare il danno subito o inflitto dagli Zombie.
 	 * @param right
 	 * @param x
 	 * @param y
@@ -117,7 +117,7 @@ public class ZombiesController implements Runnable
 	}
 	/**
 	 * Il metodo endLevel ha la funzione di:
-	 * verificare se il livello è finito.
+	 * verificare se il livello e' terminato.
 	 * @return
 	 */
 	private boolean endLevel()

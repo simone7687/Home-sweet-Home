@@ -4,6 +4,14 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
 
+/**
+ * 
+ * La classe GameOverImages ha la funzione di:
+ * disegnare il bottonee di pausa.
+ * @author 20024652
+ * @version 1.0
+ *
+ */
 public class GamePauseView 
 {
 	protected Dimension bottonPauseSize = new Dimension((int) (50*GameWindow.scalingFactor), (int) (25*GameWindow.scalingFactor));
