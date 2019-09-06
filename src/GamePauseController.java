@@ -2,11 +2,11 @@ import java.awt.event.MouseEvent;
 
 public class GamePauseController extends GamePauseView
 {
-	void clickPause(MouseEvent e)
+	void clickPause(MouseEvent event)
 	{
-		if(e.getX() >= bottonPauseCoordinates.x && e.getY() >= bottonPauseCoordinates.y && 
-				e.getX() <= bottonPauseCoordinates.x+bottonPauseSize.width && 
-				e.getY() <= bottonPauseCoordinates.y+bottonPauseSize.height)
+		if(event.getX() >= bottonPauseCoordinates.x && event.getY() >= bottonPauseCoordinates.y && 
+				event.getX() <= bottonPauseCoordinates.x+bottonPauseSize.width && 
+				event.getY() <= bottonPauseCoordinates.y+bottonPauseSize.height)
 		{
 			if(pause)
 				resume();
@@ -16,11 +16,11 @@ public class GamePauseController extends GamePauseView
 			pause = !pause;
 		}
 	}
-	void clickRestart(MouseEvent e)
+	void clickRestart(MouseEvent evente)
 	{
-		if(e.getX() >= bottonRestartCoordinates.x && e.getY() >= bottonRestartCoordinates.y && 
-				e.getX() <= bottonRestartCoordinates.x+bottonRestartSize.width && 
-				e.getY() <= bottonRestartCoordinates.y+bottonRestartSize.height)
+		if(evente.getX() >= bottonRestartCoordinates.x && evente.getY() >= bottonRestartCoordinates.y && 
+				evente.getX() <= bottonRestartCoordinates.x+bottonRestartSize.width && 
+				evente.getY() <= bottonRestartCoordinates.y+bottonRestartSize.height)
 		{
 			resume();
 		}
