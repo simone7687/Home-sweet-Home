@@ -39,6 +39,11 @@ public class ZombieNodeModel extends ZombieView
 		return life;
 	}
 	
+	/**
+	 * Il metodo decreaseLife ha la funzione di:
+	 * sottrarre alla vita il danno.
+	 * @param damage
+	 */
 	public int decreaseLife(int damage)
 	{
 		life -= damage;	

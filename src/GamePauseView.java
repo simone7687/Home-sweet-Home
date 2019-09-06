@@ -7,7 +7,7 @@ import java.awt.Polygon;
 /**
  * 
  * La classe GameOverImages ha la funzione di:
- * disegnare il bottonee di pausa.
+ * disegnare il bottone di pausa e di restart.
  * @author 20024652
  * @version 1.0
  *

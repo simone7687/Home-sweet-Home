@@ -32,6 +32,11 @@ public class GameScoreModel
 		return score;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile score con la variabile passata per parametro.
+	 * @param nscore
+	 */
 	public static void setScore(int nscore)
 	{
 		score = nscore;

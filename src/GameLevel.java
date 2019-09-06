@@ -71,6 +71,11 @@ public class GameLevel
 		}
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * impostare il livello in base alla variabile passata per parametro.
+	 * @param down
+	 */
 	public static void setLevel(int level)
 	{
 		GameLevel.level = 1;
