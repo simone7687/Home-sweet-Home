@@ -1,7 +1,7 @@
 /**
  * 
  * La classe Players ha la funzione di:
- * gestire il Player.
+ * controllare il Player.
  * @author 20024652
  * @version 1.0
  *
@@ -25,7 +25,7 @@ public class PlayerController extends PlayerView
 	
 	/**
 	 * Il metodo hit ha la funzione di:
-	 * gestire l'animazione e il danno degli attachi del Player.
+	 * controllare l'animazione e il danno inflitto dal Player.
 	 * @param hit
 	 */
 	void hit(boolean hit)
@@ -51,7 +51,7 @@ public class PlayerController extends PlayerView
 	}
 	/**
 	 * Il metodo hit ha la funzione di:
-	 * gestire l'animazione e lo spostamento della corsa del Player.
+	 * controllare l'animazione della corsa del Player.
 	 * @param walk
 	 */
 	void walk(boolean walk)
@@ -90,22 +90,37 @@ public class PlayerController extends PlayerView
 			setRun(getRun());
 		}
 	}
-
+	/**
+	 * Ha la funzione di:
+	 * settare la vita del Player ai valori iniziali.
+	 */
 	static void setLifeInitial()
 	{
 		PlayerController.life = PlayerModel.START_LIFE;
 	}
-
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile left con la variabile passata per parametro.
+	 * @param left
+	 */
 	void setLeft(boolean left)
 	{
 	   	model.setLeft(left);
 	}
-
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile up con la variabile passata per parametro.
+	 * @param up
+	 */
 	void setUp(boolean up)
 	{
 		model.setUp(up);
 	}
-
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile down con la variabile passata per parametro.
+	 * @param down
+	 */
 	void setDown(boolean down)
 	{
 		model.setDown(down);
