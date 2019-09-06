@@ -5,7 +5,7 @@ import java.io.IOException;
 
 /**
  * 
- * La classe GameScores ha la funzione di:
+ * La classe GameScoreModel ha la funzione di:
  * gestire il punteggio.
  * @author 20024652
  * @version 1.0

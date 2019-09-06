@@ -4,7 +4,7 @@ import java.awt.Point;
 
 /**
  * 
- * La classe PlayerImages ha la funzione di:
+ * La classe PlayerView ha la funzione di:
  * disegnare il Player.
  * @author 20024652
  * @version 1.0

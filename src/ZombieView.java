@@ -4,7 +4,7 @@ import java.awt.Point;
 
 /**
  * 
- * La classe ZombieImages ha la funzione di:
+ * La classe ZombieView ha la funzione di:
  * disegnare uno Zombie.
  * @author 20024652
  * @version 1.0

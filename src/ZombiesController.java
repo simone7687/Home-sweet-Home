@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * 
- * La classe Zombies ha la funzione di:
+ * La classe ZombiesController ha la funzione di:
  * controllare gli Zombie.
  * @author 20024652
  * @version 1.0

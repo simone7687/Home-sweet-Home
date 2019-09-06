@@ -2,7 +2,7 @@ import java.awt.event.MouseEvent;
 
 /**
  * 
- * La classe PlayerImages ha la funzione di:
+ * La classe GamePauseController ha la funzione di:
  * controllare il bottone di pausa e di restart.
  * @author 20024652
  * @version 1.0
@@ -13,7 +13,7 @@ public class GamePauseController extends GamePauseView
 	/**
 	 * Il metodo clickPause ha la funzione di:
 	 * mettere in pause/resume il gioco.
-	 * @param ------------------
+	 * @param event
 	 */
 	void clickPause(MouseEvent event)
 	{
@@ -33,13 +33,13 @@ public class GamePauseController extends GamePauseView
 	/**
 	 * Il metodo clickRestart ha la funzione di:
 	 * ricominciare il gioco.
-	 * @param ---------------------------
+	 * @param event
 	 */
-	void clickRestart(MouseEvent evente)
+	void clickRestart(MouseEvent event)
 	{
-		if(evente.getX() >= bottonRestartCoordinates.x && evente.getY() >= bottonRestartCoordinates.y && 
-				evente.getX() <= bottonRestartCoordinates.x+bottonRestartSize.width && 
-				evente.getY() <= bottonRestartCoordinates.y+bottonRestartSize.height)
+		if(event.getX() >= bottonRestartCoordinates.x && event.getY() >= bottonRestartCoordinates.y && 
+				event.getX() <= bottonRestartCoordinates.x+bottonRestartSize.width && 
+				event.getY() <= bottonRestartCoordinates.y+bottonRestartSize.height)
 		{
 			resume();
 		}

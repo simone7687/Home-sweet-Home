@@ -1,6 +1,6 @@
 /**
  * 
- * La classe Players ha la funzione di:
+ * La classe PlayerController ha la funzione di:
  * controllare il Player.
  * @author 20024652
  * @version 1.0
