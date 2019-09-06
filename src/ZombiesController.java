@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * 
- * La classe Zombies ha la funzione di:
+ * La classe ZombiesController ha la funzione di:
  * controllare gli Zombie.
  * @author 20024652
  * @version 1.0
@@ -118,6 +118,7 @@ public class ZombiesController implements Runnable
 	/**
 	 * Il metodo endLevel ha la funzione di:
 	 * verificare se il livello e' terminato.
+	 * Restituisce true se il livello e' terminato.
 	 * @return
 	 */
 	private boolean endLevel()

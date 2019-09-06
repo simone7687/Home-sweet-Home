@@ -5,7 +5,7 @@ import java.io.IOException;
 
 /**
  * 
- * La classe GameScores ha la funzione di:
+ * La classe GameScoreModel ha la funzione di:
  * gestire il punteggio.
  * @author 20024652
  * @version 1.0
@@ -27,11 +27,21 @@ public class GameScoreModel
 		score += scoreLevel*level;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile score.
+	 * @return score
+	 */
 	public static int getScore()
 	{
 		return score;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile score con la variabile passata per parametro.
+	 * @param nscore
+	 */
 	public static void setScore(int nscore)
 	{
 		score = nscore;

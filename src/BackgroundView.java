@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 
 /**
  * 
- * La classe WallpaperImages ha la funzione di:
+ * La classe BackgroundView ha la funzione di:
  * disegnare lo sfondo.
  * @author 20024652
  * @version 1.0

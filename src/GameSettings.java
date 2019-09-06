@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
 
 /**
  * 
- * La classe GameStart ha la funzione di:
- * settare valori del gioco prima di essere avviato.
+ * La classe GameSettings ha la funzione di:
+ * impostare i valori del gioco prima prima del suo.
  * @author 20024652
  * @version 1.0
  *
@@ -26,7 +26,7 @@ public class GameSettings
 	
 	/**
 	 * Il metodo getWindowDimension ha la funzione di:
-	 * far selezionare la dimensione della finestra al giocatore.
+	 * impostare la dimensione della finestra selezionata dal giocatore.
 	 * @return Dimensione della finestra
 	 */
 	Dimension getWindowDimension()
@@ -51,7 +51,7 @@ public class GameSettings
 	
 	/**
 	 * Il metodo getPlayerName ha la funzione di:
-	 * far scrivere il nome del Player al giocatore.
+	 * impostare il nome del Player scritta giocatore.
 	 * @return Nome del Player
 	 */
 	String getPlayerName()

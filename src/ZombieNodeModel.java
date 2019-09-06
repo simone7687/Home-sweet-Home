@@ -3,7 +3,7 @@ import java.util.Random;
 
 /**
  * 
- * La classe ZombieNodes e' un nodo che contiene:
+ * La classe ZombieNodeModel e' un nodo che contiene:
  * la posizione e i valori per la gestione grafica di uno Zombie.
  * @author 20024652
  * @version 1.0
@@ -24,21 +24,41 @@ public class ZombieNodeModel extends ZombieView
 		set();
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile run con la variabile passata per parametro.
+	 * @param runvalue
+	 */
 	public void run(boolean runvalue)
 	{
 		run = runvalue;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile coordinates.
+	 * @return coordinates
+	 */
 	public Point getCoordinates()
 	{
 		return coordinates;
 	}
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile life.
+	 * @return life
+	 */
 	public int getLife()
 	{
 		return life;
 	}
 	
+	/**
+	 * Il metodo decreaseLife ha la funzione di:
+	 * sottrarre alla vita il danno.
+	 * @param damage
+	 */
 	public int decreaseLife(int damage)
 	{
 		life -= damage;	
