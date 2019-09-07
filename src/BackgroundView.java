@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
  * 
  * La classe BackgroundView ha la funzione di:
  * disegnare lo sfondo.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */

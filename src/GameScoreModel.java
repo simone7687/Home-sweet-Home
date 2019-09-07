@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 
  * La classe GameScores ha la funzione di:
  * gestire il punteggio.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */
