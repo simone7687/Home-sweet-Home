@@ -25,7 +25,7 @@ public class PlayerController extends PlayerView
 	
 	/**
 	 * Il metodo hit ha la funzione di:
-	 * controllare l'animazione e il danno inflitto dal Player.
+	 * controllare e animare il danno inflitto dal Player.
 	 * @param hit
 	 */
 	void hit(boolean hit)
