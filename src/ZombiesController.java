@@ -181,7 +181,7 @@ public class ZombiesController implements Runnable
 			//fine
 			if(PlayerController.life < 0)
 			{
-				GameScoreModel.printScore();
+				GameScoreModel.writeScoreToFile();
 				
 				GamePauseController.pause();
 				
