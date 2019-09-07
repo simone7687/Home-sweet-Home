@@ -17,6 +17,18 @@ public class GameOverView
 	private final int DIMFONT2 = (int) (20*GameWindow.scalingFactor);
 	private final int DIMX = (int) (350*GameWindow.scalingFactor);
 	private final int DIMY = (int) (350*GameWindow.scalingFactor);
+	private static String record = new String("");
+
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile record con la variabile passata per parametro.
+	 * @param left
+	 */
+	static void setRecord(String str)
+	{
+		record = str;
+	}
+
 	public void paint(Graphics g)
 	{	
 		Font FONT1 = new Font("Helvetica", Font.BOLD, (int) (DIMFONT1));
@@ -29,6 +41,10 @@ public class GameOverView
 		g.drawString("Game Over", DIMX, DIMY-DIMFONT2);
 		
 		g.setFont(FONT2);
-		g.drawString("Scores: " + GameScoreModel.getScore() , DIMX+2*DIMFONT2, DIMY+DIMFONT2);
+		g.drawString("Scores: " + GameScoreModel.getScore(), DIMX+2*DIMFONT2, DIMY+DIMFONT2);
+		if (record != "")
+		{g.drawString("Record - " + record, DIMX+2*DIMFONT2, DIMY+DIMFONT2*2);}
+		else
+		{g.drawString("Caricamento...", DIMX+2*DIMFONT2, DIMY+DIMFONT2*2);}
 	}
 }

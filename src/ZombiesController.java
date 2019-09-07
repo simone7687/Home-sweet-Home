@@ -182,10 +182,12 @@ public class ZombiesController implements Runnable
 			if(PlayerController.life < 0)
 			{
 				GameScoreModel.writeScoreToFile();
+				GameOverView.setRecord(GameScoreModel.getHighestScoreFromFile());
 				
 				GamePauseController.pause();
 				
 				System.out.println("Restart");
+				GameOverView.setRecord("");
 				l.removeAll(l);
 				i = 0;
 				GameLevel.setLevel(1);
