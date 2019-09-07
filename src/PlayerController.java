@@ -50,7 +50,7 @@ public class PlayerController extends PlayerView
 		gameImages.repaint();
 	}
 	/**
-	 * Il metodo hit ha la funzione di:
+	 * Il metodo walk ha la funzione di:
 	 * controllare l'animazione della corsa del Player.
 	 * @param walk
 	 */
@@ -59,27 +59,25 @@ public class PlayerController extends PlayerView
 		setRight(getRight());	// per gli hit
 		if(walk)
 		{
-			if(getRight() && GameWindow.windowDimension.width>model.getCoordinates().x+model.getSpeed())
+			if(getRight())
 			{
 				setRun(true);
-				model.setCoordinatesDx();
-				//setRight(right);
+				model.moveRight();
 			}
-			else if(model.getLeft() && 0 < model.getCoordinates().x-model.getSpeed())
+			else if(getLeft())
 			{
 				setRun(true);
-				model.setCoordinatesSx();
-				//setRight(right);
+				model.moveLeft();
 			}
-			if(model.getUp() && BackgroundView.DIM200 < model.getCoordinates().y-model.getSpeed())
+			if(getUp())
 			{
 				setRun(true);
-				model.setCoordinatesDown();
+				model.moveDown();
 			}
-			else if(model.getDown() && GameWindow.windowDimension.height > model.getCoordinates().y+model.getSpeed())
+			else if(getDown())
 			{
 				setRun(true);
-				model.setCoordinatesUp();
+				model.moveUp();
 			}
 			setCoordinates(model.getCoordinates());
 			setRun(getRun());
@@ -97,32 +95,5 @@ public class PlayerController extends PlayerView
 	static void setLifeInitial()
 	{
 		PlayerController.life = PlayerModel.START_LIFE;
-	}
-	/**
-	 * Ha la funzione di:
-	 * settare la variabile left con la variabile passata per parametro.
-	 * @param left
-	 */
-	void setLeft(boolean left)
-	{
-	   	model.setLeft(left);
-	}
-	/**
-	 * Ha la funzione di:
-	 * settare la variabile up con la variabile passata per parametro.
-	 * @param up
-	 */
-	void setUp(boolean up)
-	{
-		model.setUp(up);
-	}
-	/**
-	 * Ha la funzione di:
-	 * settare la variabile down con la variabile passata per parametro.
-	 * @param down
-	 */
-	void setDown(boolean down)
-	{
-		model.setDown(down);
 	}
 }

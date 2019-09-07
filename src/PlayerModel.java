@@ -7,74 +7,51 @@ public class PlayerModel
 	// corri
 	private Point coordinates = new Point((GameWindow.windowDimension.width / 2), (int) (GameWindow.windowDimension.height / 2));
 	private int speed = (int) (30 * GameWindow.scalingFactor);
-	private boolean left, up, down;
 	// attacco
 	private int power = 10;
-
-	/**
-	 * Ha la funzione di:
-	 * settare la variabile left con la variabile passata per parametro.
-	 * @param left
-	 */
-	void setLeft(boolean left)
-	{
-		this.left = left;
-	}
-
-	/**
-	 * Ha la funzione di:
-	 * settare la variabile up con la variabile passata per parametro.
-	 * @param up
-	 */
-	void setUp(boolean up)
-	{
-		this.up = up;
-	}
-
-	/**
-	 * Ha la funzione di:
-	 * settare la variabile down con la variabile passata per parametro.
-	 * @param down
-	 */
-	void setDown(boolean down)
-	{
-		this.down = down;
-	}
     
 	/**
 	 * Ha la funzione di:
+	 * controllare se il player e' hai confini della finestra e
 	 * spostare il Player a destra in base alla sua velocità.
 	 */
-    void setCoordinatesDx()
+    void moveRight()
     {
-        coordinates.x += speed;
+		if (GameWindow.windowDimension.width > coordinates.x + speed)
+		{coordinates.x += speed;}
     }
 
 	/**
 	 * Ha la funzione di:
+	 * controllare se il player e' hai confini della finestra e
 	 * spostare il Player a sinistra in base alla sua velocità.
 	 */
-    void setCoordinatesSx()
+    void moveLeft()
     {
-        coordinates.x -= speed;
+		if (0 < coordinates.x - speed)
+		{coordinates.x -= speed;}
     }
 
 	/**
 	 * Ha la funzione di:
+	 * controllare se il player e' hai confini della finestra e
 	 * spostare il Player in alto in base alla sua velocità.
 	 */
-    void setCoordinatesUp()
+    void moveUp()
     {
-        coordinates.y += speed;
+		if (BackgroundView.DIM200 < coordinates.y - speed)
+		{coordinates.y += speed;}
     }
 
 	/**
 	 * Ha la funzione di:
+	 * controllare se il player e' hai confini della finestra e
 	 * spostare il Player in basso in base alla sua velocità.
 	 */
-    void setCoordinatesDown()
+    void moveDown()
     {
-        coordinates.y -= speed;
+		if (GameWindow.windowDimension.height > coordinates.y - speed)
+		{coordinates.y -= speed;}
 	}
 
 	/**
@@ -85,46 +62,6 @@ public class PlayerModel
     Point getCoordinates()
 	{
 	    return coordinates;
-    }
-
-	/**
-	 * Ha la funzione di:
-	 * restituire la variabile speed.
-	 * @return speed
-	 */
-    int getSpeed()
-	{
-	    return speed;
-    }
-
-	/**
-	 * Ha la funzione di:
-	 * restituire la variabile down.
-	 * @return down
-	 */
-    boolean getDown()
-    {
-        return down;
-    }
-
-	/**
-	 * Ha la funzione di:
-	 * restituire la variabile left.
-	 * @return left
-	 */
-    boolean getLeft()
-    {
-        return left;
-    }
-
-	/**
-	 * Ha la funzione di:
-	 * restituire la variabile up.
-	 * @return up
-	 */
-    boolean getUp()
-    {
-        return up;
     }
 
 	/**

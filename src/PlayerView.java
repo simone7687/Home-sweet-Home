@@ -13,7 +13,7 @@ import java.awt.Point;
 public class PlayerView 
 {
 	private int x, y;
-	private boolean right, run, hit;
+	private boolean right, run, hit, left, up, down;
 	// dimensioni costanti
 	private final double dimension = GameWindow.scalingFactor;
 	private final int DIM5 = (int) (5*dimension);
@@ -61,6 +61,33 @@ public class PlayerView
 	{
 		this.hit = hit;
 	}
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile left con la variabile passata per parametro.
+	 * @param left
+	 */
+	protected void setLeft(boolean left)
+	{
+		this.left = left;
+	}
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile up con la variabile passata per parametro.
+	 * @param up
+	 */
+	protected void setUp(boolean up)
+	{
+		this.up = up;
+	}
+	/**
+	 * Ha la funzione di:
+	 * settare la variabile down con la variabile passata per parametro.
+	 * @param down
+	 */
+	protected void setDown(boolean down)
+	{
+		this.down = down;
+	}
 	
 	/**
 	 * Ha la funzione di:
@@ -72,7 +99,6 @@ public class PlayerView
 		Point coordinates = new Point(this.x, this.y);
 		return coordinates;
 	}
-	
 	/**
 	 * Ha la funzione di:
 	 * restituire la variabile run.
@@ -82,7 +108,6 @@ public class PlayerView
 	{
 		return run;
 	}
-	
 	/**
 	 * Ha la funzione di:
 	 * restituire la variabile right.
@@ -92,7 +117,6 @@ public class PlayerView
 	{
 		return right;
 	}
-	
 	/**
 	 * Ha la funzione di:
 	 * restituire la variabile hit.
@@ -101,6 +125,33 @@ public class PlayerView
 	protected boolean getHit()
 	{
 		return hit;
+	}
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile down.
+	 * @return down
+	 */
+    protected boolean getDown()
+    {
+        return down;
+    }
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile left.
+	 * @return left
+	 */
+    protected boolean getLeft()
+    {
+        return left;
+    }
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile up.
+	 * @return up
+	 */
+    protected boolean getUp()
+    {
+        return up;
 	}
 	
 	public void paint(Graphics g)
