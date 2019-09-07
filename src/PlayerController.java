@@ -51,12 +51,11 @@ public class PlayerController extends PlayerView
 	}
 	/**
 	 * Il metodo walk ha la funzione di:
-	 * controllare l'animazione della corsa del Player.
+	 * spostare e animare il Player in base ai tasti premudi.
 	 * @param walk
 	 */
 	void walk(boolean walk)
 	{
-		setRight(getRight());	// per gli hit
 		if(walk)
 		{
 			if(getRight())
