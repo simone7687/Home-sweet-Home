@@ -60,7 +60,7 @@ public class GameScoreModel
 	    {
 	    	String path = new File(".").getCanonicalPath().toString();
 	    	BufferedWriter f = new BufferedWriter(new FileWriter(path + "\\score.txt", true));
-			f.write(PlayerModel.name + ": " + GameScoreModel.score);
+			f.write(PlayerModel.name + ":" + GameScoreModel.score);
 			f.write(System.getProperty("line.separator"));
 			f.close();
 		} 
@@ -72,7 +72,7 @@ public class GameScoreModel
 	}
 	
 	
-	public static int getHighestScoreFromFile()
+	public static String getHighestScoreFromFile()
 	{
 		String path = "";
 		try 
@@ -81,8 +81,12 @@ public class GameScoreModel
 		} 
 		catch (IOException e) 
 		{
-			e.printStackTrace();
+			
 		}
+		
+		//Se il path non esiste, restituisce null
+		if (path == "")
+			return null;
 		
 		Scanner s = null;
 		try 
@@ -95,11 +99,25 @@ public class GameScoreModel
 			e.printStackTrace();
 		}
 		
-		ArrayList<Integer> scores = new ArrayList<Integer>();
-		while (s.hasNext())
-			scores.add(Integer.parseInt(s.next()));
+		if (s == null)
+			return null;
+		
+		int indexMax, index = -1, max = 0;
+		ArrayList<String> scores = new ArrayList<String>();
+		while (s.hasNextLine())
+		{
+			index++;
+			String line = s.nextLine();
+			scores.add(line);
+			String[] split = line.split(":");
+			if (Integer.parseInt(split[1]) > max)
+			{
+				indexMax = index;
+				max = Integer.parseInt(split[1]);
+			}
+		}
 		s.close();
 		
-		return Collections.max(scores);
+		return scores.get(index);
 	}
 }
