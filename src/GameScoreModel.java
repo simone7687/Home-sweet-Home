@@ -50,7 +50,6 @@ public class GameScoreModel
 	 * Il metodo printScore ha la funzione di:
 	 * aggiungere il punteggio al file.
 	 */
-	/*
 	public static void printScore()
 	{
 	    try 
@@ -67,5 +66,4 @@ public class GameScoreModel
 		}
 	    System.out.println("Punteggio totalizzato: " + GameScoreModel.score);
 	}
-	*/
 }
