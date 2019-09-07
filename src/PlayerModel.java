@@ -12,7 +12,7 @@ public class PlayerModel
     
 	PlayerModel(Point coordinates, int scalingFactor)
 	{
-		speed = (int) (30 * scalingFactor);
+		speed = (int) (speed * scalingFactor);
 		this.coordinates = coordinates;
 	}
 
