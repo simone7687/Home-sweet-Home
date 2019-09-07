@@ -23,7 +23,7 @@ public class BackgroundView
 	// dimensioni costanti
 	private final int DIM10 = (int) (10 * GameWindow.scalingFactor);
 	private final int DIM50 = (int) (50 * GameWindow.scalingFactor);
-	private static final int DIM200 = (int) (200 * GameWindow.scalingFactor);	// utilizzato anche in player
+	private static final int DIM200 = (int) (200 * GameWindow.scalingFactor);
 	private final int DIMFONT1 = (int) (25 * GameWindow.scalingFactor);
 	private final int DIMFONT2 = (int) (20 * GameWindow.scalingFactor);
 	// colori 

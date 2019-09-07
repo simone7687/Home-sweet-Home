@@ -1,5 +1,13 @@
 import java.awt.Point;
 
+/**
+ * 
+ * La classe PlayerModel ha la funzione di:
+ * contenere le variabili del Player.
+ * @author 20024652 - 20025270
+ * @version 1.0
+ *
+ */
 public class PlayerModel
 {
 	static final int START_LIFE = 100;

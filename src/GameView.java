@@ -8,14 +8,13 @@ import java.awt.image.BufferedImage;
 
 /**
  * 
- * La classe GameImages ha la funzione di:
- * gestire la grafica e il repaint.
+ * La classe GameView ha la funzione di:
+ * controllare la grafica e il repaint.
  * @author 20024652 - 20025270
  * @version 1.0
  *
  */
 
-//TODO: Provare a dividere
 public class GameView extends Panel implements Runnable, KeyListener, MouseListener
 {
 	static int timeRepaintWalk = 200;

@@ -42,7 +42,7 @@ public class GameScoreModel
 	}
 	
 	/**
-	 * Il metodo addScoreLevel ha la funzione di:
+	 * Il metodo addScoreHit ha la funzione di:
 	 * aggiungere punti dei colpi inflitti.
 	 */
 	public static void addScoreHit()
