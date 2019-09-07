@@ -3,7 +3,7 @@ import java.awt.Point;
 public class PlayerModel
 {
 	static final int START_LIFE = 100;
-	static String name;
+	private static String name;
 	// corri
 	private Point coordinates = new Point((GameWindow.windowDimension.width / 2), (int) (GameWindow.windowDimension.height / 2));
 	private int speed = (int) (30 * GameWindow.scalingFactor);
@@ -19,6 +19,16 @@ public class PlayerModel
     {
 		if (GameWindow.windowDimension.width > coordinates.x + speed)
 		{coordinates.x += speed;}
+    }
+    
+    public static String getName()
+    {
+    	return PlayerModel.name;
+    }
+    
+    public static void setPlayerName(String name)
+    {
+    	PlayerModel.name = name;
     }
 
 	/**

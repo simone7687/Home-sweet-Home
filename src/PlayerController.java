@@ -19,7 +19,7 @@ public class PlayerController extends PlayerView
 	{
 		System.out.println("Creazione personaggio...");
 		life = PlayerModel.START_LIFE;
-		PlayerModel.name = name;
+		PlayerModel.setPlayerName(name);
 		setCoordinates(model.getCoordinates());
 	}
 	
