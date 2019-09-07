@@ -40,7 +40,7 @@ public class PlayerModel
     void moveUp()
     {
 		if (BackgroundView.DIM200 < coordinates.y - speed)
-		{coordinates.y += speed;}
+		{coordinates.y -= speed;}
     }
 
 	/**
@@ -50,8 +50,8 @@ public class PlayerModel
 	 */
     void moveDown()
     {
-		if (GameWindow.windowDimension.height > coordinates.y - speed)
-		{coordinates.y -= speed;}
+		if (GameWindow.windowDimension.height > coordinates.y + speed)
+		{coordinates.y += speed;}
 	}
 
 	/**
