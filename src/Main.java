@@ -20,9 +20,7 @@ public class Main
 			
 			// finestra
 			GameWindow windows = new GameWindow(windowDimension, factor);
-			
-			GameScoreModel score = new GameScoreModel();
-			
+						
 			// player
 			PlayerController player = new PlayerController(start.getPlayerName());
 			
