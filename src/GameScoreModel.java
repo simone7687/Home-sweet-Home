@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -102,17 +101,14 @@ public class GameScoreModel
 		if (s == null)
 			return null;
 		
-		int indexMax, index = -1, max = 0;
+		int index = -1, max = 0;
 		ArrayList<String> scores = new ArrayList<String>();
-		while (s.hasNextLine())
-		{
+		while (s.hasNextLine()) {
 			index++;
 			String line = s.nextLine();
 			scores.add(line);
 			String[] split = line.split(":");
-			if (Integer.parseInt(split[1]) > max)
-			{
-				indexMax = index;
+			if (Integer.parseInt(split[1]) > max) {
 				max = Integer.parseInt(split[1]);
 			}
 		}
