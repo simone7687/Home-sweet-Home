@@ -97,4 +97,14 @@ public class PlayerModel
     {
         return power;
     }
+
+	/**
+	 * Ha la funzione di:
+	 * restituire la variabile speed.
+	 * @return speed
+	 */
+    int getSpeed()
+    {
+        return speed;
+    }
 }
