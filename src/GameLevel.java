@@ -2,7 +2,7 @@
  * 
  * La classe GameLevels ha la funzione di:
  * gestire il passaggio del gioco ad un nuovo livello.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */

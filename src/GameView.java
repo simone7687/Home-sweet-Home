@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
  * 
  * La classe GameImages ha la funzione di:
  * gestire la grafica e il repaint.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */

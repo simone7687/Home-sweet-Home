@@ -5,7 +5,7 @@ import javax.swing.JFrame;
  * 
  * La classe GameWindow ha la funzione di:
  * creare la finestra del gioco.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */

@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 
  * La classe GameScores ha la funzione di:
  * gestire il punteggio.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */
@@ -60,7 +60,7 @@ public class GameScoreModel
 	    {
 	    	String path = new File(".").getCanonicalPath().toString();
 	    	BufferedWriter f = new BufferedWriter(new FileWriter(path + "\\score.txt", true));
-			f.write(PlayerModel.name + ":" + GameScoreModel.score);
+			f.write(PlayerModel.getName() + ":" + GameScoreModel.getScore());
 			f.write(System.getProperty("line.separator"));
 			f.close();
 		} 

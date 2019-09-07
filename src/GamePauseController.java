@@ -4,7 +4,7 @@ import java.awt.event.MouseEvent;
  * 
  * La classe GamePauseController ha la funzione di:
  * controllare il bottone di pausa e di restart.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */

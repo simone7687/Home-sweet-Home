@@ -17,5 +17,6 @@ public class GameScoreModelTest {
 
 		GameScoreModel.addScoreLevel(1);
 		assertEquals(150, GameScoreModel.getScore());
+		
 	}
 }

@@ -6,7 +6,7 @@ import java.awt.Graphics;
  * 
  * La classe GameOverView ha la funzione di:
  * disegnare la scritta GameOver.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */

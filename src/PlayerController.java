@@ -2,7 +2,7 @@
  * 
  * La classe PlayerController ha la funzione di:
  * controllare il Player.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */
@@ -19,7 +19,7 @@ public class PlayerController extends PlayerView
 	{
 		System.out.println("Creazione personaggio...");
 		life = PlayerModel.START_LIFE;
-		PlayerModel.name = name;
+		PlayerModel.setPlayerName(name);
 		setCoordinates(model.getCoordinates());
 	}
 	

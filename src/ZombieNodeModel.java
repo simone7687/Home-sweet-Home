@@ -5,7 +5,7 @@ import java.util.Random;
  * 
  * La classe ZombieNodeModel e' un nodo che contiene:
  * la posizione e i valori per la gestione grafica di uno Zombie.
- * @author 20024652
+ * @author 20024652 - 20025270
  * @version 1.0
  *
  */
