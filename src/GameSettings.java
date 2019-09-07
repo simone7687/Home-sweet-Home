@@ -65,13 +65,14 @@ public class GameSettings
 			Runtime.getRuntime().exit(0);
 			return null;
 		}
-		else if(name != null && name != "Player")
+		else if(!name.isEmpty())
 		{
 			System.out.println("Ciao " + name + ".");
 			return name;
 		}
 		else
 		{
+			name = "Anonimo";
 			System.out.println("Ciao.");
 			return name;
 		}
