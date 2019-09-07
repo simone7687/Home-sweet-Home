@@ -11,7 +11,7 @@ public class PlayerController extends PlayerView
 {
 	static int life;
 	GameView gameImages;
-	private PlayerModel model = new PlayerModel();
+	private PlayerModel model = new PlayerModel(getCoordinates(), (int) GameWindow.scalingFactor);
 	boolean currentHit = true;
 	private final int HIT_REPAINT_TIME_MAX = 50;
 	
@@ -61,22 +61,22 @@ public class PlayerController extends PlayerView
 			if(getRight())
 			{
 				setRun(true);
-				model.moveRight();
+				model.moveRight(GameWindow.windowDimension.width);
 			}
 			else if(getLeft())
 			{
 				setRun(true);
-				model.moveLeft();
+				model.moveLeft(0);
 			}
 			if(getUp())
 			{
 				setRun(true);
-				model.moveUp();
+				model.moveUp(BackgroundView.getBorderY());
 			}
 			else if(getDown())
 			{
 				setRun(true);
-				model.moveDown();
+				model.moveDown(GameWindow.windowDimension.height);
 			}
 			setCoordinates(model.getCoordinates());
 		}

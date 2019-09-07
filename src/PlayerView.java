@@ -12,7 +12,7 @@ import java.awt.Point;
  */
 public class PlayerView 
 {
-	private int x, y;
+	private int x = (int) (GameWindow.windowDimension.width / 2), y = (int) (GameWindow.windowDimension.height / 2);
 	private boolean right, run, hit, left, up, down;
 	// dimensioni costanti
 	private final double dimension = GameWindow.scalingFactor;
