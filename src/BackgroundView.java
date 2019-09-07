@@ -23,7 +23,7 @@ public class BackgroundView
 	// dimensioni costanti
 	private final int DIM10 = (int) (10 * GameWindow.scalingFactor);
 	private final int DIM50 = (int) (50 * GameWindow.scalingFactor);
-	static final int DIM200 = (int) (200 * GameWindow.scalingFactor);	// utilizzato anche in player
+	private static final int DIM200 = (int) (200 * GameWindow.scalingFactor);	// utilizzato anche in player
 	private final int DIMFONT1 = (int) (25 * GameWindow.scalingFactor);
 	private final int DIMFONT2 = (int) (20 * GameWindow.scalingFactor);
 	// colori 
@@ -34,6 +34,16 @@ public class BackgroundView
 	private final Font FONT1 = new Font("Helvetica", Font.BOLD, DIMFONT1);
 	private final Font FONT2 = new Font("Helvetica", Font.BOLD, DIMFONT2);
 	
+	/**
+	 * Ha la funzione di:
+	 * restituire la cordinata y confine tra la casa e la strada.
+	 * @return border
+	 */
+	static int getBorderY()
+    {
+        return DIM200;
+    }
+
 	public void paint(Graphics g, boolean dayLight)
 	{	
 		FontMetrics fm = g.getFontMetrics();

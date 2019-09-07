@@ -18,12 +18,30 @@ public class GamePauseView
 	protected Point bottonPauseCoordinates = new Point((int) (10*GameWindow.scalingFactor), (int) (10*GameWindow.scalingFactor));
 	protected Dimension bottonRestartSize = new Dimension((int) (200*GameWindow.scalingFactor), (int) (150*GameWindow.scalingFactor));
 	protected Point bottonRestartCoordinates = new Point((int) (GameWindow.windowDimension.width-bottonRestartSize.width)/2, (int) (450*GameWindow.scalingFactor));
-	static boolean pause = false;
+	private static boolean statusPause = false;
 	private int DIM15 = (int) (15*GameWindow.scalingFactor);
 	private int DIM5 = (int) (5*GameWindow.scalingFactor);
 	private int DIM2 = (int) (2*GameWindow.scalingFactor);
 	private Polygon p1 = new Polygon();
 	private Polygon p2 = new Polygon();
+
+	/**
+	 * Ha la funzione di:
+	 * restituire lo sto della pause.
+	 * @return statusPause
+	 */
+    protected static boolean getStatusPause()
+	{
+	    return statusPause;
+	}
+	/**
+	 * Ha la funzione di:
+	 * cambiare il valore dellla variabile statusPause.
+	 */
+    protected static void changeStatusPause()
+	{
+	    statusPause = !statusPause;
+    }
 	
 	public void paint(Graphics g)
 	{	
@@ -38,7 +56,7 @@ public class GamePauseView
 			g.fillRoundRect(bottonPauseCoordinates.x, bottonPauseCoordinates.y, bottonPauseSize.width, bottonPauseSize.height, 10, 10);
 			g.setColor(Color.white);
 			g.drawRoundRect(bottonPauseCoordinates.x, bottonPauseCoordinates.y, bottonPauseSize.width, bottonPauseSize.height, 10, 10);
-			if(pause)
+			if(statusPause)
 			{
 				g.fillPolygon(p1);
 			}

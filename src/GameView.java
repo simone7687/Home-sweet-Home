@@ -80,7 +80,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		boolean repaint = true;	// on/off 	// per i lag
 		while(true)
 		{
-			if(repaint && !GamePauseView.pause)
+			if(repaint && !GamePauseView.getStatusPause())
 			{
 				player.walk(walk);
 				zombie.walk(walk);

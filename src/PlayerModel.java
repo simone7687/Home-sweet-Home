@@ -39,7 +39,7 @@ public class PlayerModel
 	 */
     void moveUp()
     {
-		if (BackgroundView.DIM200 < coordinates.y - speed)
+		if (BackgroundView.getBorderY() < coordinates.y - speed)
 		{coordinates.y -= speed;}
     }
 
