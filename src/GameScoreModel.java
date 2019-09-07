@@ -1,7 +1,11 @@
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 /**
  * 
@@ -65,5 +69,36 @@ public class GameScoreModel
 			e.printStackTrace();
 		}
 	    System.out.println("Punteggio totalizzato: " + GameScoreModel.score);
+	}
+	
+	public static int getHighestScore()
+	{
+		String path = "";
+		try 
+		{
+			path = new File(".").getCanonicalPath().toString();
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		Scanner s = null;
+		try 
+		{
+			if (path != "")
+				s = new Scanner(new File(path + "\\score.txt"));
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		ArrayList<Integer> scores = new ArrayList<Integer>();
+		while (s.hasNext())
+			scores.add(Integer.parseInt(s.next()));
+		s.close();
+		
+		return Collections.max(scores);
 	}
 }

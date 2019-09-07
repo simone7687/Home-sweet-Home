@@ -120,6 +120,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		// picchia
 		if(e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) if(player.currentHit) {player.hit(true);}
 	}
+	
 	@Override
 	public void keyReleased(KeyEvent e) 
 	{
