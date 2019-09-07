@@ -79,12 +79,10 @@ public class PlayerController extends PlayerView
 				model.moveUp();
 			}
 			setCoordinates(model.getCoordinates());
-			setRun(getRun());
 		}
 		else
 		{
 			setRun(false);
-			setRun(getRun());
 		}
 	}
 	/**
