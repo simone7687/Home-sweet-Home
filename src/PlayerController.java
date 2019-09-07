@@ -71,12 +71,12 @@ public class PlayerController extends PlayerView
 			if(getUp())
 			{
 				setRun(true);
-				model.moveDown();
+				model.moveUp();
 			}
 			else if(getDown())
 			{
 				setRun(true);
-				model.moveUp();
+				model.moveDown();
 			}
 			setCoordinates(model.getCoordinates());
 		}
