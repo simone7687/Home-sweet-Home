@@ -1,10 +1,14 @@
+package game.window;
+
+import game.score.GameScoreModel;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
 /**
  * 
- * La classe GameOverView ha la funzione di:
+ * La classe game.window.GameOverView ha la funzione di:
  * disegnare la scritta GameOver.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -24,7 +28,7 @@ public class GameOverView
 	 * settare la variabile record con la variabile passata per parametro.
 	 * @param left
 	 */
-	static void setRecord(String str)
+	public static void setRecord(String str)
 	{
 		record = str;
 	}

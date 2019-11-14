@@ -1,10 +1,14 @@
+package game.player;
+
+import game.window.GameWindow;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
 /**
  * 
- * La classe PlayerView ha la funzione di:
+ * La classe game.player.PlayerView ha la funzione di:
  * disegnare il Player.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -48,7 +52,7 @@ public class PlayerView
 	 * settare la variabile right con la variabile passata per parametro.
 	 * @param right
 	 */
-	protected void setRight(boolean right)
+	public void setRight(boolean right)
 	{
 		this.right = right;
 	}
@@ -66,7 +70,7 @@ public class PlayerView
 	 * settare la variabile left con la variabile passata per parametro.
 	 * @param left
 	 */
-	protected void setLeft(boolean left)
+	public void setLeft(boolean left)
 	{
 		this.left = left;
 	}
@@ -75,7 +79,7 @@ public class PlayerView
 	 * settare la variabile up con la variabile passata per parametro.
 	 * @param up
 	 */
-	protected void setUp(boolean up)
+	public void setUp(boolean up)
 	{
 		this.up = up;
 	}
@@ -84,7 +88,7 @@ public class PlayerView
 	 * settare la variabile down con la variabile passata per parametro.
 	 * @param down
 	 */
-	protected void setDown(boolean down)
+    public void setDown(boolean down)
 	{
 		this.down = down;
 	}

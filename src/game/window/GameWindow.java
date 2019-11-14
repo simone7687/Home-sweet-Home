@@ -1,9 +1,11 @@
+package game.window;
+
 import java.awt.Dimension;
 import javax.swing.JFrame;
 
 /**
  * 
- * La classe GameWindow ha la funzione di:
+ * La classe game.window.GameWindow ha la funzione di:
  * creare la finestra del gioco.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -12,10 +14,10 @@ import javax.swing.JFrame;
 public class GameWindow extends JFrame
 {
 	private final String TITLE = "Home Sweet Home";
-	static Dimension windowDimension = new Dimension();
-	static double scalingFactor;	// per adattare i vari disegni alla dimensione dello schermo
+	public static Dimension windowDimension = new Dimension();
+	public static double scalingFactor;	// per adattare i vari disegni alla dimensione dello schermo
 	
-	GameWindow(Dimension windowDimension, double scalingFactor)
+	public GameWindow(Dimension windowDimension, double scalingFactor)
 	{
 		System.out.println("Creazione della finestra...");
 		

@@ -1,3 +1,5 @@
+package game.player;
+
 import static org.junit.Assert.*;
 
 import java.awt.Point;

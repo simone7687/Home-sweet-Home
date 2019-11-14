@@ -1,3 +1,7 @@
+package game.score;
+
+import game.player.PlayerModel;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;

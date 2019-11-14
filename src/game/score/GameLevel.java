@@ -1,6 +1,11 @@
+package game.score;
+
+import game.GameView;
+import game.zombie.ZombiesController;
+
 /**
  * 
- * La classe GameLevel ha la funzione di:
+ * La classe game.score.GameLevel ha la funzione di:
  * gestire il passaggio del gioco ad un nuovo livello.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -8,7 +13,7 @@
  */
 public class GameLevel
 {
-	static int level = 1;
+	public static int level = 1;
 	private static int levelSpawnMultiplier = 6;	// ad ogni levelSpawnMultiplier aggiunge un zombie in ogni spawn
 	private static int zombieStartNumber = 6;
 	
@@ -20,7 +25,7 @@ public class GameLevel
 		ZombiesController.thread.start();
 	}
 	
-	GameLevel(int level)
+	public GameLevel(int level)
 	{
 		System.out.println("Livello " + GameLevel.level);
 		

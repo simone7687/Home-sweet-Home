@@ -1,3 +1,5 @@
+package game.zombie;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;

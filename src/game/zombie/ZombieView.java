@@ -1,10 +1,14 @@
+package game.zombie;
+
+import game.window.GameWindow;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
 /**
  * 
- * La classe ZombieView ha la funzione di:
+ * La classe game.zombie.ZombieView ha la funzione di:
  * disegnare uno Zombie.
  * @author 20024652 - 20025270
  * @version 1.0

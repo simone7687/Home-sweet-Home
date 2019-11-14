@@ -1,3 +1,8 @@
+package game.pause;
+
+import game.player.PlayerController;
+import game.window.GameWindow;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,7 +11,7 @@ import java.awt.Polygon;
 
 /**
  * 
- * La classe GamePauseView ha la funzione di:
+ * La classe game.pause.GamePauseView ha la funzione di:
  * disegnare il bottone di pausa e di restart.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -30,7 +35,7 @@ public class GamePauseView
 	 * restituire lo sto della pause.
 	 * @return statusPause
 	 */
-    protected static boolean getStatusPause()
+    public static boolean getStatusPause()
 	{
 	    return statusPause;
 	}

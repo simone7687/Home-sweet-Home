@@ -1,10 +1,19 @@
+package game.zombie;
+
+import game.pause.GamePauseController;
+import game.player.PlayerController;
+import game.score.GameLevel;
+import game.score.GameScoreModel;
+import game.window.GameOverView;
+import game.window.GameWindow;
+
 import java.awt.Graphics;
 import java.util.LinkedList;
 import java.util.Random;
 
 /**
  * 
- * La classe ZombiesController ha la funzione di:
+ * La classe game.zombie.ZombiesController ha la funzione di:
  * controllare gli Zombie.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -14,15 +23,15 @@ public class ZombiesController implements Runnable
 {
 	private final int POWER = 5;
 	private final int SPEED = (int) (15*GameWindow.scalingFactor);
-	static Thread thread;
+	public static Thread thread;
 	private static LinkedList<ZombieNodeModel> l;
 	// spawn
-	static int zombieSpawnNumber;
+	public static int zombieSpawnNumber;
 	private static int zombieCurrentNumber;
-	static int n_zombie_spawn_multiplier = 1;
-	static int spawnTime = 10000;
+	public static int n_zombie_spawn_multiplier = 1;
+	public static int spawnTime = 10000;
 	
-	ZombiesController()
+	public ZombiesController()
 	{
 		System.out.println("Creazione zombie...");
 		
@@ -48,7 +57,7 @@ public class ZombiesController implements Runnable
 	 * controllare l'animazione della corsa degli Zombie.
 	 * @param walk
 	 */
-	void walk(boolean walk)
+	public void walk(boolean walk)
 	{
 		for(int i=0; i < zombieCurrentNumber && l.size()!=0; i++)
 		{
@@ -84,7 +93,7 @@ public class ZombiesController implements Runnable
 	 * @param y
 	 * @param power
 	 */
-	static void damage(boolean right, int x, int y, int power)
+	public static void damage(boolean right, int x, int y, int power)
 	{
 		Random rand = new Random();
 		int a = 0;

@@ -1,3 +1,9 @@
+package game.window;
+
+import game.player.PlayerController;
+import game.score.GameLevel;
+import game.score.GameScoreModel;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -7,7 +13,7 @@ import java.awt.Graphics2D;
 
 /**
  * 
- * La classe BackgroundView ha la funzione di:
+ * La classe game.window.BackgroundView ha la funzione di:
  * disegnare lo sfondo.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -15,7 +21,7 @@ import java.awt.Graphics2D;
  */
 public class BackgroundView
 {
-	BackgroundView()
+	public BackgroundView()
 	{
 		System.out.println("Creazione sfondo...");
 	}
@@ -39,7 +45,7 @@ public class BackgroundView
 	 * restituire la cordinata y confine tra la casa e la strada.
 	 * @return border
 	 */
-	static int getBorderY()
+	public static int getBorderY()
     {
         return DIM200;
     }

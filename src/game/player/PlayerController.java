@@ -1,6 +1,13 @@
+package game.player;
+
+import game.window.BackgroundView;
+import game.GameView;
+import game.window.GameWindow;
+import game.zombie.ZombiesController;
+
 /**
  * 
- * La classe PlayerController ha la funzione di:
+ * La classe game.player.PlayerController ha la funzione di:
  * controllare il Player.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -9,13 +16,13 @@
 
 public class PlayerController extends PlayerView
 {
-	static int life;
-	GameView gameImages;
+	public static int life;
+	public GameView gameImages;
 	private PlayerModel model = new PlayerModel(getCoordinates(), (int) GameWindow.scalingFactor);
-	boolean currentHit = true;
+	public boolean currentHit = true;
 	private final int HIT_REPAINT_TIME_MAX = 50;
 	
-	PlayerController(String name)
+	public PlayerController(String name)
 	{
 		System.out.println("Creazione personaggio...");
 		life = PlayerModel.START_LIFE;
@@ -28,7 +35,7 @@ public class PlayerController extends PlayerView
 	 * controllare e animare il danno inflitto dal Player.
 	 * @param hit
 	 */
-	void hit(boolean hit)
+	public void hit(boolean hit)
 	{
 		if(hit)
 		{
@@ -54,7 +61,7 @@ public class PlayerController extends PlayerView
 	 * spostare e animare il Player in base ai tasti premudi.
 	 * @param walk
 	 */
-	void walk(boolean walk)
+	public void walk(boolean walk)
 	{
 		if(walk)
 		{
@@ -89,7 +96,7 @@ public class PlayerController extends PlayerView
 	 * Ha la funzione di:
 	 * settare la vita del Player ai valori iniziali.
 	 */
-	static void setLifeInitial()
+	public static void setLifeInitial()
 	{
 		PlayerController.life = PlayerModel.START_LIFE;
 	}

@@ -1,8 +1,12 @@
+package game.pause;
+
+import game.zombie.ZombiesController;
+
 import java.awt.event.MouseEvent;
 
 /**
  * 
- * La classe GamePauseController ha la funzione di:
+ * La classe game.pause.GamePauseController ha la funzione di:
  * controllare il bottone di pausa e di restart.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -15,7 +19,7 @@ public class GamePauseController extends GamePauseView
 	 * mettere in pause/resume il gioco.
 	 * @param event
 	 */
-	void clickPause(MouseEvent event)
+	public void clickPause(MouseEvent event)
 	{
 		if(event.getX() >= bottonPauseCoordinates.x && event.getY() >= bottonPauseCoordinates.y && 
 				event.getX() <= bottonPauseCoordinates.x+bottonPauseSize.width && 
@@ -35,7 +39,7 @@ public class GamePauseController extends GamePauseView
 	 * ricominciare il gioco.
 	 * @param event
 	 */
-	void clickRestart(MouseEvent event)
+	public void clickRestart(MouseEvent event)
 	{
 		if(event.getX() >= bottonRestartCoordinates.x && event.getY() >= bottonRestartCoordinates.y && 
 				event.getX() <= bottonRestartCoordinates.x+bottonRestartSize.width && 
@@ -46,7 +50,7 @@ public class GamePauseController extends GamePauseView
 	}
 	
 	@SuppressWarnings("deprecation")
-	static void pause()
+    public static void pause()
 	{
 		ZombiesController.thread.suspend();
 	}

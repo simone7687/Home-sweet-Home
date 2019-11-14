@@ -1,3 +1,8 @@
+package game;
+
+import game.player.PlayerController;
+import game.window.GameWindow;
+
 import java.awt.Dimension;
 
 public class Main 

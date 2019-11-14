@@ -1,3 +1,5 @@
+package game.score;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;

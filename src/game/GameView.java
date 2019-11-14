@@ -1,3 +1,14 @@
+package game;
+
+import game.pause.GamePauseController;
+import game.pause.GamePauseView;
+import game.player.PlayerController;
+import game.score.GameLevel;
+import game.window.BackgroundView;
+import game.window.GameOverView;
+import game.window.GameWindow;
+import game.zombie.ZombiesController;
+
 import java.awt.Graphics;
 import java.awt.Panel;
 import java.awt.event.KeyEvent;
@@ -8,7 +19,7 @@ import java.awt.image.BufferedImage;
 
 /**
  * 
- * La classe GameView ha la funzione di:
+ * La classe game.GameView ha la funzione di:
  * controllare la grafica e il repaint.
  * @author 20024652 - 20025270
  * @version 1.0
@@ -17,7 +28,7 @@ import java.awt.image.BufferedImage;
 
 public class GameView extends Panel implements Runnable, KeyListener, MouseListener
 {
-	static int timeRepaintWalk = 200;
+	public static int timeRepaintWalk = 200;
 	static boolean dayLight = true;
 	private final int START_LEVEL = 1;
 	
@@ -30,7 +41,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 	private Thread walkThread;
 	private GamePauseController pause;
 	
-	GameView()
+	public GameView()
 	{
 		System.out.println("Creazione immagini...");
 		
