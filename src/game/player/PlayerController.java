@@ -3,7 +3,7 @@ package game.player;
 import game.window.BackgroundView;
 import game.GameView;
 import game.window.GameWindow;
-import game.zombie.ZombiesController;
+import game.zombie.ZombieController;
 
 /**
  * 
@@ -44,7 +44,7 @@ public class PlayerController extends PlayerView
 		}
 		else
 		{
-			ZombiesController.damage(getRight(), model.getCoordinates().x, model.getCoordinates().y, model.getPower());	// danno
+			ZombieController.damage(getRight(), model.getCoordinates().x, model.getCoordinates().y, model.getPower());	// danno
 			setHit(hit);
 			currentHit = true;
 		}

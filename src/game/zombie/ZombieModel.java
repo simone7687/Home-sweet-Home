@@ -13,14 +13,14 @@ import java.util.Random;
  * @version 1.0
  *
  */
-public class ZombieNodeModel extends ZombieView
+public class ZombieModel extends ZombieViewNormal
 {
 	private final int LIFESTART = 100;
 	private int life = LIFESTART;
 	private Point coordinates = new Point();
 	private boolean run;
 	
-	public ZombieNodeModel(int windowWidth)
+	public ZombieModel(int windowWidth)
 	{
 		Random rand = new Random();
 		coordinates.y = GameWindow.windowDimension.height-100;

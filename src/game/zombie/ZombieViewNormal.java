@@ -14,7 +14,7 @@ import java.awt.Point;
  * @version 1.0
  *
  */
-public class ZombieView
+public class ZombieViewNormal
 {
 	private int x, y;
 	private int lifePercentage;

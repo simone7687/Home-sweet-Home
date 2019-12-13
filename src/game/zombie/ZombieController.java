@@ -19,23 +19,23 @@ import java.util.Random;
  * @version 1.0
  *
  */
-public class ZombiesController implements Runnable
+public class ZombieController implements Runnable
 {
 	private final int POWER = 5;
 	private final int SPEED = (int) (15*GameWindow.scalingFactor);
 	public static Thread thread;
-	private static LinkedList<ZombieNodeModel> l;
+	private static LinkedList<ZombieModel> l;
 	// spawn
 	public static int zombieSpawnNumber;
 	private static int zombieCurrentNumber;
 	public static int n_zombie_spawn_multiplier = 1;
 	public static int spawnTime = 10000;
 	
-	public ZombiesController()
+	public ZombieController()
 	{
 		System.out.println("Creazione zombie...");
 		
-		l=new LinkedList<ZombieNodeModel>();
+		l=new LinkedList<ZombieModel>();
 		thread = new Thread(this);
 	}
 	
@@ -45,11 +45,11 @@ public class ZombiesController implements Runnable
 	 * @param nodeAddNumber
 	 * @param l
 	 */
-	private void addNodes(int nodeAddNumber, LinkedList<ZombieNodeModel> l)
+	private void addNodes(int nodeAddNumber, LinkedList<ZombieModel> l)
 	{
 		for(int i=0; i<nodeAddNumber; i++)
 		{
-			l.add(new ZombieNodeModel(GameWindow.windowDimension.width));
+			l.add(new ZombieModel(GameWindow.windowDimension.width));
 		}
 	}
 	/**

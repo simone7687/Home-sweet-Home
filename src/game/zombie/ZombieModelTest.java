@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class ZombieNodeModelTest 
+public class ZombieModelTest
 {
 	@Test
 	public void testCoordinates() 
 	{
-		ZombieNodeModel zombie = new ZombieNodeModel(500);
+		ZombieModel zombie = new ZombieModel(500);
 
 		assertNotNull(zombie.getCoordinates());
 	}
@@ -17,7 +17,7 @@ public class ZombieNodeModelTest
 	@Test
 	public void testLife() 
 	{
-		ZombieNodeModel zombie = new ZombieNodeModel(500);
+		ZombieModel zombie = new ZombieModel(500);
 
 		assertNotNull(zombie.getLife());
 		

@@ -7,7 +7,7 @@ import game.score.GameLevel;
 import game.window.BackgroundView;
 import game.window.GameOverView;
 import game.window.GameWindow;
-import game.zombie.ZombiesController;
+import game.zombie.ZombieController;
 
 import java.awt.Graphics;
 import java.awt.Panel;
@@ -37,7 +37,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 	private BackgroundView wallpaper;
 	private GameOverView gameOver;
 	public PlayerController player;	// creata e introdotta nel main
-	private ZombiesController zombie;
+	private ZombieController zombie;
 	private Thread walkThread;
 	private GamePauseController pause;
 	
@@ -48,7 +48,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		graphics = new BufferedImage(GameWindow.windowDimension.width, GameWindow.windowDimension.height, BufferedImage.TYPE_INT_RGB);
 		
 		wallpaper = new BackgroundView();
-		zombie = new ZombiesController();
+		zombie = new ZombieController();
 		gameOver = new GameOverView();
 		pause = new GamePauseController();
 		

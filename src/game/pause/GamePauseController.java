@@ -1,6 +1,6 @@
 package game.pause;
 
-import game.zombie.ZombiesController;
+import game.zombie.ZombieController;
 
 import java.awt.event.MouseEvent;
 
@@ -52,11 +52,11 @@ public class GamePauseController extends GamePauseView
 	@SuppressWarnings("deprecation")
     public static void pause()
 	{
-		ZombiesController.thread.suspend();
+		ZombieController.thread.suspend();
 	}
 	@SuppressWarnings("deprecation")
 	void resume()
 	{
-		ZombiesController.thread.resume();
+		ZombieController.thread.resume();
 	}
 }
