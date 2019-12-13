@@ -1,7 +1,7 @@
 package game.zombie;
 
-import game.window.GameWindow;
-
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Random;
 
@@ -13,19 +13,30 @@ import java.util.Random;
  * @version 1.0
  *
  */
-public class ZombieModel extends ZombieViewNormal
+public class ZombieModel
 {
-	private final int LIFESTART = 100;
-	private int life = LIFESTART;
-	private Point coordinates = new Point();
+	private int lifeStart, power, speed;
+	private int life;
+	private Point coordinates;
 	private boolean run;
-	
-	public ZombieModel(int windowWidth)
+	private ZombieView view;
+
+	public ZombieModel(ZombieType type, Dimension spawnArea, Double scalingFactor)
 	{
+		switch (type)
+		{
+			case Normal:
+				lifeStart = 100;
+				power = 5;
+				speed = (int) (15 * scalingFactor);
+				view = new ZombieViewNormal(spawnArea.width/2, scalingFactor);
+			default:
+				// TODO: segnale di errore
+		}
+
 		Random rand = new Random();
-		coordinates.y = GameWindow.windowDimension.height-100;
-		coordinates.x = rand.nextInt(windowWidth);
-		set();
+		coordinates = new Point(rand.nextInt(spawnArea.width), spawnArea.height);
+		life = lifeStart;
 	}
 	
 	/**
@@ -37,7 +48,28 @@ public class ZombieModel extends ZombieViewNormal
 	{
 		run = runvalue;
 	}
-	
+	/**
+	 * TODO:javadoc
+	 */
+	public void up()
+	{
+		coordinates.y -= speed;
+	}
+	/**
+	 * TODO:javadoc
+	 */
+	public void right()
+	{
+		coordinates.x += speed;
+	}
+	/**
+	 * TODO:javadoc
+	 */
+	public void left()
+	{
+		coordinates.x -= speed;
+	}
+
 	/**
 	 * Ha la funzione di:
 	 * restituire la variabile coordinates.
@@ -47,7 +79,14 @@ public class ZombieModel extends ZombieViewNormal
 	{
 		return coordinates;
 	}
-	
+	/**
+	 * TODO:javadoc
+	 * @return
+	 */
+	public int getPower()
+	{
+		return power;
+	}
 	/**
 	 * Ha la funzione di:
 	 * restituire la variabile life.
@@ -65,18 +104,15 @@ public class ZombieModel extends ZombieViewNormal
 	 */
 	public int decreaseLife(int damage)
 	{
-		life -= damage;	
+		life -= damage;
 		return life;
 	}
 	
 	/**
-	 * Il metodo set ha la funzione di:
-	 * aggiornare le variabili dell'estensione di questo nodo.
+	 * //TODO: javadoc
 	 */
-	public void set()
+	public void paintView(Graphics g)
 	{
-		setCoordinates(coordinates);
-		setRun(run);
-		setLifePercentage(life*(100/LIFESTART));
+		view.paint(g, life*(100/lifeStart), coordinates, run);
 	}
 }

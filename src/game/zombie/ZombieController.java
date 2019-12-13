@@ -21,8 +21,6 @@ import java.util.Random;
  */
 public class ZombieController implements Runnable
 {
-	private final int POWER = 5;
-	private final int SPEED = (int) (15*GameWindow.scalingFactor);
 	public static Thread thread;
 	private static LinkedList<ZombieModel> l;
 	// spawn
@@ -49,7 +47,7 @@ public class ZombieController implements Runnable
 	{
 		for(int i=0; i<nodeAddNumber; i++)
 		{
-			l.add(new ZombieModel(GameWindow.windowDimension.width));
+			l.add(new ZombieModel(ZombieType.Normal, GameWindow.windowDimension, GameWindow.scalingFactor));
 		}
 	}
 	/**
@@ -67,22 +65,21 @@ public class ZombieController implements Runnable
 				if(l.get(i).getCoordinates().y > 220*GameWindow.scalingFactor || l.get(i).getCoordinates().x < 570*GameWindow.scalingFactor || l.get(i).getCoordinates().x > 730*GameWindow.scalingFactor)
 				{
 					if(l.get(i).getCoordinates().x < 570*GameWindow.scalingFactor)
-						l.get(i).getCoordinates().x += SPEED;
-					if(l.get(i).getCoordinates().x > 730*GameWindow.scalingFactor) 
-						l.get(i).getCoordinates().x -= SPEED;
+						l.get(i).right();;
+					if(l.get(i).getCoordinates().x > 730*GameWindow.scalingFactor)
+						l.get(i).left();;
 					if(l.get(i).getCoordinates().y > 220*GameWindow.scalingFactor)
-						l.get(i).getCoordinates().y -= SPEED;
+						l.get(i).up();
 				}
 				else if(l.get(i).getLife() > 0)
 				{
-					PlayerController.life -= POWER;
+					PlayerController.life -= l.get(i).getPower();
 				}
 			}
 			else
 			{
 				l.get(i).run(false);
 			}
-			l.get(i).set();
 		}
 	}
 	/**
@@ -105,7 +102,6 @@ public class ZombieController implements Runnable
 				{
 					l.get(i).decreaseLife(power);
 					l.get(i).getCoordinates().x += (rand.nextInt(60)+20)*GameWindow.scalingFactor;
-					l.get(i).set();
 					GameScoreModel.addScoreHit();
 					a++;
 				}
@@ -113,7 +109,6 @@ public class ZombieController implements Runnable
 				{
 					l.get(i).decreaseLife(power);
 					l.get(i).getCoordinates().x -= (rand.nextInt(40)+40)*GameWindow.scalingFactor;
-					l.get(i).set();
 					GameScoreModel.addScoreHit();
 					a++;
 				}
@@ -148,7 +143,7 @@ public class ZombieController implements Runnable
 		{
 			if(l.get(i).getLife() > 0)
 			{
-				l.get(i).paint(g);	// per puntare alla lista n i
+				l.get(i).paintView(g);	// per puntare alla lista n i
 			}
 		}
 	}

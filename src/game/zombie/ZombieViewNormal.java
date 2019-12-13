@@ -1,6 +1,5 @@
 package game.zombie;
 
-import game.window.GameWindow;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,61 +13,51 @@ import java.awt.Point;
  * @version 1.0
  *
  */
-public class ZombieViewNormal
+public class ZombieViewNormal implements ZombieView
 {
-	private int x, y;
-	private int lifePercentage;
-	private boolean run;
+	//TODO: dimensione dello zombie (serve per gli attachi del player e per lo spawn dei zombie)
+	private Double scalingFactor = 1.0;
+	private int xTargetCenter;
 	// dimensioni costanti
-	private final int DIM5 = (int) (5*GameWindow.scalingFactor);
-	private final int DIM10 = (int) (10*GameWindow.scalingFactor);
-	private final int DIM15 = (int) (15*GameWindow.scalingFactor);
-	private final int DIM25 = (int) (25*GameWindow.scalingFactor);
-	private final int DIM35 = (int) (35*GameWindow.scalingFactor);
-	private final int DIM40 = (int) (40*GameWindow.scalingFactor);
-	private final int DIM120 = (int) (120*GameWindow.scalingFactor);
-	private int DIM1LIFE;
-	
-	/**
-	 * Ha la funzione di:
-	 * settare le coordinate passate per parametro.
-	 * @param coordinates
-	 */
-	protected void setCoordinates(Point coordinates) 
+	private int DIM5 = (int) (5*scalingFactor);
+	private int DIM10 = (int) (10*scalingFactor);
+	private int DIM15 = (int) (15*scalingFactor);
+	private int DIM25 = (int) (25*scalingFactor);
+	private int DIM35 = (int) (35*scalingFactor);
+	private int DIM40 = (int) (40*scalingFactor);
+	private int DIM120 = (int) (120*scalingFactor);
+
+	public ZombieViewNormal(int xTargetCenter)
 	{
-		this.x = coordinates.x;
-		this.y = coordinates.y;
+		this.xTargetCenter = xTargetCenter;
 	}
-	/**
-	 * Ha la funzione di:
-	 * settare la variabile run con la variabile passata per parametro.
-	 * @param run
-	 */
-	protected void setRun(boolean run)
+	public ZombieViewNormal(int xTargetCenter, Double scalingFactor)
 	{
-		this.run = run;
+		this.scalingFactor = scalingFactor;
+		this.xTargetCenter = xTargetCenter;
+
+		DIM5 = (int) (5*scalingFactor);
+		DIM10 = (int) (10*scalingFactor);
+		DIM15 = (int) (15*scalingFactor);
+		DIM25 = (int) (25*scalingFactor);
+		DIM35 = (int) (35*scalingFactor);
+		DIM40 = (int) (40*scalingFactor);
+		DIM120 = (int) (120*scalingFactor);
 	}
-	/**
-	 * Ha la funzione di:
-	 * settare la variabile lifePercentage con la variabile passata per parametro.
-	 * @param lifePercentage
-	 */
-	protected void setLifePercentage(int lifePercentage)
+
+	public void paint(Graphics g, int lifePercentage, Point cordinates, boolean run)
 	{
-		this.lifePercentage = lifePercentage;
-	}
-	
-	public void paint(Graphics g)
-	{	
-		DIM1LIFE = (int) (lifePercentage*GameWindow.scalingFactor/2);
-		
-		if(x < GameWindow.windowDimension.getWidth()/2)
+		int dimLife = (int) (lifePercentage*scalingFactor/2);
+		int x = cordinates.x;
+		int y = cordinates.y;
+
+		if(x < xTargetCenter)
 		{
 			// vita
 			g.setColor(Color.black);
 			g.fillRect(-DIM15+x, -DIM15-DIM120+y, DIM25*2, DIM10);
 			g.setColor(Color.green);
-			g.fillRect(-DIM15+x, -DIM15-DIM120+y, DIM1LIFE, DIM10);
+			g.fillRect(-DIM15+x, -DIM15-DIM120+y, dimLife, DIM10);
 			g.setColor(Color.black);
 			g.drawRect(-DIM15+x, -DIM15-DIM120+y, DIM25*2, DIM10);
 			if(run)
@@ -196,7 +185,7 @@ public class ZombieViewNormal
 			g.setColor(Color.black);
 			g.fillRect(-DIM35+x, -DIM15-DIM120+y, DIM25*2, DIM10);
 			g.setColor(Color.green);
-			g.fillRect(-DIM35+x, -DIM15-DIM120+y, DIM1LIFE, DIM10);
+			g.fillRect(-DIM35+x, -DIM15-DIM120+y, dimLife, DIM10);
 			g.setColor(Color.black);
 			g.drawRect(-DIM35+x, -DIM15-DIM120+y, DIM25*2, DIM10);
 			if(run)
@@ -301,7 +290,7 @@ public class ZombieViewNormal
 				g.drawOval(-DIM15*2+x,-DIM120+y, DIM40, DIM40);
 				// bocca
 				g.setColor(Color.black);
-				g.fillArc(-DIM10*2+x,DIM15-DIM120+y, DIM25, DIM15*2, 180, 20);					
+				g.fillArc(-DIM10*2+x,DIM15-DIM120+y, DIM25, DIM15*2, 180, 20);
 				g.setColor(Color.red);
 				g.drawArc(-DIM10*2+x,DIM15-DIM120+y, DIM25, DIM15*2, 180, 20);
 				// occhio
