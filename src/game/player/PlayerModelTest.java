@@ -1,10 +1,8 @@
 package game.player;
 
-import static org.junit.Assert.*;
-
-import java.awt.Point;
-
 import org.junit.Test;
+import java.awt.*;
+import static org.junit.Assert.*;
 
 public class PlayerModelTest 
 {

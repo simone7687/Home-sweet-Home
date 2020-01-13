@@ -1,15 +1,10 @@
 package game.player;
 
 import game.window.GameWindow;
-
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Point;
+import java.awt.*;
 
 /**
- * 
- * La classe game.player.PlayerView ha la funzione di:
- * disegnare il Player.
+ * View per il Player.
  * @author 20024652 - 20025270
  * @version 1.0
  *
@@ -18,7 +13,7 @@ public class PlayerView
 {
 	private int x = (int) (GameWindow.windowDimension.width / 2), y = (int) (GameWindow.windowDimension.height / 2);
 	private boolean right, run, hit, left, up, down;
-	// dimensioni costanti
+	// Costanti
 	private final double dimension = GameWindow.scalingFactor;
 	private final int DIM5 = (int) (5*dimension);
 	private final int DIM10 = (int) (10*dimension);
@@ -29,8 +24,7 @@ public class PlayerView
 	private final int DIM130 = (int) (130*dimension);
 	
 	/**
-	 * Ha la funzione di:
-	 * settare le coordinate passate per parametro.
+	 * Setta le coordinate del personaggio passate per parametro.
 	 * @param coordinates
 	 */
 	protected void setCoordinates(Point coordinates) 
@@ -38,27 +32,27 @@ public class PlayerView
 		this.x = coordinates.x;
 		this.y = coordinates.y;
 	}
+	
 	/**
-	 * Ha la funzione di:
-	 * settare la variabile run con la variabile passata per parametro.
+	 * Setta la variabile run al valore passato per parametro.
 	 * @param run
 	 */
 	protected void setRun(boolean run)
 	{
 		this.run = run;
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * settare la variabile right con la variabile passata per parametro.
+	 * Setta la variabile right al valore passato per parametro.
 	 * @param right
 	 */
 	public void setRight(boolean right)
 	{
 		this.right = right;
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * settare la variabile hit con la variabile passata per parametro.
+	 * Setta la variabile hit al valore passato per parametro.
 	 * @param hit
 	 */
 	protected void setHit(boolean hit)
@@ -66,26 +60,25 @@ public class PlayerView
 		this.hit = hit;
 	}
 	/**
-	 * Ha la funzione di:
-	 * settare la variabile left con la variabile passata per parametro.
+	 * Setta la variabile left al valore passato per parametro.
 	 * @param left
 	 */
 	public void setLeft(boolean left)
 	{
 		this.left = left;
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * settare la variabile up con la variabile passata per parametro.
+	 * Setta la variabile up al valore passato per parametro.
 	 * @param up
 	 */
 	public void setUp(boolean up)
 	{
 		this.up = up;
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * settare la variabile down con la variabile passata per parametro.
+	 * Setta la variabile down al valore passato per parametro.
 	 * @param down
 	 */
     public void setDown(boolean down)
@@ -94,8 +87,7 @@ public class PlayerView
 	}
 	
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile coordinates.
+	 * Restituisce la variabile coordinates.
 	 * @return coordinates
 	 */
 	protected Point getCoordinates() 
@@ -103,54 +95,54 @@ public class PlayerView
 		Point coordinates = new Point(this.x, this.y);
 		return coordinates;
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile run.
+	 * Restituisce la variabile run.
 	 * @return run
 	 */
 	protected boolean getRun()
 	{
 		return run;
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile right.
+	 * Restituisce la variabile right.
 	 * @return right
 	 */
 	protected boolean getRight()
 	{
 		return right;
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile hit.
+	 * Restituisce la variabile hit.
 	 * @return hit
 	 */
 	protected boolean getHit()
 	{
 		return hit;
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile down.
+	 * Restituisce la variabile down.
 	 * @return down
 	 */
     protected boolean getDown()
     {
         return down;
     }
+
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile left.
+	 * Restituisce la variabile left.
 	 * @return left
 	 */
     protected boolean getLeft()
     {
         return left;
     }
+    
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile up.
+	 * Restituisce la variabile up.
 	 * @return up
 	 */
     protected boolean getUp()
@@ -158,6 +150,10 @@ public class PlayerView
         return up;
 	}
 	
+    /**
+     * Disegna la grafica del personaggio
+     * @param g
+     */
 	public void paint(Graphics g)
 	{	
 		if(right)
@@ -230,6 +226,7 @@ public class PlayerView
 			g.setColor(Color.black);
 			g.fillArc(DIM5+x, -DIM130+DIM15+y, DIM15*2, DIM15*2, 180, 30);	// bocca
 			g.fillArc(DIM10+x, -DIM130+DIM15+y, DIM10, DIM10, 180, 180);	// occhio
+			
 			if(hit)
 			{
 				// arma
@@ -345,6 +342,7 @@ public class PlayerView
 			g.setColor(Color.black);
 			g.fillArc(-DIM35+x, -DIM130+DIM15+y, DIM15*2, DIM15*2, -30, 30);	// bocca
 			g.fillArc(-DIM15+x, -DIM130+DIM15+y, DIM10, DIM10, 180, 180);		// occhio
+			
 			if(hit)
 			{
 				// arma
