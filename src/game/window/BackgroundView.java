@@ -13,8 +13,7 @@ import java.awt.Graphics2D;
 
 /**
  * 
- * La classe game.window.BackgroundView ha la funzione di:
- * disegnare lo sfondo.
+ * Disegna lo sfondo del gioco
  * @author 20024652 - 20025270
  * @version 1.0
  *
@@ -26,23 +25,24 @@ public class BackgroundView
 		System.out.println("Creazione sfondo...");
 	}
 	
-	// dimensioni costanti
+	// Dimensioni costanti
 	private final int DIM10 = (int) (10 * GameWindow.scalingFactor);
 	private final int DIM50 = (int) (50 * GameWindow.scalingFactor);
 	private static final int DIM200 = (int) (200 * GameWindow.scalingFactor);
 	private final int DIMFONT1 = (int) (25 * GameWindow.scalingFactor);
 	private final int DIMFONT2 = (int) (20 * GameWindow.scalingFactor);
-	// colori 
+	
+	// Colori 
 	private final Color WOOD_COLOR = new Color(250, 131, 0);
 	private final Color HOUSE_COLOR = new Color(255, 220, 0);
 	private final GradientPaint SKY_COLOR = new GradientPaint (0, 0, Color.cyan, GameWindow.windowDimension.width, GameWindow.windowDimension.height, Color.blue);
-	// testo
+	
+	// Testo
 	private final Font FONT1 = new Font("Helvetica", Font.BOLD, DIMFONT1);
 	private final Font FONT2 = new Font("Helvetica", Font.BOLD, DIMFONT2);
 	
 	/**
-	 * Ha la funzione di:
-	 * restituire la cordinata y confine tra la casa e la strada.
+	 * Restituisce la cordinata Y confine tra la casa e la strada.
 	 * @return border
 	 */
 	public static int getBorderY()
@@ -50,16 +50,22 @@ public class BackgroundView
         return DIM200;
     }
 
+	/**
+	 * Disegna la grafica (sfondo)
+	 * @param g
+	 * @param dayLight
+	 */
 	public void paint(Graphics g, boolean dayLight)
 	{	
 		FontMetrics fm = g.getFontMetrics();
 		
-		// strada
+		// Strada
 		g.setColor(Color.gray);
 		g.fillRect(0, 0, GameWindow.windowDimension.width, GameWindow.windowDimension.height);
 		g.setColor(Color.black);
 		g.drawRect(0, 0, GameWindow.windowDimension.width, GameWindow.windowDimension.height);
-		// cielo
+		
+		// Cielo
 		Graphics2D g2d = (Graphics2D) g;
 		if(dayLight)
 		{
@@ -90,13 +96,13 @@ public class BackgroundView
 			
 		}
 		
-		// casa
+		// Casa
 		g.setColor(HOUSE_COLOR);
 		g.fillRect(0+DIM200, 0, GameWindow.windowDimension.width-DIM200*2, DIM200);
 		g.setColor(Color.black);
 		g.drawRect(0+DIM200, 0, GameWindow.windowDimension.width-DIM200*2, DIM200);
 		
-		// porta
+		// Porta della casa
 		g.setColor(WOOD_COLOR);
 		g.fillRect(DIM200*3, DIM50, DIM50*2,DIM50*3);
 		g.setColor(Color.black);
@@ -144,7 +150,7 @@ public class BackgroundView
 			g.fillOval(DIM200*3-DIM50*3/2+DIM200-DIM10, DIM50*3+DIM10, DIM10/2, DIM10/2);
 		}
 		
-		// finestra
+		// Finestra della casa
 		g.setColor(WOOD_COLOR);
 		g.fillRoundRect(DIM200*2, DIM50, DIM50*2-DIM10, DIM50*2-DIM10, 10, 10);
 		g.setColor(Color.black);

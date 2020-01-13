@@ -1,6 +1,6 @@
 package game.player;
 
-import java.awt.Point;
+import java.awt.*;
 
 /**
  * 
@@ -13,11 +13,11 @@ import java.awt.Point;
 public class PlayerModel
 {
 	static final int START_LIFE = 100;
-	private static String name;
-	// corri
+	private static String playerName;
+
 	private Point coordinates = new Point();
 	private int speed = 30;
-	// attacco
+	// Forza attacco
 	private int power = 10;
     
 	PlayerModel(Point coordinates, int scalingFactor)
@@ -27,62 +27,64 @@ public class PlayerModel
 	}
 
 	/**
-	 * Ha la funzione di:
-	 * controllare se il player e' hai confini della finestra e
-	 * spostare il Player a destra in base alla sua velocità.
+	 * Restituisce il nome del giocatore
 	 */
-    void moveRight(int width)
+	public static String getPlayerName()
     {
-		if (width > coordinates.x + speed)
-		{coordinates.x += speed;}
-    }
-    
-    public static String getName()
-    {
-    	return PlayerModel.name;
-    }
-    
-    public static void setPlayerName(String name)
-    {
-    	PlayerModel.name = name;
+    	return PlayerModel.playerName;
     }
 
 	/**
-	 * Ha la funzione di:
-	 * controllare se il player e' hai confini della finestra e
-	 * spostare il Player a sinistra in base alla sua velocità.
+	 * Salva il nome del giocatore
+	 * @param il nome da salvare
+	 */
+	public static void setPlayerName(String name)
+    {
+    	PlayerModel.playerName = name;
+    }
+
+	/**
+	 * Sposta il Player a destra in base alla sua velocità controllando se ha
+	 * raggiunto il limite della finestra
+	 */
+	void moveRight(int width)
+	{
+		if (width > coordinates.x + speed)
+			coordinates.x += speed;
+	}
+
+	/**
+	 * Sposta il Player a sinistra in base alla sua velocità controllando se ha
+	 * raggiunto il limite della finestra
 	 */
     void moveLeft(int width)
     {
 		if (width < coordinates.x - speed)
-		{coordinates.x -= speed;}
+			coordinates.x -= speed;
     }
 
 	/**
-	 * Ha la funzione di:
-	 * controllare se il player e' hai confini della finestra e
-	 * spostare il Player in alto in base alla sua velocità.
+	 * Sposta il Player in alto in base alla sua velocità controllando se ha
+	 * raggiunto il limite della finestra
 	 */
     void moveUp(int height)
     {
 		if (height < coordinates.y - speed)
-		{coordinates.y -= speed;}
+			coordinates.y -= speed;
     }
 
 	/**
-	 * Ha la funzione di:
-	 * controllare se il player e' hai confini della finestra e
-	 * spostare il Player in basso in base alla sua velocità.
+	 * Sposta il Player in basso in base alla sua velocità controllando se ha
+	 * raggiunto il limite della finestra
 	 */
     void moveDown(int height)
     {
 		if (height > coordinates.y + speed)
-		{coordinates.y += speed;}
+			coordinates.y += speed;
 	}
 
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile coordinates.
+	 * Restituisce le coordinate del player
 	 * @return coordinates
 	 */
     Point getCoordinates()
@@ -91,8 +93,7 @@ public class PlayerModel
     }
 
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile power.
+	 * Restituisce la forza dell'attacco
 	 * @return power
 	 */
     int getPower()
@@ -101,8 +102,7 @@ public class PlayerModel
     }
 
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile speed.
+	 * Restituisce la velocità
 	 * @return speed
 	 */
     int getSpeed()

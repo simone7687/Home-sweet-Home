@@ -8,15 +8,14 @@ import java.awt.Graphics;
 
 /**
  * 
- * La classe game.window.GameOverView ha la funzione di:
- * disegnare la scritta GameOver.
+ * Disegna la scritta GameOver al termine
  * @author 20024652 - 20025270
  * @version 1.0
  *
  */
 public class GameOverView 
 {
-	// dimensioni costanti
+	// Dimensioni costanti
 	private final int DIMFONT1 = (int) (100*GameWindow.scalingFactor);
 	private final int DIMFONT2 = (int) (20*GameWindow.scalingFactor);
 	private final int DIMX = (int) (350*GameWindow.scalingFactor);
@@ -24,8 +23,7 @@ public class GameOverView
 	private static String record = new String();
 
 	/**
-	 * Ha la funzione di:
-	 * settare la variabile record con la variabile passata per parametro.
+	 * Setta la variabile record con la variabile passata per parametro.
 	 * @param left
 	 */
 	public static void setRecord(String str)

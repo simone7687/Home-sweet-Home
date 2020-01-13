@@ -3,16 +3,10 @@ package game.pause;
 import game.player.PlayerController;
 import game.window.GameWindow;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.Polygon;
+import java.awt.*;
 
 /**
- * 
- * La classe game.pause.GamePauseView ha la funzione di:
- * disegnare il bottone di pausa e di restart.
+ * Disegna il bottone di pausa e di restart.
  * @author 20024652 - 20025270
  * @version 1.0
  *
@@ -23,34 +17,30 @@ public class GamePauseView
 	protected Point bottonPauseCoordinates = new Point((int) (10*GameWindow.scalingFactor), (int) (10*GameWindow.scalingFactor));
 	protected Dimension bottonRestartSize = new Dimension((int) (200*GameWindow.scalingFactor), (int) (150*GameWindow.scalingFactor));
 	protected Point bottonRestartCoordinates = new Point((int) (GameWindow.windowDimension.width-bottonRestartSize.width)/2, (int) (450*GameWindow.scalingFactor));
-	private static boolean statusPause = false;
+	private static boolean isPaused = false;
 	private int DIM15 = (int) (15*GameWindow.scalingFactor);
 	private int DIM5 = (int) (5*GameWindow.scalingFactor);
 	private int DIM2 = (int) (2*GameWindow.scalingFactor);
 	private Polygon p1 = new Polygon();
 	private Polygon p2 = new Polygon();
 
-	/**
-	 * Ha la funzione di:
-	 * restituire lo sto della pause.
-	 * @return statusPause
-	 */
-    public static boolean getStatusPause()
+
+    public static boolean getIsPaused()
 	{
-	    return statusPause;
+	    return isPaused;
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * cambiare il valore dellla variabile statusPause.
+	 * Cambia il valore della variabile isPaused.
 	 */
-    protected static void changeStatusPause()
+    protected static void changePauseStatus()
 	{
-	    statusPause = !statusPause;
+	    isPaused = !isPaused;
     }
 	
 	public void paint(Graphics g)
 	{	
-		// pausa
+		// Tasto pausa
 		if(PlayerController.life > 0)
 		{
 			p1.addPoint(bottonPauseCoordinates.x+(bottonPauseSize.width/2)-DIM2-DIM5, bottonPauseCoordinates.y+DIM5);
@@ -61,7 +51,7 @@ public class GamePauseView
 			g.fillRoundRect(bottonPauseCoordinates.x, bottonPauseCoordinates.y, bottonPauseSize.width, bottonPauseSize.height, 10, 10);
 			g.setColor(Color.white);
 			g.drawRoundRect(bottonPauseCoordinates.x, bottonPauseCoordinates.y, bottonPauseSize.width, bottonPauseSize.height, 10, 10);
-			if(statusPause)
+			if(isPaused)
 			{
 				g.fillPolygon(p1);
 			}
@@ -71,7 +61,7 @@ public class GamePauseView
 				g.fillRect(bottonPauseCoordinates.x+(bottonPauseSize.width/2)-DIM2-DIM5, bottonPauseCoordinates.y+DIM5, DIM5, bottonPauseSize.height-(DIM5*2));
 			}
 		}
-		// restart
+		// Tasto riprendi
 		else
 		{
 			p2.addPoint(bottonRestartCoordinates.x+(bottonRestartSize.width-bottonRestartSize.height)/2+DIM15*3+DIM5, bottonRestartCoordinates.y+DIM15*3);

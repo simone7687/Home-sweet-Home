@@ -5,8 +5,7 @@ import game.zombie.ZombieController;
 
 /**
  * 
- * La classe game.score.GameLevel ha la funzione di:
- * gestire il passaggio del gioco ad un nuovo livello.
+ * Gestisce il passaggio del gioco ad un nuovo livello.
  * @author 20024652 - 20025270
  * @version 1.0
  *
@@ -14,7 +13,7 @@ import game.zombie.ZombieController;
 public class GameLevel
 {
 	public static int level = 1;
-	private static int levelSpawnMultiplier = 6;	// ad ogni levelSpawnMultiplier aggiunge un zombie in ogni spawn
+	private static int levelSpawnMultiplier = 6;	// Ad ogni levelSpawnMultiplier aggiunge un zombie in ogni spawn
 	private static int zombieStartNumber = 6;
 	
 	GameLevel()
@@ -31,17 +30,15 @@ public class GameLevel
 		
 		ZombieController.zombieSpawnNumber = zombieStartNumber;
 		for(int i = 2; i<=level; i++)
-		{
 			setNewLevel();
-		}
+		
 		ZombieController.thread.start();
 	}
 	
 	/**
-	 * Il metodo setNewLevel ha la funzione di:
-	 * aumentare il gioco di un livello con
-	 * la diminuzione di tempo necessario a spawnare gli Zombie e
-	 * l'aumento del numero di zombie spawnati ad ogni livello e ad ogni spawn.
+	 * Aumenta il livello di difficoltà del gioco. Diminuisce il tempo necessario 
+	 * allo spawn degli zombie e aumenta il numero dgli stessi ad ogni successivo 
+	 * livello e spawn.
 	 */
 	public static void setNewLevel()
 	{
@@ -49,10 +46,10 @@ public class GameLevel
 		
 		level++;
 		System.out.println("Livello " + level);
-		// aumenta zombie
+		// Aumenta zombie
 		ZombieController.zombieSpawnNumber += (int) (zombieStartNumber*1/4);
-		// aumenta zombie ad agni spawn
-		if(level%levelSpawnMultiplier == 0)
+		// Aumenta zombie ad agni spawn
+		if(level % levelSpawnMultiplier == 0)
 		{
 			ZombieController.n_zombie_spawn_multiplier++;
 			if(ZombieController.spawnTime < 10000 || GameView.timeRepaintWalk < 200)
@@ -63,18 +60,16 @@ public class GameLevel
 		}
 		else
 		{
-			// diminuisce tempo ad ogni spawn
+			// Diminuisce tempo ad ogni spawn
 			if(ZombieController.spawnTime > 7000)
-			{
 				ZombieController.spawnTime -= 1000;
-			}
-			// aumenta velocitÃ  del gioco
+			
+			// Aumenta velocità del gioco
 			if(GameView.timeRepaintWalk > 100)
-			{
 				GameView.timeRepaintWalk -= 10;
-			}
 		}
 	}
+	
 	
 	public static void setLevel(int level)
 	{

@@ -7,8 +7,7 @@ import java.awt.Point;
 
 /**
  * 
- * La classe game.zombie.ZombieView ha la funzione di:
- * disegnare uno Zombie.
+ * Disegna uno Zombie
  * @author 20024652 - 20025270
  * @version 1.0
  *
@@ -18,7 +17,8 @@ public class ZombieViewNormal implements ZombieView
 	//TODO: dimensione dello zombie (serve per gli attachi del player e per lo spawn dei zombie)
 	private Double scalingFactor = 1.0;
 	private int xTargetCenter;
-	// dimensioni costanti
+	
+	// Dimensioni costanti
 	private int DIM5 = (int) (5*scalingFactor);
 	private int DIM10 = (int) (10*scalingFactor);
 	private int DIM15 = (int) (15*scalingFactor);
@@ -31,6 +31,7 @@ public class ZombieViewNormal implements ZombieView
 	{
 		this.xTargetCenter = xTargetCenter;
 	}
+	
 	public ZombieViewNormal(int xTargetCenter, Double scalingFactor)
 	{
 		this.scalingFactor = scalingFactor;
@@ -53,7 +54,7 @@ public class ZombieViewNormal implements ZombieView
 
 		if(x < xTargetCenter)
 		{
-			// vita
+			// Vita
 			g.setColor(Color.black);
 			g.fillRect(-DIM15+x, -DIM15-DIM120+y, DIM25*2, DIM10);
 			g.setColor(Color.green);
@@ -153,6 +154,7 @@ public class ZombieViewNormal implements ZombieView
 					g.fillOval(DIM5/2+x,-DIM25*3+y, DIM10, DIM10);
 				}
 			}
+			
 			if(lifePercentage > 10)
 			{
 				// testa
@@ -281,6 +283,7 @@ public class ZombieViewNormal implements ZombieView
 					g.fillOval(x, -DIM35*2+DIM5/2+y, DIM10, DIM10);
 				}
 			}
+			
 			if(lifePercentage > 10)
 			{
 				// testa

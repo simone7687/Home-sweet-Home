@@ -13,8 +13,7 @@ import java.util.Random;
 
 /**
  * 
- * La classe game.zombie.ZombiesController ha la funzione di:
- * controllare gli Zombie.
+ * Controller per gli Zombie
  * @author 20024652 - 20025270
  * @version 1.0
  *
@@ -23,7 +22,7 @@ public class ZombieController implements Runnable
 {
 	public static Thread thread;
 	private static LinkedList<ZombieModel> l;
-	// spawn
+	// Spawn
 	public static int zombieSpawnNumber;
 	private static int zombieCurrentNumber;
 	public static int n_zombie_spawn_multiplier = 1;
@@ -38,21 +37,18 @@ public class ZombieController implements Runnable
 	}
 	
 	/**
-	 * Il metodo addNodes ha la funzione di:
-	 * aggiungere nodeAddNumber a l.
+	 * Aggiunge nodeAddNumber a l
 	 * @param nodeAddNumber
 	 * @param l
 	 */
 	private void addNodes(int nodeAddNumber, LinkedList<ZombieModel> l)
 	{
-		for(int i=0; i<nodeAddNumber; i++)
-		{
+		for(int i=0; i< nodeAddNumber; i++)
 			l.add(new ZombieModel(ZombieType.Normal, GameWindow.windowDimension, GameWindow.scalingFactor));
-		}
 	}
+	
 	/**
-	 * Il metodo walk ha la funzione di:
-	 * controllare l'animazione della corsa degli Zombie.
+	 * Controlla l'animazione della corsa degli Zombie
 	 * @param walk
 	 */
 	public void walk(boolean walk)
@@ -82,9 +78,9 @@ public class ZombieController implements Runnable
 			}
 		}
 	}
+	
 	/**
-	 * Il metodo damage ha la funzione di:
-	 * controllare il danno subito o inflitto dagli Zombie.
+	 * Controlla il danno subito o inflitto dagli Zombie
 	 * @param right
 	 * @param x
 	 * @param y
@@ -94,7 +90,7 @@ public class ZombieController implements Runnable
 	{
 		Random rand = new Random();
 		int a = 0;
-		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)	// livelli
+		for(int i=0; i<zombieCurrentNumber && l.size()!=0; i++)	// Livelli
 		{
 			if(l.get(i).getCoordinates().y > y-100*GameWindow.scalingFactor && l.get(i).getCoordinates().y < y+60*GameWindow.scalingFactor)
 			{
@@ -114,16 +110,14 @@ public class ZombieController implements Runnable
 				}
 			}
 		}
+		
 		if(a==0 && PlayerController.life < 150 && PlayerController.life > 0 && y < 300*GameWindow.scalingFactor && x > 570*GameWindow.scalingFactor && x < 730*GameWindow.scalingFactor)
-		{
 			PlayerController.life += power/5;
-		}
 	}
+	
 	/**
-	 * Il metodo endLevel ha la funzione di:
-	 * verificare se il livello e' terminato.
-	 * Restituisce true se il livello e' terminato.
-	 * @return
+	 * Verifica se il livello e' terminato
+	 * @return Restituisce true se il livello e' terminato
 	 */
 	private boolean endLevel()
 	{
@@ -143,17 +137,18 @@ public class ZombieController implements Runnable
 		{
 			if(l.get(i).getLife() > 0)
 			{
-				l.get(i).paintView(g);	// per puntare alla lista n i
+				l.get(i).paintView(g);	// Per puntare alla lista n i
 			}
 		}
 	}
+	
 	@Override
 	public void run()
 	{
 		System.out.println("Avvio thread per lo spawn zombie...");
-		//zombieCurrentNumber=l.size();
 		int i = 0;
-		while(true)	//non va bene for, problemi con la pausa
+		
+		while(true)
 		{
 			try {
 				Thread.sleep(spawnTime);
@@ -161,7 +156,8 @@ public class ZombieController implements Runnable
 				e.printStackTrace();
 			}
 			zombieCurrentNumber = l.size();
-			//spawn
+			
+			// Spawn
 			if(i >= zombieSpawnNumber && PlayerController.life > 0)
 			{
 				if(endLevel())
@@ -182,7 +178,8 @@ public class ZombieController implements Runnable
 				addNodes(n_zombie_spawn_multiplier, l);
 				i += 1*n_zombie_spawn_multiplier;
 			}
-			//fine
+			
+			//Fine
 			if(PlayerController.life < 0)
 			{
 				GameScoreModel.writeScoreToFile();
@@ -195,7 +192,7 @@ public class ZombieController implements Runnable
 				l.removeAll(l);
 				i = 0;
 				GameLevel.setLevel(1);
-				PlayerController.setLifeInitial();
+				PlayerController.resetPlayerLife();
 			}
 		}
 	}

@@ -1,43 +1,44 @@
 package game;
 
+import java.awt.Dimension;
+
 import game.player.PlayerController;
 import game.window.GameWindow;
 
-import java.awt.Dimension;
-
-public class Main 
+public class Main
 {
 	public static void main(String[] args)
 	{
-		// pre-game
+		// Dialog iniziali
 		GameSettings start = new GameSettings();
-		Dimension windowDimension = start.getWindowDimension();
+		Dimension windowDimension = start.showWindowDimensionDialog();
 		if(windowDimension != null)
 		{
 			System.out.println("Avvio gioco...");
-			
+
+			//Fattore di moltiplicazione per l'adattamento della grafica
 			double factor;
 			if (windowDimension.height == 720)
 				factor = 1.0;
 			else if (windowDimension.height == 1080)
 				factor = 1.3;
 			else factor = 1.5;
-			
-			// finestra
-			GameWindow windows = new GameWindow(windowDimension, factor);
-						
-			// player
-			PlayerController player = new PlayerController(start.getPlayerName());
-			
+
+			// Creazione finestra
+			GameWindow window = new GameWindow(windowDimension, factor);
+
+			// Creazione Player
+			PlayerController player = new PlayerController(start.showPlayerNameDialog());
+
 			GameView view = new GameView();
 			player.gameImages = view;
 			view.player = player;
-			
+
 			//Abilita mouse e tastiera
-			windows.addKeyListener(view);
-			windows.addMouseListener(view);
-			windows.add(view);
-			windows.setVisible(true);
+			window.addKeyListener(view);
+			window.addMouseListener(view);
+			window.add(view);
+			window.setVisible(true);
 			System.out.println("Avvio completato!");
 		}
 		else

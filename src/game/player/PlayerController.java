@@ -1,17 +1,14 @@
 package game.player;
 
-import game.window.BackgroundView;
 import game.GameView;
+import game.window.BackgroundView;
 import game.window.GameWindow;
 import game.zombie.ZombieController;
 
 /**
- * 
- * La classe game.player.PlayerController ha la funzione di:
- * controllare il Player.
+ * Controller per il Player.
  * @author 20024652 - 20025270
  * @version 1.0
- *
  */
 
 public class PlayerController extends PlayerView
@@ -31,8 +28,7 @@ public class PlayerController extends PlayerView
 	}
 	
 	/**
-	 * Il metodo hit ha la funzione di:
-	 * controllare e animare il danno inflitto dal Player.
+	 * Controlla e anima il danno inflitto dal Player.
 	 * @param hit
 	 */
 	public void hit(boolean hit)
@@ -51,14 +47,13 @@ public class PlayerController extends PlayerView
 		try {
 			Thread.sleep(HIT_REPAINT_TIME_MAX);	// per non far diventare il player un fantasma																	// rivedere: adesso e' inutile
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		gameImages.repaint();
 	}
+
 	/**
-	 * Il metodo walk ha la funzione di:
-	 * spostare e animare il Player in base ai tasti premudi.
+	 * Sposta e anima il Player in base ai tasti premuti.
 	 * @param walk
 	 */
 	public void walk(boolean walk)
@@ -92,11 +87,11 @@ public class PlayerController extends PlayerView
 			setRun(false);
 		}
 	}
+
 	/**
-	 * Ha la funzione di:
-	 * settare la vita del Player ai valori iniziali.
+	 * Reset della vita del Player ai valori iniziali.
 	 */
-	public static void setLifeInitial()
+	public static void resetPlayerLife()
 	{
 		PlayerController.life = PlayerModel.START_LIFE;
 	}

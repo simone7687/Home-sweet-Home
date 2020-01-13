@@ -7,8 +7,7 @@ import java.util.Random;
 
 /**
  * 
- * La classe game.zombie.ZombieNodeModel e' un nodo che contiene:
- * la posizione e i valori per la gestione grafica di uno Zombie.
+ * Contiene la posizione e i valori per la gestione grafica di uno Zombie
  * @author 20024652 - 20025270
  * @version 1.0
  *
@@ -40,30 +39,32 @@ public class ZombieModel
 	}
 	
 	/**
-	 * Ha la funzione di:
-	 * settare la variabile run con la variabile passata per parametro.
+	 * Setta la variabile run con la variabile passata per parametro.
 	 * @param runvalue
 	 */
 	public void run(boolean runvalue)
 	{
 		run = runvalue;
 	}
+	
 	/**
-	 * TODO:javadoc
+	 * Muove lo zombie sull'asse Y verso l'alto
 	 */
 	public void up()
 	{
 		coordinates.y -= speed;
 	}
+	
 	/**
-	 * TODO:javadoc
+	 * Muove lo zombie sull'asse X verso destra
 	 */
 	public void right()
 	{
 		coordinates.x += speed;
 	}
+	
 	/**
-	 * TODO:javadoc
+	 * Muove lo zombie sull'asse X verso sinistra
 	 */
 	public void left()
 	{
@@ -71,25 +72,21 @@ public class ZombieModel
 	}
 
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile coordinates.
+	 * Rstituisce la variabile coordinates.
 	 * @return coordinates
 	 */
 	public Point getCoordinates()
 	{
 		return coordinates;
 	}
-	/**
-	 * TODO:javadoc
-	 * @return
-	 */
+	
 	public int getPower()
 	{
 		return power;
 	}
+	
 	/**
-	 * Ha la funzione di:
-	 * restituire la variabile life.
+	 * Restituisce la variabile life
 	 * @return life
 	 */
 	public int getLife()
@@ -98,8 +95,7 @@ public class ZombieModel
 	}
 	
 	/**
-	 * Il metodo decreaseLife ha la funzione di:
-	 * sottrarre alla vita il danno.
+	 * Decrementa la vita in base al danno subito
 	 * @param damage
 	 */
 	public int decreaseLife(int damage)
@@ -109,7 +105,7 @@ public class ZombieModel
 	}
 	
 	/**
-	 * //TODO: javadoc
+	 * Disegna lo zombie
 	 */
 	public void paintView(Graphics g)
 	{
