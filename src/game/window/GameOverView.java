@@ -23,7 +23,7 @@ public class GameOverView
 	private static String record = new String();
 
 	/**
-	 * Setta la variabile record con la variabile passata per parametro.
+	 * Setta la variabile record con la variabile passata per parametro
 	 * @param left
 	 */
 	public static void setRecord(String str)
