@@ -93,11 +93,8 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 			{
 				player.walk(walk);
 				zombie.walk(walk);
-				if(walk)
-					walk = false;
-				else
-					walk = true;
-
+				
+				walk = !walk;
 				repaint = false;
 			}
 			else
