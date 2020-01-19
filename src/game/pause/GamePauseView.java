@@ -41,7 +41,7 @@ public class GamePauseView
 	public void paint(Graphics g)
 	{	
 		// Tasto pausa
-		if(PlayerController.life > 0)
+		if(PlayerController.life > 0 || !isPaused)
 		{
 			p1.addPoint(bottonPauseCoordinates.x+(bottonPauseSize.width/2) - DIM2 - DIM5, bottonPauseCoordinates.y + DIM5);
 			p1.addPoint(bottonPauseCoordinates.x+(bottonPauseSize.width/2) - DIM2 - DIM5, bottonPauseCoordinates.y - DIM5+bottonPauseSize.height);

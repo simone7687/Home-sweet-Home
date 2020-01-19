@@ -23,9 +23,16 @@ public class GamePauseController extends GamePauseView
 				event.getY() <= bottonPauseCoordinates.y + bottonPauseSize.height)
 		{
 			if(getIsPaused())
+			{
 				resume();
+				System.out.println("RESUME");
+			}
 			else
+			{
 				pause();
+				System.out.println("PAUSA");
+			}
+			changePauseStatus();
 		}
 	}
 
