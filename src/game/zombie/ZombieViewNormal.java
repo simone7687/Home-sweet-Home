@@ -14,7 +14,6 @@ import java.awt.Point;
  */
 public class ZombieViewNormal implements ZombieView
 {
-	//TODO: dimensione dello zombie (serve per gli attachi del player e per lo spawn dei zombie)
 	private Double scalingFactor = 1.0;
 	private int xTargetCenter;
 	

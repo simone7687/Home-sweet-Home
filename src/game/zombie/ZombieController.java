@@ -158,29 +158,26 @@ public class ZombieController implements Runnable
 			}
 			
 			// Spawn
-			if(spawned >= zombiesToSpawn && PlayerController.life > 0)
+			if(spawned >= zombiesToSpawn && PlayerController.life > 0 && endLevel())
 			{
-				if(endLevel())
-				{
-					zombies.clear();
-					System.out.println("Fine livello!");
-					spawned = 0;
-					GameLevel.levelUp();
+				zombies.clear();
+				System.out.println("Fine livello!");
+				spawned = 0;
+				GameLevel.levelUp();
 					
-					try 
-					{
-						Thread.sleep(spawnTime);
-					} 
-					catch (InterruptedException e) 
-					{
-						e.printStackTrace();
-					}
+				try 
+				{
+					Thread.sleep(spawnTime);
+				} 
+				catch (InterruptedException e) 
+				{
+					e.printStackTrace();
 				}
 			}
-			else
+			else if (spawned != zombiesToSpawn)
 			{
 				addZombie(spawnMultiplier, zombies);
-				spawned += 1 * spawnMultiplier;
+				spawned += spawnMultiplier;
 			}
 			
 			//Fine

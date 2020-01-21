@@ -13,7 +13,7 @@ import game.zombie.ZombieController;
 public class GameLevel
 {
 	public static int level = 1;
-	private static int levelSpawnMultiplier = 2;	// Ad ogni levelSpawnMultiplier aggiunge uno zombie in ogni spawn
+	//private static int levelSpawnMultiplier = 2;	// Ad ogni levelSpawnMultiplier aggiunge uno zombie
 	private static int zombieStartNumber = 2;
 	
 	public GameLevel()
@@ -82,7 +82,7 @@ public class GameLevel
 	{
 		GameLevel.level = 1;
 		GameScoreModel.setScore(0);
-		ZombieController.spawnMultiplier = 1;
+		//ZombieController.spawnMultiplier = 1;
 		ZombieController.spawnTime = 10000;
 		GameView.timeRepaintWalk = 200;
 		
