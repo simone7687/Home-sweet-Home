@@ -40,7 +40,7 @@ public class ZombieController implements Runnable
 	 */
 	private void addZombie(int zombieToSpawn, LinkedList<ZombieModel> l)
 	{
-		for(int i=0; i< zombieToSpawn; i++)
+		for(int i = 0; i< zombieToSpawn; i++)
 			l.add(new ZombieModel(ZombieType.Normal, GameWindow.windowDimension, GameWindow.scalingFactor));
 	}
 	
@@ -50,28 +50,28 @@ public class ZombieController implements Runnable
 	 */
 	public void walk(boolean walk)
 	{
-		for(int i=0; i < zombies.size() && zombies.size() != 0; i++)
+		for (ZombieModel zombie : zombies)
 		{
 			if(walk)
 			{
-				zombies.get(i).run(true);
-				if(zombies.get(i).getCoordinates().y > 220 * GameWindow.scalingFactor || zombies.get(i).getCoordinates().x < 570*GameWindow.scalingFactor || zombies.get(i).getCoordinates().x > 730*GameWindow.scalingFactor)
+				zombie.run(true);
+				if(zombie.getCoordinates().y > 220 * GameWindow.scalingFactor || zombie.getCoordinates().x < 570*GameWindow.scalingFactor || zombie.getCoordinates().x > 730*GameWindow.scalingFactor)
 				{
-					if(zombies.get(i).getCoordinates().x < 570 * GameWindow.scalingFactor)
-						zombies.get(i).right();
-					if(zombies.get(i).getCoordinates().x > 730 * GameWindow.scalingFactor)
-						zombies.get(i).left();
-					if(zombies.get(i).getCoordinates().y > 220 * GameWindow.scalingFactor)
-						zombies.get(i).up();
+					if(zombie.getCoordinates().x < 570 * GameWindow.scalingFactor)
+						zombie.right();
+					if(zombie.getCoordinates().x > 730 * GameWindow.scalingFactor)
+						zombie.left();
+					if(zombie.getCoordinates().y > 220 * GameWindow.scalingFactor)
+						zombie.up();
 				}
-				else if(zombies.get(i).getLife() > 0)
+				else if(zombie.getLife() > 0)
 				{
-					PlayerController.life -= zombies.get(i).getPower();
+					PlayerController.life -= zombie.getPower();
 				}
 			}
 			else
 			{
-				zombies.get(i).run(false);
+				zombie.run(false);
 			}
 		}
 	}
@@ -88,21 +88,21 @@ public class ZombieController implements Runnable
 		Random rand = new Random();
 		int hits = 0;
 		
-		for(int i=0; i< zombies.size() && zombies.size() != 0; i++)	// Livelli
+		for (ZombieModel zombie : zombies)	// Livelli
 		{
-			if(zombies.get(i).getCoordinates().y > y - 100 * GameWindow.scalingFactor && zombies.get(i).getCoordinates().y < y + 60 * GameWindow.scalingFactor)
+			if(zombie.getCoordinates().y > y - 100 * GameWindow.scalingFactor && zombie.getCoordinates().y < y + 60 * GameWindow.scalingFactor)
 			{
-				if(right && zombies.get(i).getCoordinates().x > x && zombies.get(i).getCoordinates().x < x + (45+30) * GameWindow.scalingFactor && zombies.get(i).getLife() > 0)
+				if(right && zombie.getCoordinates().x > x && zombie.getCoordinates().x < x + (45+30) * GameWindow.scalingFactor && zombie.getLife() > 0)
 				{
-					zombies.get(i).decreaseLife(power);
-					zombies.get(i).getCoordinates().x += (rand.nextInt(60) + 20) * GameWindow.scalingFactor;
+					zombie.decreaseLife(power);
+					zombie.getCoordinates().x += (rand.nextInt(60) + 20) * GameWindow.scalingFactor;
 					GameScoreModel.addScoreHit();
 					hits++;
 				}
-				else if(!right && zombies.get(i).getCoordinates().x < x && zombies.get(i).getCoordinates().x > x - (45+30) * GameWindow.scalingFactor && zombies.get(i).getLife() > 0)
+				else if(!right && zombie.getCoordinates().x < x && zombie.getCoordinates().x > x - (45+30) * GameWindow.scalingFactor && zombie.getLife() > 0)
 				{
-					zombies.get(i).decreaseLife(power);
-					zombies.get(i).getCoordinates().x -= (rand.nextInt(40) + 40) * GameWindow.scalingFactor;
+					zombie.decreaseLife(power);
+					zombie.getCoordinates().x -= (rand.nextInt(40) + 40) * GameWindow.scalingFactor;
 					GameScoreModel.addScoreHit();
 					hits++;
 				}
@@ -133,10 +133,10 @@ public class ZombieController implements Runnable
 	 */
 	public void paint(Graphics g)
 	{
-		for(int i=0; i < zombies.size() && zombies.size() != 0; i++)
+		for (ZombieModel zombie : zombies)
 		{
-			if(zombies.get(i).getLife() > 0)
-				zombies.get(i).paintView(g);
+			if(zombie.getLife() > 0)
+				zombie.paintView(g);
 		}
 	}
 	
