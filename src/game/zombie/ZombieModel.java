@@ -30,7 +30,7 @@ public class ZombieModel
 				speed = (int) (15 * scalingFactor);
 				view = new ZombieViewNormal(spawnArea.width/2, scalingFactor);
 			default:
-				// TODO: segnale di errore
+				break;
 		}
 
 		Random rand = new Random();

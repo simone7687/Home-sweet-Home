@@ -14,18 +14,17 @@ import java.awt.Point;
  */
 public class ZombieViewNormal implements ZombieView
 {
-	//TODO: dimensione dello zombie (serve per gli attachi del player e per lo spawn dei zombie)
 	private Double scalingFactor = 1.0;
 	private int xTargetCenter;
 	
 	// Dimensioni costanti
-	private int DIM5 = (int) (5*scalingFactor);
-	private int DIM10 = (int) (10*scalingFactor);
-	private int DIM15 = (int) (15*scalingFactor);
-	private int DIM25 = (int) (25*scalingFactor);
-	private int DIM35 = (int) (35*scalingFactor);
-	private int DIM40 = (int) (40*scalingFactor);
-	private int DIM120 = (int) (120*scalingFactor);
+	private int DIM5 = (int) (5 * scalingFactor);
+	private int DIM10 = (int) (10 * scalingFactor);
+	private int DIM15 = (int) (15 * scalingFactor);
+	private int DIM25 = (int) (25 * scalingFactor);
+	private int DIM35 = (int) (35 * scalingFactor);
+	private int DIM40 = (int) (40 * scalingFactor);
+	private int DIM120 = (int) (120 * scalingFactor);
 
 	public ZombieViewNormal(int xTargetCenter)
 	{
@@ -37,18 +36,18 @@ public class ZombieViewNormal implements ZombieView
 		this.scalingFactor = scalingFactor;
 		this.xTargetCenter = xTargetCenter;
 
-		DIM5 = (int) (5*scalingFactor);
-		DIM10 = (int) (10*scalingFactor);
-		DIM15 = (int) (15*scalingFactor);
-		DIM25 = (int) (25*scalingFactor);
-		DIM35 = (int) (35*scalingFactor);
-		DIM40 = (int) (40*scalingFactor);
-		DIM120 = (int) (120*scalingFactor);
+		DIM5 = (int) (5 * scalingFactor);
+		DIM10 = (int) (10 * scalingFactor);
+		DIM15 = (int) (15 * scalingFactor);
+		DIM25 = (int) (25 * scalingFactor);
+		DIM35 = (int) (35 * scalingFactor);
+		DIM40 = (int) (40 * scalingFactor);
+		DIM120 = (int) (120 * scalingFactor);
 	}
 
 	public void paint(Graphics g, int lifePercentage, Point cordinates, boolean run)
 	{
-		int dimLife = (int) (lifePercentage*scalingFactor/2);
+		int dimLife = (int) (lifePercentage * scalingFactor / 2);
 		int x = cordinates.x;
 		int y = cordinates.y;
 
@@ -56,7 +55,7 @@ public class ZombieViewNormal implements ZombieView
 		{
 			// Vita
 			g.setColor(Color.black);
-			g.fillRect(-DIM15+x, -DIM15-DIM120+y, DIM25*2, DIM10);
+			g.fillRect(-DIM15 + x, -DIM15-DIM120+y, DIM25*2, DIM10);
 			g.setColor(Color.green);
 			g.fillRect(-DIM15+x, -DIM15-DIM120+y, dimLife, DIM10);
 			g.setColor(Color.black);

@@ -14,17 +14,17 @@ import game.zombie.ZombieController;
 public class PlayerController extends PlayerView
 {
 	public static int life;
-	public GameView gameImages;
-	private PlayerModel model = new PlayerModel(getCoordinates(), (int) GameWindow.scalingFactor);
+	public GameView gameView;
+	private PlayerModel player = new PlayerModel(getCoordinates(), (int) GameWindow.scalingFactor);
 	public boolean currentHit = true;
-	private final int HIT_REPAINT_TIME_MAX = 50;
+	private final int REPAINT_TIME_ON_HIT = 50;
 	
 	public PlayerController(String name)
 	{
 		System.out.println("Creazione personaggio...");
 		life = PlayerModel.START_LIFE;
 		PlayerModel.setPlayerName(name);
-		setCoordinates(model.getCoordinates());
+		setCoordinates(player.getCoordinates());
 	}
 	
 	/**
@@ -40,16 +40,12 @@ public class PlayerController extends PlayerView
 		}
 		else
 		{
-			ZombieController.damage(getRight(), model.getCoordinates().x, model.getCoordinates().y, model.getPower());	// danno
+			ZombieController.damage(getRight(), player.getCoordinates().x, player.getCoordinates().y, player.getPower());	// danno
 			setHit(hit);
 			currentHit = true;
 		}
-		try {
-			Thread.sleep(HIT_REPAINT_TIME_MAX);	// per non far diventare il player un fantasma																	// rivedere: adesso e' inutile
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		gameImages.repaint();
+		
+		gameView.repaint();
 	}
 
 	/**
@@ -63,24 +59,25 @@ public class PlayerController extends PlayerView
 			if(getRight())
 			{
 				setRun(true);
-				model.moveRight(GameWindow.windowDimension.width);
+				player.moveRight(GameWindow.windowDimension.width);
 			}
 			else if(getLeft())
 			{
 				setRun(true);
-				model.moveLeft(0);
+				player.moveLeft(0);
 			}
+			
 			if(getUp())
 			{
 				setRun(true);
-				model.moveUp(BackgroundView.getBorderY());
+				player.moveUp(BackgroundView.getBorderY());
 			}
 			else if(getDown())
 			{
 				setRun(true);
-				model.moveDown(GameWindow.windowDimension.height);
+				player.moveDown(GameWindow.windowDimension.height);
 			}
-			setCoordinates(model.getCoordinates());
+			setCoordinates(player.getCoordinates());
 		}
 		else
 		{

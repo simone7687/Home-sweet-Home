@@ -31,12 +31,13 @@ public class Main
 			PlayerController player = new PlayerController(start.showPlayerNameDialog());
 
 			GameView view = new GameView();
-			player.gameImages = view;
+			player.gameView = view;
 			view.player = player;
 
 			//Abilita mouse e tastiera
 			window.addKeyListener(view);
 			window.addMouseListener(view);
+			
 			window.add(view);
 			window.setVisible(true);
 			System.out.println("Avvio completato!");

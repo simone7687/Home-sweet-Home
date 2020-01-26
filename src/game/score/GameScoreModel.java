@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Gestire il punteggio.
+ * Gestione del punteggio.
  * @author 20024652 - 20025270
  * @version 1.0
  *
@@ -23,7 +23,7 @@ public class GameScoreModel
 	private static int scoreHit = 10;
 	
 	/**
-	 * Aggiungere punti in base al livello.
+	 * Aggiunge punti in base al livello.
 	 * @param level
 	 */
 	public static void addScoreLevel(int level)

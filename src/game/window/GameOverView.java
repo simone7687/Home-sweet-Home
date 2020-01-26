@@ -23,7 +23,7 @@ public class GameOverView
 	private static String record = new String();
 
 	/**
-	 * Setta la variabile record con la variabile passata per parametro.
+	 * Setta la variabile record con la variabile passata per parametro
 	 * @param left
 	 */
 	public static void setRecord(String str)
@@ -45,8 +45,12 @@ public class GameOverView
 		g.setFont(FONT2);
 		g.drawString("Scores: " + GameScoreModel.getScore(), DIMX+2*DIMFONT2, DIMY+DIMFONT2);
 		if (!record.isEmpty())
-		{g.drawString("Record - " + record, DIMX+2*DIMFONT2, DIMY+DIMFONT2*2);}
+		{
+			g.drawString("Record - " + record, DIMX+2*DIMFONT2, DIMY+DIMFONT2*2);
+		}
 		else
-		{g.drawString("Caricamento...", DIMX+2*DIMFONT2, DIMY+DIMFONT2*2);}
+		{
+			g.drawString("Caricamento...", DIMX+2*DIMFONT2, DIMY+DIMFONT2*2);
+		}
 	}
 }

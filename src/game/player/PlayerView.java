@@ -13,6 +13,7 @@ public class PlayerView
 {
 	private int x = (int) (GameWindow.windowDimension.width / 2), y = (int) (GameWindow.windowDimension.height / 2);
 	private boolean right, run, hit, left, up, down;
+	
 	// Costanti
 	private final double dimension = GameWindow.scalingFactor;
 	private final int DIM5 = (int) (5*dimension);
@@ -22,133 +23,6 @@ public class PlayerView
 	private final int DIM35 = (int) (35*dimension);
 	private final int DIM40 = (int) (40*dimension);
 	private final int DIM130 = (int) (130*dimension);
-	
-	/**
-	 * Setta le coordinate del personaggio passate per parametro.
-	 * @param coordinates
-	 */
-	protected void setCoordinates(Point coordinates) 
-	{
-		this.x = coordinates.x;
-		this.y = coordinates.y;
-	}
-	
-	/**
-	 * Setta la variabile run al valore passato per parametro.
-	 * @param run
-	 */
-	protected void setRun(boolean run)
-	{
-		this.run = run;
-	}
-
-	/**
-	 * Setta la variabile right al valore passato per parametro.
-	 * @param right
-	 */
-	public void setRight(boolean right)
-	{
-		this.right = right;
-	}
-
-	/**
-	 * Setta la variabile hit al valore passato per parametro.
-	 * @param hit
-	 */
-	protected void setHit(boolean hit)
-	{
-		this.hit = hit;
-	}
-	/**
-	 * Setta la variabile left al valore passato per parametro.
-	 * @param left
-	 */
-	public void setLeft(boolean left)
-	{
-		this.left = left;
-	}
-
-	/**
-	 * Setta la variabile up al valore passato per parametro.
-	 * @param up
-	 */
-	public void setUp(boolean up)
-	{
-		this.up = up;
-	}
-
-	/**
-	 * Setta la variabile down al valore passato per parametro.
-	 * @param down
-	 */
-    public void setDown(boolean down)
-	{
-		this.down = down;
-	}
-	
-	/**
-	 * Restituisce la variabile coordinates.
-	 * @return coordinates
-	 */
-	protected Point getCoordinates() 
-	{
-		Point coordinates = new Point(this.x, this.y);
-		return coordinates;
-	}
-
-	/**
-	 * Restituisce la variabile run.
-	 * @return run
-	 */
-	protected boolean getRun()
-	{
-		return run;
-	}
-
-	/**
-	 * Restituisce la variabile right.
-	 * @return right
-	 */
-	protected boolean getRight()
-	{
-		return right;
-	}
-
-	/**
-	 * Restituisce la variabile hit.
-	 * @return hit
-	 */
-	protected boolean getHit()
-	{
-		return hit;
-	}
-
-	/**
-	 * Restituisce la variabile down.
-	 * @return down
-	 */
-    protected boolean getDown()
-    {
-        return down;
-    }
-
-	/**
-	 * Restituisce la variabile left.
-	 * @return left
-	 */
-    protected boolean getLeft()
-    {
-        return left;
-    }
-    
-	/**
-	 * Restituisce la variabile up.
-	 * @return up
-	 */
-    protected boolean getUp()
-    {
-        return up;
-	}
 	
     /**
      * Disegna la grafica del personaggio
@@ -388,5 +262,132 @@ public class PlayerView
 				g.drawOval(-DIM10+x, -DIM40-DIM15+y, DIM15, DIM15);
 			}
 		}
+	}
+	
+	/**
+	 * Setta le coordinate del personaggio passate per parametro.
+	 * @param coordinates
+	 */
+	protected void setCoordinates(Point coordinates) 
+	{
+		this.x = coordinates.x;
+		this.y = coordinates.y;
+	}
+	
+	/**
+	 * Setta la variabile run al valore passato per parametro.
+	 * @param run
+	 */
+	protected void setRun(boolean run)
+	{
+		this.run = run;
+	}
+
+	/**
+	 * Setta la variabile right al valore passato per parametro.
+	 * @param right
+	 */
+	public void setRight(boolean right)
+	{
+		this.right = right;
+	}
+
+	/**
+	 * Setta la variabile hit al valore passato per parametro.
+	 * @param hit
+	 */
+	protected void setHit(boolean hit)
+	{
+		this.hit = hit;
+	}
+	/**
+	 * Setta la variabile left al valore passato per parametro.
+	 * @param left
+	 */
+	public void setLeft(boolean left)
+	{
+		this.left = left;
+	}
+
+	/**
+	 * Setta la variabile up al valore passato per parametro.
+	 * @param up
+	 */
+	public void setUp(boolean up)
+	{
+		this.up = up;
+	}
+
+	/**
+	 * Setta la variabile down al valore passato per parametro.
+	 * @param down
+	 */
+    public void setDown(boolean down)
+	{
+		this.down = down;
+	}
+	
+	/**
+	 * Restituisce le coordinate del player
+	 * @return coordinates
+	 */
+	protected Point getCoordinates() 
+	{
+		Point coordinates = new Point(this.x, this.y);
+		return coordinates;
+	}
+
+	/**
+	 * Restituisce la variabile run.
+	 * @return run
+	 */
+	protected boolean getRun()
+	{
+		return run;
+	}
+
+	/**
+	 * Restituisce la variabile right.
+	 * @return right
+	 */
+	protected boolean getRight()
+	{
+		return right;
+	}
+
+	/**
+	 * Restituisce la variabile hit.
+	 * @return hit
+	 */
+	protected boolean getHit()
+	{
+		return hit;
+	}
+
+	/**
+	 * Restituisce la variabile down.
+	 * @return down
+	 */
+    protected boolean getDown()
+    {
+        return down;
+    }
+
+	/**
+	 * Restituisce la variabile left.
+	 * @return left
+	 */
+    protected boolean getLeft()
+    {
+        return left;
+    }
+    
+	/**
+	 * Restituisce la variabile up.
+	 * @return up
+	 */
+    protected boolean getUp()
+    {
+        return up;
 	}
 }

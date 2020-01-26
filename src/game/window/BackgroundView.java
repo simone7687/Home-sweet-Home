@@ -76,10 +76,10 @@ public class BackgroundView
 			
 			g.setFont(FONT1);
 			g.setColor(Color.black);
-			g.drawString("Ciao! Non far entrare nessuno in casa", DIM50, DIM200 + DIM50);
+			g.drawString("Ciao! Non far entrare nessuno in casa.", DIM50, DIM200 + DIM50);
 			g.drawString("Di giorno e' tranquillo, ma di notte...", DIM50, DIM200 + DIM50 + 40);
 			g.drawString("Muoviti con: W(su')  D(giu')  A(dx)  S(sx)", DIM50, DIM200 + DIM50 + 80);
-			g.drawString("Utilizza il martello con: ENTER, per colpire gli zombie o riparare la porta", DIM50, DIM200 + DIM50 + 120);
+			g.drawString("Utilizza il martello con: ENTER o SPACE, per colpire gli zombie o riparare la porta", DIM50, DIM200 + DIM50 + 120);
 			
 			String s = "Se sei pronto premi: SPACE";
 			g.drawString(s, GameWindow.windowDimension.width /2 - fm.stringWidth(s)/2, DIM200 * 3 + DIM50);
@@ -108,6 +108,7 @@ public class BackgroundView
 		g.setColor(Color.black);
 		g.drawRect(DIM200*3, DIM50, DIM50*2,DIM50*3);
 		
+		//Dimensione porta in base alla vita
 		if(PlayerController.life < 1)
 			g.fillRect(DIM200*3, DIM50, DIM50*2, DIM50*3);
 		else if(PlayerController.life < 15)
@@ -123,6 +124,7 @@ public class BackgroundView
 		else if(PlayerController.life > 90)
 			g.drawOval(DIM200*3+DIM50+DIM10*2, DIM50+DIM50*3/2, DIM10*3/2, DIM10*3/2);
 				
+		//Barricate sulla porta
 		if(PlayerController.life > 100)
 		{
 			g.setColor(WOOD_COLOR);

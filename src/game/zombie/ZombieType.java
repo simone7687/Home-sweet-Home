@@ -3,7 +3,7 @@ package game.zombie;
 public enum ZombieType
 {
     /**
-     * TODO:descrizione zombie
+     * Zombie "standard"
      */
     Normal
 }
