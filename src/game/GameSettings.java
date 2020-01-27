@@ -7,8 +7,7 @@ import javax.swing.JOptionPane;
 
 /**
  * 
- * La classe GameSettings ha la funzione di impostare i 
- * valori del gioco prima prima del suo avvio.
+ * Imposta i valori del gioco prima prima dell'avvio
  * @author 20025270
  * @version 1.0
  *

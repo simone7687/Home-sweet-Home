@@ -10,8 +10,8 @@ public class Main
 	public static void main(String[] args)
 	{
 		// Dialog iniziali
-		GameSettings start = new GameSettings();
-		Dimension windowDimension = start.showWindowDimensionDialog();
+		GameSettings settings = new GameSettings();
+		Dimension windowDimension = settings.showWindowDimensionDialog();	//primo dialog
 		if(windowDimension != null)
 		{
 			System.out.println("Avvio gioco...");
@@ -28,7 +28,7 @@ public class Main
 			GameWindow window = new GameWindow(windowDimension, factor);
 
 			// Creazione Player
-			PlayerController player = new PlayerController(start.showPlayerNameDialog());
+			PlayerController player = new PlayerController(settings.showPlayerNameDialog());
 
 			GameView view = new GameView();
 			player.gameView = view;

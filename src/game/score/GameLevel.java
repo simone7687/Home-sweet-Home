@@ -13,8 +13,8 @@ import game.zombie.ZombieController;
 public class GameLevel
 {
 	public static int level = 1;
-	private static int levelSpawnMultiplier = 6;	// Ad ogni levelSpawnMultiplier aggiunge un zombie
-	private static int zombieStartNumber = 6;
+	private static int levelSpawnMultiplier = 3;	// Ad ogni levelSpawnMultiplier aggiunge un zombie
+	private static int zombieStartNumber = 3;
 	
 	GameLevel()
 	{
@@ -47,7 +47,7 @@ public class GameLevel
 		level++;
 		System.out.println("Livello " + level);
 		// Aumenta zombie
-		ZombieController.zombiesToSpawn += (int) (zombieStartNumber*1/4);
+		ZombieController.zombiesToSpawn += 1 + Math.floor(zombieStartNumber * 1/4);
 		// Aumenta zombie ad agni spawn
 		if(level % levelSpawnMultiplier == 0)
 		{

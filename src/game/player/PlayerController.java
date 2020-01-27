@@ -45,14 +45,6 @@ public class PlayerController extends PlayerView
 			currentHit = true;
 		}
 		
-		/*
-		try 
-		{
-			Thread.sleep(HIT_REPAINT_TIME_MAX);	// per non far diventare il player un fantasma																	// rivedere: adesso e' inutile
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		*/
 		gameView.repaint();
 	}
 

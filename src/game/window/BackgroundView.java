@@ -81,7 +81,7 @@ public class BackgroundView
 			g.drawString("Muoviti con: W(su')  D(giu')  A(dx)  S(sx)", DIM50, DIM200 + DIM50 + 80);
 			g.drawString("Utilizza il martello con: ENTER o SPACE, per colpire gli zombie o riparare la porta", DIM50, DIM200 + DIM50 + 120);
 			
-			String s = "Se sei pronto premi: SPACE";
+			String s = "Per iniziare premi: SPACE";
 			g.drawString(s, GameWindow.windowDimension.width /2 - fm.stringWidth(s)/2, DIM200 * 3 + DIM50);
 		}
 		else

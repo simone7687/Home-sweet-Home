@@ -28,7 +28,7 @@ public class ZombieModel
 				lifeStart = 100;
 				power = 5;
 				speed = (int) (15 * scalingFactor);
-				view = new ZombieViewNormal(spawnArea.width/2, scalingFactor);
+				view = new ZombieViewNormal(spawnArea.width / 2, scalingFactor);
 			default:
 				break;
 		}

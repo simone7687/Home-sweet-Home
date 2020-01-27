@@ -36,13 +36,13 @@ public class ZombieViewNormal implements ZombieView
 		this.scalingFactor = scalingFactor;
 		this.xTargetCenter = xTargetCenter;
 
-		DIM5 = (int) (5*scalingFactor);
-		DIM10 = (int) (10*scalingFactor);
-		DIM15 = (int) (15*scalingFactor);
-		DIM25 = (int) (25*scalingFactor);
-		DIM35 = (int) (35*scalingFactor);
-		DIM40 = (int) (40*scalingFactor);
-		DIM120 = (int) (120*scalingFactor);
+		DIM5 = (int) (5 * scalingFactor);
+		DIM10 = (int) (10 * scalingFactor);
+		DIM15 = (int) (15 * scalingFactor);
+		DIM25 = (int) (25 * scalingFactor);
+		DIM35 = (int) (35 * scalingFactor);
+		DIM40 = (int) (40 * scalingFactor);
+		DIM120 = (int) (120 * scalingFactor);
 	}
 
 	public void paint(Graphics g, int lifePercentage, Point cordinates, boolean run)
