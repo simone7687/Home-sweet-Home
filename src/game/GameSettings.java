@@ -7,9 +7,8 @@ import javax.swing.JOptionPane;
 
 /**
  * 
- * La classe GameSettings ha la funzione di impostare i 
- * valori del gioco prima prima del suo avvio.
- * @author 20024652 - 20025270
+ * Imposta i valori del gioco prima prima dell'avvio
+ * @author 20025270
  * @version 1.0
  *
  */
@@ -17,9 +16,7 @@ public class GameSettings
 {
 	private final Dimension FULLHD = new Dimension(1920, 1080);
 	private final Dimension HD = new Dimension(1280, 720);
-	private final Object[] POSSIBLEVALUES = {
-			"1280x720", 
-			"1920x1080"
+	private final Object[] POSSIBLEVALUES = {"1280x720", "1920x1080"
 			//, "FILL SCREEN"
 			};
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -47,8 +44,8 @@ public class GameSettings
 					return HD;
 				case "1920x1080":
 					return FULLHD;
-				case "FILL SCREEN":
-					return new Dimension(screenSize.width, screenSize.height);						
+				//case "FILL SCREEN":
+					//return new Dimension(screenSize.width, screenSize.height);						
 			}
 		}
 		return null;

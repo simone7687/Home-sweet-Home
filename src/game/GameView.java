@@ -20,24 +20,24 @@ import java.awt.image.BufferedImage;
 /**
  *
  * Questa classe si occupa della grafica e del repaint.
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */
 
 public class GameView extends Panel implements Runnable, KeyListener, MouseListener
 {
-	public static int timeRepaintWalk = 200;
-	static boolean dayLight = true;
+	public static int timeRepaintWalk = 200;	//camminata
+	static boolean dayLight = true;				//giorno/notte
 	private final int START_LEVEL = 1;
 
 	private BufferedImage graphics;
 
-	private BackgroundView wallpaper;
+	private BackgroundView backgroundView;
 	private GameOverView gameOver;
-	public PlayerController player;	// creata e introdotta nel main
+	public PlayerController player;				//creata nel main
 	private ZombieController zombie;
-	private Thread walkThread;
+	private Thread walkThread;					//thread camminata
 	private GamePauseController pause;
 
 	public GameView()
@@ -46,7 +46,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 
 		graphics = new BufferedImage(GameWindow.windowDimension.width, GameWindow.windowDimension.height, BufferedImage.TYPE_INT_RGB);
 
-		wallpaper = new BackgroundView();
+		backgroundView = new BackgroundView();
 		zombie = new ZombieController();
 		gameOver = new GameOverView();
 		pause = new GamePauseController();
@@ -54,11 +54,10 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		walkThread = new Thread(this);
 		walkThread.start();
 
-		addKeyListener(this);		// abilita tasti nell'immagine
-		addMouseListener(this);		// abilita mouse nell'immagine
+		addKeyListener(this);		// abilita i tasti
+		addMouseListener(this);		// abilita il mouse
 	}
 
-	// http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1
 	public void update(Graphics g)
 	{
 		paint(g);
@@ -69,7 +68,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		if(PlayerController.life > 0)
 		{
 			super.paint(graphics.getGraphics());
-			wallpaper.paint(graphics.getGraphics(), dayLight);
+			backgroundView.paint(graphics.getGraphics(), dayLight);
 			zombie.paint(graphics.getGraphics());
 			player.paint(graphics.getGraphics());
 		}
@@ -95,6 +94,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 				zombie.walk(walk);
 				
 				walk = !walk;
+
 				repaint = false;
 			}
 			else
@@ -131,7 +131,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		{
 			if(GameView.dayLight)
 			{
-				new GameLevel();
+				new GameLevel(START_LEVEL);
 				GameView.dayLight = false;
 			}
 		}

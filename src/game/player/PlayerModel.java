@@ -6,7 +6,7 @@ import java.awt.*;
  * 
  * La classe game.player.PlayerModel ha la funzione di:
  * contenere le variabili del Player.
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */
@@ -16,7 +16,9 @@ public class PlayerModel
 	private static String playerName;
 
 	private Point coordinates = new Point();
+	//Velocit‡ 
 	private int speed = 30;
+	// Forza attacco
 	private int attackPower = 10;
     
 	PlayerModel(Point coordinates, int scalingFactor)
@@ -43,7 +45,7 @@ public class PlayerModel
     }
 
 	/**
-	 * Sposta il Player a destra in base alla sua velocit√† controllando se ha
+	 * Sposta il Player a destra in base alla sua velocit‡† controllando se ha
 	 * raggiunto il limite della finestra
 	 */
 	void moveRight(int width)
@@ -53,7 +55,7 @@ public class PlayerModel
 	}
 
 	/**
-	 * Sposta il Player a sinistra in base alla sua velocit√† controllando se ha
+	 * Sposta il Player a sinistra in base alla sua velocit‡† controllando se ha
 	 * raggiunto il limite della finestra
 	 */
     void moveLeft(int width)
@@ -63,7 +65,7 @@ public class PlayerModel
     }
 
 	/**
-	 * Sposta il Player in alto in base alla sua velocit√† controllando se ha
+	 * Sposta il Player in alto in base alla sua velocit‡† controllando se ha
 	 * raggiunto il limite della finestra
 	 */
     void moveUp(int height)
@@ -73,7 +75,7 @@ public class PlayerModel
     }
 
 	/**
-	 * Sposta il Player in basso in base alla sua velocit√† controllando se ha
+	 * Sposta il Player in basso in base alla sua velocit‡† controllando se ha
 	 * raggiunto il limite della finestra
 	 */
     void moveDown(int height)

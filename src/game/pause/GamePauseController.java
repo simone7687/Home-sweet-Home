@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 
 /**
  *  Controller per GamePauseView. Gestisce i tasti play & pausa
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */
@@ -17,22 +17,21 @@ public class GamePauseController extends GamePauseView
 	 */
 	public void clickPause(MouseEvent event)
 	{
-		// In base alle coordinate decide se il click è stato fatto sul pulsante
-		if(event.getX() >= bottonPauseCoordinates.x && event.getY() >= bottonPauseCoordinates.y && 
-				event.getX() <= bottonPauseCoordinates.x + bottonPauseSize.width && 
-				event.getY() <= bottonPauseCoordinates.y + bottonPauseSize.height)
+		// In base alle coordinate decide se il click è stato fatto sul pulsante pausa
+		if(event.getX() >= pauseButtonCoordinates.x && event.getY() >= pauseButtonCoordinates.y && 
+				event.getX() <= pauseButtonCoordinates.x + pauseButtonSize.width && 
+				event.getY() <= pauseButtonCoordinates.y + pauseButtonSize.height)
 		{
 			if(getIsPaused())
 			{
 				resume();
-				System.out.println("RESUME");
+				System.out.println("RESUMED");
 			}
 			else
 			{
 				pause();
-				System.out.println("PAUSA");
+				System.out.println("PAUSED");
 			}
-			changePauseStatus();
 		}
 	}
 
@@ -42,9 +41,9 @@ public class GamePauseController extends GamePauseView
 	 */
 	public void clickRestart(MouseEvent event)
 	{
-		if(event.getX() >= bottonRestartCoordinates.x && event.getY() >= bottonRestartCoordinates.y && 
-				event.getX() <= bottonRestartCoordinates.x + bottonRestartSize.width && 
-				event.getY() <= bottonRestartCoordinates.y + bottonRestartSize.height)
+		if(event.getX() >= restartButtonCoordinates.x && event.getY() >= restartButtonCoordinates.y && 
+				event.getX() <= restartButtonCoordinates.x + restartButtonSize.width && 
+				event.getY() <= restartButtonCoordinates.y + restartButtonSize.height)
 		{
 			resume();
 		}

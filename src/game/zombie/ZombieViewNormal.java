@@ -8,7 +8,7 @@ import java.awt.Point;
 /**
  * 
  * Disegna uno Zombie
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */
@@ -18,13 +18,13 @@ public class ZombieViewNormal implements ZombieView
 	private int xTargetCenter;
 	
 	// Dimensioni costanti
-	private int DIM5 = (int) (5 * scalingFactor);
-	private int DIM10 = (int) (10 * scalingFactor);
-	private int DIM15 = (int) (15 * scalingFactor);
-	private int DIM25 = (int) (25 * scalingFactor);
-	private int DIM35 = (int) (35 * scalingFactor);
-	private int DIM40 = (int) (40 * scalingFactor);
-	private int DIM120 = (int) (120 * scalingFactor);
+	private int DIM5 = (int) (5*scalingFactor);
+	private int DIM10 = (int) (10*scalingFactor);
+	private int DIM15 = (int) (15*scalingFactor);
+	private int DIM25 = (int) (25*scalingFactor);
+	private int DIM35 = (int) (35*scalingFactor);
+	private int DIM40 = (int) (40*scalingFactor);
+	private int DIM120 = (int) (120*scalingFactor);
 
 	public ZombieViewNormal(int xTargetCenter)
 	{
@@ -47,7 +47,7 @@ public class ZombieViewNormal implements ZombieView
 
 	public void paint(Graphics g, int lifePercentage, Point cordinates, boolean run)
 	{
-		int dimLife = (int) (lifePercentage * scalingFactor / 2);
+		int dimLife = (int) (lifePercentage*scalingFactor/2);
 		int x = cordinates.x;
 		int y = cordinates.y;
 
@@ -55,7 +55,7 @@ public class ZombieViewNormal implements ZombieView
 		{
 			// Vita
 			g.setColor(Color.black);
-			g.fillRect(-DIM15 + x, -DIM15-DIM120+y, DIM25*2, DIM10);
+			g.fillRect(-DIM15+x, -DIM15-DIM120+y, DIM25*2, DIM10);
 			g.setColor(Color.green);
 			g.fillRect(-DIM15+x, -DIM15-DIM120+y, dimLife, DIM10);
 			g.setColor(Color.black);

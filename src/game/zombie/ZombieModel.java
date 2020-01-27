@@ -8,7 +8,7 @@ import java.util.Random;
 /**
  * 
  * Contiene la posizione e i valori per la gestione grafica di uno Zombie
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */
@@ -28,7 +28,7 @@ public class ZombieModel
 				lifeStart = 100;
 				power = 5;
 				speed = (int) (15 * scalingFactor);
-				view = new ZombieViewNormal(spawnArea.width/2, scalingFactor);
+				view = new ZombieViewNormal(spawnArea.width / 2, scalingFactor);
 			default:
 				break;
 		}

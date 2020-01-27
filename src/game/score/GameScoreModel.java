@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Gestione del punteggio.
- * @author 20024652 - 20025270
+ * Gestione del punteggio
+ * @author 20025270
  * @version 1.0
  *
  */
