@@ -7,7 +7,7 @@ import game.zombie.ZombieController;
 
 /**
  * Controller per il Player.
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  */
 

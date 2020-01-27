@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * 
  * Controller per gli Zombie
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */
@@ -153,10 +153,10 @@ public class ZombieController implements Runnable
 			}
 			
 			// Spawn
-			if(cSpawned >= zombiesToSpawn && PlayerController.life > 0)
+			if(cSpawned >= zombiesToSpawn && PlayerController.life > 0 && endLevel())
 			{
-				if(endLevel())
-				{
+				//if(endLevel())
+				//{
 					zombies.clear();
 					System.out.println("Fine livello!");
 					cSpawned = 0;
@@ -166,7 +166,7 @@ public class ZombieController implements Runnable
 						e.printStackTrace();
 					}
 					GameLevel.levelUp();
-				}
+				//}
 			}
 			else
 			{

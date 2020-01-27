@@ -6,7 +6,7 @@ import java.awt.*;
  * 
  * La classe game.player.PlayerModel ha la funzione di:
  * contenere le variabili del Player.
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */

@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 
 /**
  *  Controller per GamePauseView. Gestisce i tasti play & pausa
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */

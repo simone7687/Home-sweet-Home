@@ -6,14 +6,14 @@ import game.zombie.ZombieController;
 /**
  * 
  * Gestisce il passaggio del gioco ad un nuovo livello.
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */
 public class GameLevel
 {
 	public static int level = 1;
-	private static int levelSpawnMultiplier = 6;	// Ad ogni levelSpawnMultiplier aggiunge un zombie in ogni spawn
+	private static int levelSpawnMultiplier = 6;	// Ad ogni levelSpawnMultiplier aggiunge un zombie
 	private static int zombieStartNumber = 6;
 	
 	GameLevel()

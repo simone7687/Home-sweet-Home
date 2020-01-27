@@ -8,13 +8,12 @@ import java.awt.Point;
 /**
  * 
  * Disegna uno Zombie
- * @author 20024652 - 20025270
+ * @author 20025270
  * @version 1.0
  *
  */
 public class ZombieViewNormal implements ZombieView
 {
-	//TODO: dimensione dello zombie (serve per gli attachi del player e per lo spawn dei zombie)
 	private Double scalingFactor = 1.0;
 	private int xTargetCenter;
 	
