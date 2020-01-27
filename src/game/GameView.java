@@ -58,7 +58,6 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		addMouseListener(this);		// abilita mouse nell'immagine
 	}
 
-	// http://javacodespot.blogspot.com/2010/08/java-flickering-problem.html?m=1
 	public void update(Graphics g)
 	{
 		paint(g);
@@ -95,6 +94,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 				zombie.walk(walk);
 				
 				walk = !walk;
+
 				repaint = false;
 			}
 			else
@@ -131,7 +131,7 @@ public class GameView extends Panel implements Runnable, KeyListener, MouseListe
 		{
 			if(GameView.dayLight)
 			{
-				new GameLevel();
+				new GameLevel(START_LEVEL);
 				GameView.dayLight = false;
 			}
 		}

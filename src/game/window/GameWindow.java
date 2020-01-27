@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 /**
+ * 
  * Crea la finestra del gioco
  * @author 20024652 - 20025270
  * @version 1.0

@@ -17,7 +17,7 @@ public class PlayerController extends PlayerView
 	public GameView gameView;
 	private PlayerModel player = new PlayerModel(getCoordinates(), (int) GameWindow.scalingFactor);
 	public boolean currentHit = true;
-	private final int REPAINT_TIME_ON_HIT = 50;
+	private final int HIT_REPAINT_TIME_MAX = 50;
 	
 	public PlayerController(String name)
 	{
@@ -45,6 +45,14 @@ public class PlayerController extends PlayerView
 			currentHit = true;
 		}
 		
+		/*
+		try 
+		{
+			Thread.sleep(HIT_REPAINT_TIME_MAX);	// per non far diventare il player un fantasma																	// rivedere: adesso e' inutile
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		*/
 		gameView.repaint();
 	}
 
@@ -66,7 +74,6 @@ public class PlayerController extends PlayerView
 				setRun(true);
 				player.moveLeft(0);
 			}
-			
 			if(getUp())
 			{
 				setRun(true);

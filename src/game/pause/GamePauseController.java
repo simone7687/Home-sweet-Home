@@ -17,10 +17,10 @@ public class GamePauseController extends GamePauseView
 	 */
 	public void clickPause(MouseEvent event)
 	{
-		// In base alle coordinate decide se il click è stato fatto sul pulsante
+		// In base alle coordinate decide se il click Ã¨ stato fatto sul pulsante
 		if(event.getX() >= bottonPauseCoordinates.x && event.getY() >= bottonPauseCoordinates.y && 
-				event.getX() <= bottonPauseCoordinates.x + bottonPauseSize.width && 
-				event.getY() <= bottonPauseCoordinates.y + bottonPauseSize.height)
+				event.getX() <= bottonPauseCoordinates.x+bottonPauseSize.width && 
+				event.getY() <= bottonPauseCoordinates.y+bottonPauseSize.height)
 		{
 			if(getIsPaused())
 			{
@@ -32,7 +32,6 @@ public class GamePauseController extends GamePauseView
 				pause();
 				System.out.println("PAUSA");
 			}
-			changePauseStatus();
 		}
 	}
 
@@ -43,8 +42,8 @@ public class GamePauseController extends GamePauseView
 	public void clickRestart(MouseEvent event)
 	{
 		if(event.getX() >= bottonRestartCoordinates.x && event.getY() >= bottonRestartCoordinates.y && 
-				event.getX() <= bottonRestartCoordinates.x + bottonRestartSize.width && 
-				event.getY() <= bottonRestartCoordinates.y + bottonRestartSize.height)
+				event.getX() <= bottonRestartCoordinates.x+bottonRestartSize.width && 
+				event.getY() <= bottonRestartCoordinates.y+bottonRestartSize.height)
 		{
 			resume();
 		}

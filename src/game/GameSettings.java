@@ -17,11 +17,7 @@ public class GameSettings
 {
 	private final Dimension FULLHD = new Dimension(1920, 1080);
 	private final Dimension HD = new Dimension(1280, 720);
-	private final Object[] POSSIBLEVALUES = {
-			"1280x720", 
-			"1920x1080"
-			//, "FILL SCREEN"
-			};
+	private final Object[] POSSIBLEVALUES = {"1280x720", "1920x1080", "FILL SCREEN"};
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	GameSettings()

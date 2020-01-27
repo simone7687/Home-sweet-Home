@@ -17,6 +17,7 @@ public class PlayerModel
 
 	private Point coordinates = new Point();
 	private int speed = 30;
+	// Forza attacco
 	private int attackPower = 10;
     
 	PlayerModel(Point coordinates, int scalingFactor)

@@ -37,7 +37,6 @@ public class Main
 			//Abilita mouse e tastiera
 			window.addKeyListener(view);
 			window.addMouseListener(view);
-			
 			window.add(view);
 			window.setVisible(true);
 			System.out.println("Avvio completato!");

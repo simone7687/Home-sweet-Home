@@ -12,17 +12,20 @@ import java.util.LinkedList;
 import java.util.Random;
 
 /**
+ * 
  * Controller per gli Zombie
  * @author 20024652 - 20025270
  * @version 1.0
+ *
  */
 public class ZombieController implements Runnable
 {
-	public static Thread thread; 
+	public static Thread thread;
 	private static LinkedList<ZombieModel> zombies;
+	
 	// Spawn
 	public static int zombiesToSpawn;
-	public static int spawnMultiplier = 1;
+	public static int zombiesSpawnMultiplier = 1;
 	public static int spawnTime = 10000;
 	
 	public ZombieController()
@@ -35,13 +38,13 @@ public class ZombieController implements Runnable
 	
 	/**
 	 * Aggiunge nuovi zombie alla lista di zombie
-	 * @param zombieToSpawn
-	 * @param l
+	 * @param zombieNumber
+	 * @param z
 	 */
-	private void addZombie(int zombieToSpawn, LinkedList<ZombieModel> l)
+	private void addZombies(int zombieNumber, LinkedList<ZombieModel> z)
 	{
-		for(int i = 0; i< zombieToSpawn; i++)
-			l.add(new ZombieModel(ZombieType.Normal, GameWindow.windowDimension, GameWindow.scalingFactor));
+		for(int i=0; i< zombieNumber; i++)
+			z.add(new ZombieModel(ZombieType.Normal, GameWindow.windowDimension, GameWindow.scalingFactor));
 	}
 	
 	/**
@@ -55,13 +58,13 @@ public class ZombieController implements Runnable
 			if(walk)
 			{
 				zombie.run(true);
-				if(zombie.getCoordinates().y > 220 * GameWindow.scalingFactor || zombie.getCoordinates().x < 570*GameWindow.scalingFactor || zombie.getCoordinates().x > 730*GameWindow.scalingFactor)
+				if(zombie.getCoordinates().y > 220*GameWindow.scalingFactor || zombie.getCoordinates().x < 570*GameWindow.scalingFactor || zombie.getCoordinates().x > 730*GameWindow.scalingFactor)
 				{
-					if(zombie.getCoordinates().x < 570 * GameWindow.scalingFactor)
-						zombie.right();
-					if(zombie.getCoordinates().x > 730 * GameWindow.scalingFactor)
-						zombie.left();
-					if(zombie.getCoordinates().y > 220 * GameWindow.scalingFactor)
+					if(zombie.getCoordinates().x < 570*GameWindow.scalingFactor)
+						zombie.right();;
+					if(zombie.getCoordinates().x > 730*GameWindow.scalingFactor)
+						zombie.left();;
+					if(zombie.getCoordinates().y > 220*GameWindow.scalingFactor)
 						zombie.up();
 				}
 				else if(zombie.getLife() > 0)
@@ -87,39 +90,38 @@ public class ZombieController implements Runnable
 	{
 		Random rand = new Random();
 		int hits = 0;
-		
 		for (ZombieModel zombie : zombies)	// Livelli
 		{
-			if(zombie.getCoordinates().y > y - 100 * GameWindow.scalingFactor && zombie.getCoordinates().y < y + 60 * GameWindow.scalingFactor)
+			if(zombie.getCoordinates().y > y-100*GameWindow.scalingFactor && zombie.getCoordinates().y < y+60*GameWindow.scalingFactor)
 			{
-				if(right && zombie.getCoordinates().x > x && zombie.getCoordinates().x < x + (45+30) * GameWindow.scalingFactor && zombie.getLife() > 0)
+				if(right && zombie.getCoordinates().x > x && zombie.getCoordinates().x < x+(45+30)*GameWindow.scalingFactor && zombie.getLife() > 0)
 				{
 					zombie.decreaseLife(power);
-					zombie.getCoordinates().x += (rand.nextInt(60) + 20) * GameWindow.scalingFactor;
+					zombie.getCoordinates().x += (rand.nextInt(60)+20)*GameWindow.scalingFactor;
 					GameScoreModel.addScoreHit();
 					hits++;
 				}
-				else if(!right && zombie.getCoordinates().x < x && zombie.getCoordinates().x > x - (45+30) * GameWindow.scalingFactor && zombie.getLife() > 0)
+				else if(!right && zombie.getCoordinates().x< x && zombie.getCoordinates().x > x-(45+30)*GameWindow.scalingFactor && zombie.getLife() > 0)
 				{
 					zombie.decreaseLife(power);
-					zombie.getCoordinates().x -= (rand.nextInt(40) + 40) * GameWindow.scalingFactor;
+					zombie.getCoordinates().x -= (rand.nextInt(40)+40)*GameWindow.scalingFactor;
 					GameScoreModel.addScoreHit();
 					hits++;
 				}
 			}
 		}
 		
-		if(hits == 0 && PlayerController.life < 150 && PlayerController.life > 0 && y < 300 * GameWindow.scalingFactor && x > 570 * GameWindow.scalingFactor && x < 730 * GameWindow.scalingFactor)
+		if(hits==0 && PlayerController.life < 150 && PlayerController.life > 0 && y < 300*GameWindow.scalingFactor && x > 570*GameWindow.scalingFactor && x < 730*GameWindow.scalingFactor)
 			PlayerController.life += power/5;
 	}
 	
 	/**
-	 * Verifica se il livello e' terminato
-	 * @return Restituisce true se il livello è terminato = tutti gli zombie morti
+	 * Verifica se il livello è terminato
+	 * @return Restituisce true se il livello e' terminato = tutti gli zombie morti
 	 */
 	private boolean endLevel()
 	{
-		for(int i = 0; i < zombiesToSpawn; i++)
+		for(int i=0; i<zombiesToSpawn; i++)
 		{
 			if(zombies.get(i).getLife() > 0)
 				return false;
@@ -127,10 +129,6 @@ public class ZombieController implements Runnable
 		return true;
 	}
 	
-	/**
-	 * Disegna lo zombie
-	 * @param g
-	 */
 	public void paint(Graphics g)
 	{
 		for (ZombieModel zombie : zombies)
@@ -144,40 +142,36 @@ public class ZombieController implements Runnable
 	public void run()
 	{
 		System.out.println("Avvio thread per lo spawn zombie...");
-		int spawned = 0;
+		int cSpawned = 0;
 		
 		while(true)
 		{
-			try 
-			{
+			try {
 				Thread.sleep(spawnTime);
-			} 
-			catch (InterruptedException e) 
-			{
+			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			
 			// Spawn
-			if(spawned >= zombiesToSpawn && PlayerController.life > 0 && endLevel())
+			if(cSpawned >= zombiesToSpawn && PlayerController.life > 0)
 			{
-				zombies.clear();
-				System.out.println("Fine livello!");
-				spawned = 0;
-				GameLevel.levelUp();
-					
-				try 
+				if(endLevel())
 				{
-					Thread.sleep(spawnTime);
-				} 
-				catch (InterruptedException e) 
-				{
-					e.printStackTrace();
+					zombies.clear();
+					System.out.println("Fine livello!");
+					cSpawned = 0;
+					try {
+						Thread.sleep(spawnTime);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					GameLevel.levelUp();
 				}
 			}
-			else if (spawned != zombiesToSpawn)
+			else
 			{
-				addZombie(spawnMultiplier, zombies);
-				spawned += spawnMultiplier;
+			 addZombies(zombiesSpawnMultiplier, zombies);
+				cSpawned += 1*zombiesSpawnMultiplier;
 			}
 			
 			//Fine
@@ -191,8 +185,8 @@ public class ZombieController implements Runnable
 				System.out.println("Restart");
 				GameOverView.setRecord("");
 				zombies.clear();
-				spawned = 0;
-				GameLevel.resetLevel();
+				cSpawned = 0;
+				GameLevel.setLevel(1);
 				PlayerController.resetPlayerLife();
 			}
 		}
