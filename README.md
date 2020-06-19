@@ -2,6 +2,8 @@
 ## Introduzione
 Home Sweet Home è un gioco realizzato in Java. Lo scopo del gioco è proteggere la casa dagli Zombie impedendogli di sfondare la porta. Per ogni Zombie ucciso il giocatore guadagna dei punti.
 
+![alt text](https://github.com/simone7687/Home-sweet-Home/blob/master/images/night_1.png "Night 1")
+
 Il gioco è suddiviso in livelli di difficoltà crescente e termina solo con l’uccisione di tutti gli Zombie o se gli Zombie distruggeranno completamente la porta della casa.
 ## Istruzioni
 -	Per muoversi si usa: W/↑   S/↓   A/←   D/→
