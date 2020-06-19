@@ -11,7 +11,7 @@ Il gioco è suddiviso in livelli di difficoltà crescente e termina solo con l�
 -	Per iniziare il gioco: SPACE
 ## Composizione del gioco
 Il gioco è realizzando seguendo, ove possibile, il pattern MVC. 
-###L’interfaccia utente 
+### L’interfaccia utente 
 Le classi **BackgroundView**, **GameOverView**, **GamePauseView**, **PlayerView** e **ZombieView** si occupano di disegnare varie parti dell’interfaccia grafica. 
 
 La classe **GameView**, con estensione Panel, svolge il ruolo fondamentale di unire gli output di tutte le altre view per realizzare, con la funzione paint, l’interfaccia grafica completa. Inoltre, implementa **Runnable** per utilizzare un Thread con lo scopo di “rendere il gioco animato” tramite vari repaint.
